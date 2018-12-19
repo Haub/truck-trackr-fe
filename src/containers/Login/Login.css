@@ -2,7 +2,7 @@
   margin: 0 auto;
   margin-top: 2rem;
   position: relative;
-  background-color: #CDDDDC;
+  background-color: #FEECC8;
   height: 30rem;
   width: 24rem;
   border: 2px solid #6D3E48;
@@ -12,13 +12,12 @@
 
 .email-input,
 .password-input {
-  background-color: #FEECC8;
-  border: 2px solid #6D3E48;
+  background-color: #fef9ee;
+  border: 1px solid #6D3E48;
   display: flex;
   width: 98%;
   align-content: center;
-  border: none;
-  height: 3rem;
+  height: 3.3rem;
   margin-top: 1rem;
   border-radius: 5px;
   padding-left: 5px;
@@ -30,7 +29,7 @@
   color: white;
   background-color: #6D3E48;
   width: 98%;
-  height: 3rem;
+  height: 3.3rem;
   border: none;
   border-radius: 5px;
   font-size: 1.3rem;

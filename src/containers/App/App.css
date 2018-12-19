@@ -1,17 +1,19 @@
 .main {
-  background-color: #FEECC8;
+  background-color: #CDDDDC;
 }
 
 header {
   height: 8rem;
+  background-color: #FEECC8;
   margin-top: -2rem;
   padding: 1rem;
 }
 
 .main-title {
   text-align: center;
+  color: #6D3E48;
   font-size: 3rem;
-  letter-spacing: .3em;
+  letter-spacing: .2em;
 }
 
 .register {
