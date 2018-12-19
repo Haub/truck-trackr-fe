@@ -1,0 +1,45 @@
+.login {
+  margin: 0 auto;
+  margin-top: 2rem;
+  position: relative;
+  background-color: #CDDDDC;
+  height: 30rem;
+  width: 24rem;
+  border: 2px solid #6D3E48;
+  border-radius: 1rem;
+  padding: 6rem;
+}
+
+.email-input,
+.password-input {
+  background-color: #FEECC8;
+  border: 2px solid #6D3E48;
+  display: flex;
+  width: 98%;
+  align-content: center;
+  border: none;
+  height: 3rem;
+  margin-top: 1rem;
+  border-radius: 5px;
+  padding-left: 5px;
+  font-size: 1.3rem;
+  opacity: 1;
+}
+
+.signin-button {
+  color: white;
+  background-color: #6D3E48;
+  width: 98%;
+  height: 3rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.3rem;
+  margin-top: 2rem;
+  margin-bottom: 25px;
+}
+.email-input::placeholder,
+.name-input::placeholder,
+.password-input::placeholder {
+  color: #8C8C8C;
+}
+
