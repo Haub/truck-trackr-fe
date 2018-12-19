@@ -24,6 +24,11 @@ export class Login extends Component {
     event.preventDefault();
   }
 
+  toggleSignUp = () => {
+    let newSignUp = !this.state.signUp;
+    this.setState({signUp: newSignUp})
+  }
+
   render() {
     return(
       <div className='login-container'>
@@ -33,7 +38,7 @@ export class Login extends Component {
             <input className='password-input' name='password' type='password' placeholder='Password' onChange={this.handleKeyPress} />
             <button className='signin-button'>Sign In</button>
           </form>
-          <h3 className='register'>If you don't have an account, Register here!</h3>
+          <button onClick={this.toggleSignUp}>First Time Here? Sign Up!</button>
         </main>
       </div>
 
