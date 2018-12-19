@@ -43,7 +43,6 @@ export class Login extends Component {
     }
 
     return(
-      <div className='login-container'>
         <main className='login'>
           <form className='login-form' onSubmit={this.handleSubmit}>
             <input className='email-input' name='email' type='email' placeholder='Email' onChange={this.handleKeyPress} />
@@ -54,16 +53,16 @@ export class Login extends Component {
             <input className={ signUp ? 'contact-name-input' : 'hidden' } name='contactName' placeholder='Contact Name' onChange={this.handleKeyPress} />
             <input className={ showFoodType ? 'food-type-input' : 'hidden' } name='foodType' placeholder='Food Type' onChange={this.handleKeyPress} />
             <p className={ signUp ? 'business-type' : 'hidden' }>What Type of Business:</p>
-            <input className={ signUp ? 'food-truck-radio' : 'hidden' } type='radio' name='locationType' value='food-truck' id='food-truck-button' onChange={this.handleKeyPress} />
-            <label className={ signUp ? 'food-truck-label' : 'hidden' } for='food-truck-button'>Food Truck</label>
-            <input className={ signUp ? 'brewery-radio' : 'hidden' } type='radio' name='locationType' value='brewery' id='brewery-button'onChange={this.handleKeyPress} />
-            <label className={ signUp ? 'brewery-label' : 'hidden' } for='brewery-button'>Brewery</label>
+            <div className='button-holder'>
+              <input className={ signUp ? 'food-truck-radio' : 'hidden' } type='radio' name='locationType' value='food-truck' id='food-truck-button' onChange={this.handleKeyPress} />
+              <label className={ signUp ? 'food-truck-label' : 'hidden' } for='food-truck-button'>Food Truck</label>
+              <input className={ signUp ? 'brewery-radio' : 'hidden' } type='radio' name='locationType' value='brewery' id='brewery-button'onChange={this.handleKeyPress} />
+              <label className={ signUp ? 'brewery-label' : 'hidden' } for='brewery-button'>Brewery</label>
+            </div>
             <button className='signin-button'>{ signUp ? 'Sign Up' : 'Sign In' }</button>
           </form>
           <button className='signup-button' onClick={this.toggleSignUp}>{ signUp ? 'Actually I already have an account' : 'First Time Here? Sign Up!'}</button>
         </main>
-      </div>
-
     )
   }
 }

@@ -20,7 +20,9 @@ class App extends Component {
         <header>
           <h1 className='main-title'>TruckTrackr</h1>
         </header>
+        <div className='content-holder'>
         <Login />
+        </div>
       </div>
     );
   }

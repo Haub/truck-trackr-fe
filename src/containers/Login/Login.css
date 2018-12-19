@@ -1,15 +1,13 @@
 .login {
-  margin: 0 auto;
-  margin-top: 2rem;
   position: relative;
   background-color: #FEECC8;
-  height: 44rem;
-  width: 36rem;
   border: 2px solid #6D3E48;
   border-radius: 1rem;
 }
 
 form {
+  height: 24rem;
+  width: 20rem;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -21,6 +19,13 @@ main {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  width: 44vw;
+  height: 33rem;
+}
+
+.button-holder {
+  display: flex;
+
 }
 
 .email-input,
@@ -33,9 +38,9 @@ main {
   background-color: #fef9ee;
   border: 1px solid #6D3E48;
   display: flex;
-  width: 400px;
+  width: 19rem;
   align-content: center;
-  height: 3rem;
+  height: 2rem;
   margin-top: 1rem;
   border-radius: 5px;
   padding-left: 5px;
@@ -46,11 +51,11 @@ main {
 .signin-button, .signup-button {
   color: white;
   background-color: #6D3E48;
-  width: 400px;
-  height: 3rem;
+  width: 19rem;
+  height: 2rem;
   border: none;
   border-radius: 5px;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   margin-top: 2rem;
   margin-bottom: 25px;
 }
