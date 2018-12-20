@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Login } from '../Login';
 import './App.css';
+import hamburger from '../../assets/hamburger.svg'
 
 export class App extends Component {
   constructor() {
@@ -20,13 +21,14 @@ export class App extends Component {
   }
 
 
-  
+
   render() {
 
     return (
       <div className='main'>
         <header>
           <h1 className='main-title'>TruckTrackr</h1>
+          <img className='hamburger-icon' src={ hamburger }/>
         </header>
         <div className='content-holder'>
         <Route

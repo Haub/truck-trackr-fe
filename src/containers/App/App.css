@@ -32,3 +32,9 @@ main {
   align-items: center;
   justify-content: center;
 }
+
+.hamburger-icon {
+  height: 70px;
+  position: relative;
+  bottom: 50px;
+}
