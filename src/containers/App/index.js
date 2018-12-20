@@ -4,13 +4,16 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Login } from '../Login';
 import './App.css';
-import hamburger from '../../assets/hamburger.svg'
+import hamburger from '../../assets/hamburger.svg';
+import { ProfilePage } from '../ProfilePage'
+import { NavBar } from '../NavBar'
 
 export class App extends Component {
   constructor() {
     super()
     this.state = {
       login: true,
+      navOpen: true,
     }
   }
 
@@ -23,6 +26,13 @@ export class App extends Component {
 
 
   render() {
+    let navBar
+    const { navOpen } = this.state
+    if( navOpen) {
+      navBar = <NavBar />
+    } else {
+      navBar = null
+    }
 
     return (
       <div className='main'>
@@ -31,9 +41,14 @@ export class App extends Component {
           <img className='hamburger-icon' src={ hamburger }/>
         </header>
         <div className='content-holder'>
+        { navBar }
         <Route
           exact path='/login'
           component={ Login }
+        />
+        <Route 
+          exact path='/'
+          component={ ProfilePage }
         />
         </div>
       </div>

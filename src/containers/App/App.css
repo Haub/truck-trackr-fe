@@ -37,4 +37,5 @@ main {
   height: 70px;
   position: relative;
   bottom: 50px;
+  z-index: 5;
 }
