@@ -16,6 +16,7 @@ export class Login extends Component {
       phoneNumber: '',
       contactName: '',
       foodType: '',
+      logo: null
     }
   }
 
@@ -33,6 +34,20 @@ export class Login extends Component {
   toggleSignUp = () => {
     let newSignUp = !this.state.signUp;
     this.setState({signUp: newSignUp})
+  }
+
+  fileChangedHandler = (event) => {
+    this.setState({
+      logo: event.target.files[0]
+    })
+  }
+
+  uploadHandler = () => { 
+    console.log(this.state.logo)
+    
+    // const formData = new FormData()
+    // formData.append('myFile', this.state.logo, this.state.logo.name)
+    // axios.post('my-domain.com/file-upload', formData)
   }
 
   render() {
@@ -60,6 +75,8 @@ export class Login extends Component {
               <input className={ signUp ? 'brewery-radio' : 'hidden' } type='radio' name='locationType' value='brewery' id='brewery-button'onChange={this.handleKeyPress} />
               <label className={ signUp ? 'brewery-label' : 'hidden' } for='brewery-button'>Brewery</label>
             </div>
+            <input className={ signUp ? 'logo-input' : 'hidden' } name='logo' placeholder='Upload logo' onChange={this.handleKeyPress} type='file' />
+            <button className={ signUp ? 'logo-button' : 'hidden' } onClick={this.uploadHandler}>Upload!</button>
             <button className='signin-button'>{ signUp ? 'Sign Up' : 'Sign In' }</button>
           </form>
           <button className='signup-button' onClick={this.toggleSignUp}>{ signUp ? 'Actually I already have an account' : 'First Time Here? Sign Up!'}</button>
