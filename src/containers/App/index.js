@@ -6,7 +6,7 @@ import { Login } from '../Login';
 import './App.css';
 import { types } from 'util';
 
-class App extends Component {
+export class App extends Component {
   constructor() {
     super()
     this.state = {
@@ -14,18 +14,28 @@ class App extends Component {
     }
   }
 
+  componentDidMount(){
+    if(!this.state.login){
+      this.props.history.push('/login')
+    }
+  }
+
   render() {
+
     return (
       <div className='main'>
         <header>
           <h1 className='main-title'>TruckTrackr</h1>
         </header>
         <div className='content-holder'>
-        <Login />
+        <Route
+          exact path='/login'
+          component={ Login }
+        />
         </div>
       </div>
     );
   }
 }
 
-export default App;
+export default withRouter(App);
