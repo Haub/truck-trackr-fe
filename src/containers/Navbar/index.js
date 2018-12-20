@@ -20,8 +20,8 @@ export class NavBar extends Component {
                 <li className='nav-control browse'>Browse</li>
                 <li className='nav-control breweries'>Breweries</li>
                 <li className='nav-control food-trucks'>Food Trucks</li>
-                <input className='search-input' placeholder='Search'/>
                 <li className='nav-control cancellations'>Cancellations</li>
+                <input className='search-input' placeholder='Search'/>
             </ul>
         </nav>
     )
