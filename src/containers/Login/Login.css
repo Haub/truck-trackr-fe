@@ -1,23 +1,46 @@
 .login {
-  margin: 0 auto;
-  margin-top: 2rem;
   position: relative;
   background-color: #FEECC8;
-  height: 30rem;
-  width: 24rem;
   border: 2px solid #6D3E48;
   border-radius: 1rem;
-  padding: 6rem;
+}
+
+form {
+  height: 24rem;
+  width: 20rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 44vw;
+  height: 33rem;
+}
+
+.button-holder {
+  display: flex;
+
 }
 
 .email-input,
-.password-input {
+.password-input,
+.business-name-input,
+.address-input,
+.phone-number-input,
+.contact-name-input,
+.food-type-input {
   background-color: #fef9ee;
   border: 1px solid #6D3E48;
   display: flex;
-  width: 98%;
+  width: 19rem;
   align-content: center;
-  height: 3.3rem;
+  height: 2rem;
   margin-top: 1rem;
   border-radius: 5px;
   padding-left: 5px;
@@ -25,14 +48,14 @@
   opacity: 1;
 }
 
-.signin-button {
+.signin-button, .signup-button {
   color: white;
   background-color: #6D3E48;
-  width: 98%;
-  height: 3.3rem;
+  width: 19rem;
+  height: 2rem;
   border: none;
   border-radius: 5px;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   margin-top: 2rem;
   margin-bottom: 25px;
 }
@@ -42,3 +65,6 @@
   color: #8C8C8C;
 }
 
+.hidden {
+  display: none;
+}
