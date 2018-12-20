@@ -16,11 +16,21 @@ main {
 }
 
 .main-title {
+  font-family: 'Lobster', cursive;
   text-align: center;
   color: #6D3E48;
-  font-size: 3rem;
+  font-size: 3.2rem;
   letter-spacing: .2em;
   margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.truck-icon, .barrel-icon {
+  height: 65px;
+  padding-left: 20px;
+  padding-right: 35px;
 }
 
 .register {

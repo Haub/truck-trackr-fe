@@ -7,6 +7,8 @@ import './App.css';
 import hamburger from '../../assets/hamburger.svg';
 import { ProfilePage } from '../ProfilePage'
 import { NavBar } from '../NavBar'
+import truck from '../../assets/food-truck.png'
+import barrel from '../../assets/barrel-icon-new.png'
 
 export class App extends Component {
   constructor() {
@@ -37,7 +39,7 @@ export class App extends Component {
     return (
       <div className='main'>
         <header>
-          <h1 className='main-title'>TruckTrackr</h1>
+          <h1 className='main-title'><span><img src={ truck } className='truck-icon'/></span>TruckTrackr<span><img src={ barrel } className='barrel-icon'/></span></h1>
           <img className='hamburger-icon' src={ hamburger }/>
         </header>
         <div className='content-holder'>
