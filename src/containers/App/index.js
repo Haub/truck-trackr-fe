@@ -4,13 +4,12 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Login } from '../Login';
 import './App.css';
-import { types } from 'util';
 
 export class App extends Component {
   constructor() {
     super()
     this.state = {
-      login: false
+      login: true,
     }
   }
 
@@ -20,6 +19,8 @@ export class App extends Component {
     }
   }
 
+
+  
   render() {
 
     return (

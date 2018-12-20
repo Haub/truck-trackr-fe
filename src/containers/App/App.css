@@ -20,6 +20,7 @@ main {
   color: #6D3E48;
   font-size: 3rem;
   letter-spacing: .2em;
+  margin: 0 auto;
 }
 
 .register {
