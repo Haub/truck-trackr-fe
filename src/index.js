@@ -8,6 +8,7 @@ import { rootReducer } from './reducers'
 import './index.css';
 import App from './containers/App';
 import * as serviceWorker from './serviceWorker';
+import Firebase, { FirebaseContext } from './components/Firebase';
 
 const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
 const store = createStore(rootReducer, devTools);
@@ -16,7 +17,9 @@ const store = createStore(rootReducer, devTools);
 const provider = (
   <Provider store = {store}>
     <BrowserRouter>
-      <App />
+      <FirebaseContext.Provider value={new Firebase()}>
+        <App />
+      </FirebaseContext.Provider>
     </BrowserRouter>
   </Provider>
 )
