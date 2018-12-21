@@ -6,7 +6,7 @@ import { Login } from '../Login';
 import './App.css';
 import hamburger from '../../assets/hamburger.svg';
 import { ProfilePage } from '../ProfilePage';
-import { NavBar } from '../Navbar';
+import { NavBar } from '../NavBar';
 import truck from '../../assets/food-truck.png';
 import barrel from '../../assets/barrel-icon-new.png';
 
