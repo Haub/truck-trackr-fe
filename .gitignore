@@ -13,6 +13,8 @@
 
 # misc
 .DS_Store
+./utilities/config.js
+config.js
 .env
 .env.local
 .env.development.local

@@ -3,12 +3,13 @@ import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux';
 import './Login.css';
 
+
 export class Login extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       email: '',
-      password: '',
+      passwordOne: '',
       signUp: false,
       locationType: '',
       businessName: '',
@@ -29,6 +30,19 @@ export class Login extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
+    const { username, email, passwordOne, signUp } = this.state;
+      if(signUp){
+      this.props.firebase
+        .doCreateUserWithEmailAndPassword(email, passwordOne)
+        .then(authUser => {
+          console.log('hi')
+          console.log(this.props.history)
+          this.props.history.push('/');
+        })
+        .catch(error => {
+          this.setState({ error });
+        });
+    }
   }
 
   toggleSignUp = () => {
@@ -62,7 +76,7 @@ export class Login extends Component {
         <main className='login'>
           <form className='login-form' onSubmit={this.handleSubmit}>
             <input className='email-input' name='email' type='email' placeholder='Email' onChange={this.handleKeyPress} />
-            <input className='password-input' name='password' type='password' placeholder='Password' onChange={this.handleKeyPress} />
+            <input className='password-input' name='passwordOne' type='passwordOne' placeholder='Password' onChange={this.handleKeyPress} />
             <input className={ signUp ? 'business-name-input' : 'hidden' } name='businessName' placeholder='Business Name' onChange={this.handleKeyPress} />
             <input className={ signUp ? 'address-input' : 'hidden' } name='address' placeholder='Address/City Located' onChange={this.handleKeyPress} />
             <input className={ signUp ? 'phone-number-input' : 'hidden' } name='phoneNumber' placeholder='Phone Number' onChange={this.handleKeyPress} />
@@ -77,7 +91,7 @@ export class Login extends Component {
             </div>
             <input className={ signUp ? 'logo-input' : 'hidden' } name='logo' placeholder='Upload logo' onChange={this.handleKeyPress} type='file' />
             <button className={ signUp ? 'logo-button' : 'hidden' } onClick={this.uploadHandler}>Upload!</button>
-            <button className='signin-button'>{ signUp ? 'Sign Up' : 'Sign In' }</button>
+            <button className='signin-button' onClick={this.handleSubmit}>{ signUp ? 'Sign Up' : 'Sign In' }</button>
           </form>
           <button className='signup-button' onClick={this.toggleSignUp}>{ signUp ? 'Actually I already have an account' : 'First Time Here? Sign Up!'}</button>
         </main>
@@ -85,4 +99,4 @@ export class Login extends Component {
   }
 }
 
-export default Login
+export default withRouter(Login)
