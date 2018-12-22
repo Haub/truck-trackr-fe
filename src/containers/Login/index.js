@@ -35,13 +35,22 @@ export class Login extends Component {
       this.props.firebase
         .doCreateUserWithEmailAndPassword(email, passwordOne)
         .then(authUser => {
-          console.log('hi')
-          console.log(this.props.history)
+          console.log(authUser.user.uid)
           this.props.history.push('/');
         })
         .catch(error => {
           this.setState({ error });
         });
+    } else {
+      this.props.firebase
+        .doSignInWithEmailAndPassword(email, passwordOne)
+        .then(authUser => {
+          console.log(authUser)
+          this.props.history.push('/')
+        })
+        .catch(error => {
+          this.setState({ error })
+        })
     }
   }
 
@@ -76,7 +85,7 @@ export class Login extends Component {
         <main className='login'>
           <form className='login-form' onSubmit={this.handleSubmit}>
             <input className='email-input' name='email' type='email' placeholder='Email' onChange={this.handleKeyPress} />
-            <input className='password-input' name='passwordOne' type='passwordOne' placeholder='Password' onChange={this.handleKeyPress} />
+            <input className='password-input' name='passwordOne' type='password' placeholder='Password' onChange={this.handleKeyPress} />
             <input className={ signUp ? 'business-name-input' : 'hidden' } name='businessName' placeholder='Business Name' onChange={this.handleKeyPress} />
             <input className={ signUp ? 'address-input' : 'hidden' } name='address' placeholder='Address/City Located' onChange={this.handleKeyPress} />
             <input className={ signUp ? 'phone-number-input' : 'hidden' } name='phoneNumber' placeholder='Phone Number' onChange={this.handleKeyPress} />
