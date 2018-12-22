@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import { Route, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Login } from '../Login';
+import { SignUpPage } from '../../components/SignUpPage';
 import './App.css';
 import hamburger from '../../assets/hamburger.svg';
 import { ProfilePage } from '../ProfilePage';
-import { NavBar } from '../Navbar';
+import { NavBar } from '../NavBar';
 import truck from '../../assets/food-truck.png';
 import barrel from '../../assets/barrel-icon-new.png';
+import { withFirebase } from '../../components/Firebase'
 
 export class App extends Component {
   constructor() {
@@ -46,7 +47,10 @@ export class App extends Component {
         { navBar }
         <Route
           exact path='/login'
-          component={ Login }
+          render={ props => (
+            <SignUpPage history={this.props.history}/>
+          )
+           }
         />
         <Route 
           exact path='/'
@@ -58,4 +62,4 @@ export class App extends Component {
   }
 }
 
-export default withRouter(App);
+export default withRouter(withFirebase(App))

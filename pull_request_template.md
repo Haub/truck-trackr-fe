@@ -21,7 +21,11 @@ merely highlight some key changes if they are unusual or especially relevant.
 ```
 **After:**
 
+
+
 `![semantic description of "after" screenshot](link to screenshot hosted somewhere stable like imgur, etc)`
+
+
 
 ## Testing 
 
