@@ -26,8 +26,6 @@ export class App extends Component {
     }
   }
 
-
-
   render() {
     let navBar
     const { navOpen } = this.state

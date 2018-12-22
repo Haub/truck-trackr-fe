@@ -8,9 +8,9 @@ export const loadFoodTrucks = (foodTrucks) => {
   foodTrucks
 }
 
-export const loadUser = (user) => {
-  type: 'LOAD_USER',
-  user
+export const loadProfile = (profile) => {
+  type: 'LOAD_PROFILE',
+  profile
 }
 
 export const toggleSignedIn = (userStatus) => {

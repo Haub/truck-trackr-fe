@@ -1,6 +1,6 @@
 import app from 'firebase/app';
 import 'firebase/auth';
-import { config } from '../../utilities/config.js'
+import { config } from '../../utilities/config.js';
 
 class Firebase {
   constructor() {
