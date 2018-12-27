@@ -1,44 +1,49 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Truck-Trackr[![Build Status](https://travis-ci.org/Haub/truck-trackr-fe.svg?branch=master)](https://travis-ci.org/Haub/truck-trackr-fe)
 
-## Available Scripts
 
-In the project directory, you can run:
+Truck-Trackr is an application that was created to help solve the business need of scheduling and coordination between local food trucks and breweries.  Previously, they used a Facebook page to manage this and it became really cumbersome to find the right information, especially with last minute cancellations.  Truck-Trackr allows food trucks and breweries to log in to their account,  manage their own calendar, and browse other food trucks and breweries with filters for location and availability.   
 
-### `npm start`
+See it live @ [Heroku](https://trucktrackr.herokuapp.com/)
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+##Screenshots
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
 
-### `npm test`
+## Getting Started
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+This is a general guide to setting up Truck-Trackr on your local machine.
 
-### `npm run build`
+    git clone https://github.com/Haub/truck-trackr-fe.git
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    cd truck-trackr-fe
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+    npm install
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+    npm start
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Technologies Used
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+###Front-End
+* React
+* React-Router
+* Redux
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+###Back-End
+* Ruby / Ruby on Rails
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+##Testing
+Truck-Trackr uses Jest and Enzyme for front-end testing.  Run `npm test` from the root directory.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+
+##Contributors
+
+###Front-End
+[Megan Haubelt](https://github.com/Haub/)
+[Freddie Levenson](https://github.com/flevenson)
+
+###Back-End [link to repo](https://github.com/KathleenYruegas/truck-trackr-be)
+[Kathleen Yruegas](https://github.com/KathleenYruegas)
+[Abdulla Qudrat](https://github.com/abdullaqudrat)
+
