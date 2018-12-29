@@ -33,22 +33,14 @@ describe('actions', () => {
     expect(result).toEqual(expectedAction);
   });
 
-  it ('should have a type of TOGGLE_SIGNED_IN', () => {
-    const userStatus = true;
-    const userStatus2 = false
+  it ('should have a type of ADD_USER', () => {
+    const user = mockBrewery
     const expectedAction = {
-      type: 'TOGGLE_SIGNED_IN', 
-      userStatus: false
+      type: 'ADD_USER', 
+      user
     };
-    const expectedAction2 = {
-      type: 'TOGGLE_SIGNED_IN', 
-      userStatus: true
-    };
-    const result = Actions.toggleSignedIn(userStatus);
+    const result = Actions.addUser(mockBrewery);
     expect(result).toEqual(expectedAction);
-    const result2 = Actions.toggleSignedIn(userStatus2);
-    expect(result2).toEqual(expectedAction2);
-
   });
 
   it ('should have a type of ADD_EVENT', () => {
