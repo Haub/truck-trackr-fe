@@ -10,5 +10,7 @@ export const userEventsReducer = (state = [], action) => {
       return state.map(event => {
         return event.event_id === action.event_id ? { ...action.event } : event
       })
+    default: 
+      return state
   }
 }
