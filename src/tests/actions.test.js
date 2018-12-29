@@ -34,15 +34,15 @@ describe('actions', () => {
   });
 
   it ('should have a type of TOGGLE_SIGNED_IN', () => {
-    const userStatus = false;
-    const userStatus2 = true
+    const userStatus = true;
+    const userStatus2 = false
     const expectedAction = {
       type: 'TOGGLE_SIGNED_IN', 
-      userStatus: true
+      userStatus: false
     };
     const expectedAction2 = {
       type: 'TOGGLE_SIGNED_IN', 
-      userStatus: false
+      userStatus: true
     };
     const result = Actions.toggleSignedIn(userStatus);
     expect(result).toEqual(expectedAction);

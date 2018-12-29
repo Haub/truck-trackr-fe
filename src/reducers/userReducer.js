@@ -1,7 +1,9 @@
-export const userReducer = (state = false, action) => {
+export const userReducer = (state = {}, action) => {
     switch(action.type) {
-        case 'TOGGLE_SIGNED_IN':
-            return action.userStatus
+        case 'ADD_USER':
+            return action.user
+        case 'REMOVE_USER':
+            return {}
         default: 
             return state
     }
