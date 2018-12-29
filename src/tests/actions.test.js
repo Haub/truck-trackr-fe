@@ -73,7 +73,7 @@ describe('actions', () => {
   });
 
   it ('should have a type of EDIT_EVENT', () => {
-    const profile = mockProfile;
+    const event = mockEvent;
     const expectedAction = {
       type: 'EDIT_EVENT', 
       event
