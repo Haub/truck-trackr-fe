@@ -34,22 +34,12 @@ describe('actions', () => {
   });
 
   it ('should have a type of TOGGLE_SIGNED_IN', () => {
-    // const userStatus = mockUserStatus;
+    const userStatus = false;
     const expectedAction = {
       type: 'TOGGLE_SIGNED_IN', 
-      userStatus
+      userStatus: true
     };
-    const result = Actions.toggleSignedIn(mockUserStatus);
-    expect(result).toEqual(expectedAction);
-  });
-
-  it ('should have a type of LOAD_CANCELLATIONS', () => {
-    const cancellations = mockCancellations;
-    const expectedAction = {
-      type: 'LOAD_CANCELLATIONS', 
-      cancellations
-    };
-    const result = Actions.loadCancellations(mockCancellations);
+    const result = Actions.toggleSignedIn(userStatus);
     expect(result).toEqual(expectedAction);
   });
 
