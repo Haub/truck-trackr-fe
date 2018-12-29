@@ -16,7 +16,7 @@ describe('currentPageReducer', () => {
         expect(result).toEqual(expected);
     })
 
-    it('should return state with foodTrucks', () => {
+    it('should return state with a profile', () => {
         const initialState = {};
         const expected = currentPage;
 
