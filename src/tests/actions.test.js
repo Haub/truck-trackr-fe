@@ -35,12 +35,20 @@ describe('actions', () => {
 
   it ('should have a type of TOGGLE_SIGNED_IN', () => {
     const userStatus = false;
+    const userStatus2 = true
     const expectedAction = {
       type: 'TOGGLE_SIGNED_IN', 
       userStatus: true
     };
+    const expectedAction2 = {
+      type: 'TOGGLE_SIGNED_IN', 
+      userStatus: false
+    };
     const result = Actions.toggleSignedIn(userStatus);
     expect(result).toEqual(expectedAction);
+    const result2 = Actions.toggleSignedIn(userStatus2);
+    expect(result2).toEqual(expectedAction2);
+
   });
 
   it ('should have a type of ADD_EVENT', () => {
