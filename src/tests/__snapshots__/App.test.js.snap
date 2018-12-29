@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`APP should match the snapshot 1`] = `
+<div
+  className="main"
+>
+  <header>
+    <h1
+      className="main-title"
+    >
+      <span>
+        <img
+          className="truck-icon"
+          src="food-truck.png"
+        />
+      </span>
+      TruckTrackr
+      <span>
+        <img
+          className="barrel-icon"
+          src="barrel-icon-new.png"
+        />
+      </span>
+    </h1>
+    <img
+      className="hamburger-icon"
+      src="hamburger.svg"
+    />
+  </header>
+  <div
+    className="content-holder"
+  >
+    <NavBar />
+    <Route
+      exact={true}
+      path="/login"
+      render={[Function]}
+    />
+    <Route
+      component={[Function]}
+      exact={true}
+      path="/"
+    />
+  </div>
+</div>
+`;

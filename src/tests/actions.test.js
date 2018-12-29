@@ -8,7 +8,7 @@ describe('actions', () => {
     const expectedAction = {
       type: 'LOAD_BREWERIES',
       breweries
-    };
+    };    
     const result = Actions.loadBreweries(mockBreweries);
     expect(result).toEqual(expectedAction);
   });

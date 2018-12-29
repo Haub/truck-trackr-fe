@@ -35,7 +35,6 @@ export class Login extends Component {
       this.props.firebase
         .doCreateUserWithEmailAndPassword(email, passwordOne)
         .then(authUser => {
-          console.log(authUser.user.uid)
           this.props.history.push('/');
         })
         .catch(error => {
@@ -45,7 +44,6 @@ export class Login extends Component {
       this.props.firebase
         .doSignInWithEmailAndPassword(email, passwordOne)
         .then(authUser => {
-          console.log(authUser)
           this.props.history.push('/')
         })
         .catch(error => {

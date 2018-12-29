@@ -1,0 +1,119 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LOGIN should match the snapshot 1`] = `
+<main
+  className="login"
+>
+  <form
+    className="login-form"
+    onSubmit={[Function]}
+  >
+    <input
+      className="email-input"
+      name="email"
+      onChange={[Function]}
+      placeholder="Email"
+      type="email"
+    />
+    <input
+      className="password-input"
+      name="passwordOne"
+      onChange={[Function]}
+      placeholder="Password"
+      type="password"
+    />
+    <input
+      className="hidden"
+      name="businessName"
+      onChange={[Function]}
+      placeholder="Business Name"
+    />
+    <input
+      className="hidden"
+      name="address"
+      onChange={[Function]}
+      placeholder="Address/City Located"
+    />
+    <input
+      className="hidden"
+      name="phoneNumber"
+      onChange={[Function]}
+      placeholder="Phone Number"
+    />
+    <input
+      className="hidden"
+      name="contactName"
+      onChange={[Function]}
+      placeholder="Contact Name"
+    />
+    <input
+      className="hidden"
+      name="foodType"
+      onChange={[Function]}
+      placeholder="Food Type"
+    />
+    <p
+      className="hidden"
+    >
+      What Type of Business:
+    </p>
+    <div
+      className="button-holder"
+    >
+      <input
+        className="hidden"
+        id="food-truck-button"
+        name="locationType"
+        onChange={[Function]}
+        type="radio"
+        value="food-truck"
+      />
+      <label
+        className="hidden"
+        for="food-truck-button"
+      >
+        Food Truck
+      </label>
+      <input
+        className="hidden"
+        id="brewery-button"
+        name="locationType"
+        onChange={[Function]}
+        type="radio"
+        value="brewery"
+      />
+      <label
+        className="hidden"
+        for="brewery-button"
+      >
+        Brewery
+      </label>
+    </div>
+    <input
+      className="hidden"
+      name="logo"
+      onChange={[Function]}
+      placeholder="Upload logo"
+      type="file"
+    />
+    <button
+      className="hidden"
+      onClick={[Function]}
+    >
+      Upload!
+    </button>
+    <button
+      className="signin-button"
+      onClick={[Function]}
+    >
+      Sign In
+    </button>
+  </form>
+  <button
+    className="signup-button"
+    onClick={[Function]}
+  >
+    First Time Here? Sign Up!
+  </button>
+</main>
+`;
