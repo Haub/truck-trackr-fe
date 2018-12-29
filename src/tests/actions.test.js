@@ -43,6 +43,15 @@ describe('actions', () => {
     expect(result).toEqual(expectedAction);
   });
 
+  it ('should have a type of REMOVE_USER', () => {
+    const user = mockBrewery
+    const expectedAction = {
+      type: 'REMOVE_USER'
+    };
+    const result = Actions.removeUser();
+    expect(result).toEqual(expectedAction);
+  });
+
   it ('should have a type of ADD_EVENT', () => {
     const event = mockEvent;
     const expectedAction = {
