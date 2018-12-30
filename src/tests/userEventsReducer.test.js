@@ -1,6 +1,6 @@
 import { userEventsReducer } from '../reducers/userEventsReducer'
 import * as Actions from '../actions'
-import { mockUserEvents } from './testMocks'
+import { mockUserEvents, mockUpdatedEvents, mockEvent } from './testMocks'
 
 describe('userEventsReducer', () => {
     let userEvents;
@@ -24,6 +24,12 @@ describe('userEventsReducer', () => {
         expect(result).toEqual(expected)
     })
 
-    
+    it(`should add an event to a user's calendar`, () => {
+        const initialState = userEvents;
+        const expected = mockUpdatedEvents;
+
+        const result = userEventsReducer(initialState, Actions.addEvent(mockEvent))
+        expect(result).toEqual(expected)
+    })    
 
 })

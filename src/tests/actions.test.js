@@ -1,5 +1,5 @@
 import * as Actions from '../actions';
-import { mockBreweries, mockBrewery, mockFoodTrucks, mockProfile, mockEvent, mockUserEvents } from '../utilities/mockData.js';
+import { mockBreweries, mockBrewery, mockFoodTrucks, mockProfile, mockEvent, mockUserEvents } from './testMocks.js';
 
 describe('actions', () => {
   

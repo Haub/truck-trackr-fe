@@ -5,7 +5,7 @@ export const userEventsReducer = (state = [], action) => {
     case 'ADD_EVENT':
       return [...state, action.event]
     case 'REMOVE_EVENT':
-      return state.filter(event => event.event_id !== action.event_id)
+      return state.filter(event => event.event_id !== action.event.event_id)
     case 'EDIT_EVENT':
       return state.map(event => {
         return event.event_id === action.event_id ? { ...action.event } : event
