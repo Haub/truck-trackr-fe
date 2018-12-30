@@ -7,7 +7,7 @@ import { BusinessContainer } from '../../components/BusinessContainer';
 import './App.css';
 import hamburger from '../../assets/hamburger.svg';
 import { ProfilePage } from '../ProfilePage';
-import { NavBar } from '../NavBar';
+import NavBar from '../NavBar';
 import truck from '../../assets/food-truck.png';
 import barrel from '../../assets/barrel-icon-new.png';
 import { withFirebase } from '../../components/Firebase';
@@ -32,6 +32,8 @@ export class App extends Component {
     let navBar;
     const { navOpen } = this.state;
     if( navOpen) {
+
+      console.log(NavBar)
       navBar = <NavBar history={this.props.history} />
     } else {
       navBar = null
@@ -63,7 +65,7 @@ export class App extends Component {
           )}
         />
         <Route 
-          exact path='/food-trucks'
+          exact path='/food_trucks'
           render={ props => (
             <BusinessContainer data={this.props.foodTrucks} />
           )}
