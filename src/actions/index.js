@@ -13,9 +13,18 @@ export const loadProfile = (profile) => ({
   profile
 })
 
-export const toggleSignedIn = () => ({
-  type: 'TOGGLE_SIGNED_IN',
-  !userStatus
+export const addUser = (user) => ({
+  type: 'ADD_USER',
+  user
+})
+
+export const removeUser = () => ({
+  type: 'REMOVE_USER'
+})
+
+export const loadEvents = (events) => ({
+  type: 'LOAD_EVENTS',
+  events
 })
 
 export const addEvent = (event) => ({

@@ -1,5 +1,5 @@
 import * as Actions from '../actions';
-import { mockBreweries, mockBrewery, mockFoodTrucks, mockProfile, mockEvent, mockUserEvents } from '../utilities/mockData.js';
+import { mockBreweries, mockBrewery, mockFoodTrucks, mockProfile, mockEvent, mockUserEvents } from './testMocks.js';
 
 describe('actions', () => {
   
@@ -33,25 +33,34 @@ describe('actions', () => {
     expect(result).toEqual(expectedAction);
   });
 
-  it ('should have a type of TOGGLE_SIGNED_IN', () => {
-    // const userStatus = mockUserStatus;
+  it ('should have a type of ADD_USER', () => {
+    const user = mockBrewery
     const expectedAction = {
-      type: 'TOGGLE_SIGNED_IN', 
-      userStatus
+      type: 'ADD_USER', 
+      user
     };
-    const result = Actions.toggleSignedIn(mockUserStatus);
+    const result = Actions.addUser(mockBrewery);
     expect(result).toEqual(expectedAction);
   });
 
-  it ('should have a type of LOAD_CANCELLATIONS', () => {
-    const cancellations = mockCancellations;
+  it ('should have a type of REMOVE_USER', () => {
+    const user = mockBrewery
     const expectedAction = {
-      type: 'LOAD_CANCELLATIONS', 
-      cancellations
+      type: 'REMOVE_USER'
     };
-    const result = Actions.loadCancellations(mockCancellations);
+    const result = Actions.removeUser();
     expect(result).toEqual(expectedAction);
   });
+
+  it ('should have a type of LOAD_EVENTS', () => {
+    const events = mockUserEvents;
+    const expectedAction = {
+      type: 'LOAD_EVENTS',
+      events
+    };
+    const result = Actions.loadEvents(mockUserEvents);
+    expect(result).toEqual(expectedAction)
+  })
 
   it ('should have a type of ADD_EVENT', () => {
     const event = mockEvent;
@@ -74,7 +83,7 @@ describe('actions', () => {
   });
 
   it ('should have a type of EDIT_EVENT', () => {
-    const profile = mockProfile;
+    const event = mockEvent;
     const expectedAction = {
       type: 'EDIT_EVENT', 
       event
