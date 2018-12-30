@@ -22,6 +22,11 @@ export const removeUser = () => ({
   type: 'REMOVE_USER'
 })
 
+export const loadEvents = (events) => ({
+  type: 'LOAD_EVENTS',
+  events
+})
+
 export const addEvent = (event) => ({
   type: 'ADD_EVENT',
   event

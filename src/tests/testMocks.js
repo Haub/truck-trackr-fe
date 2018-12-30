@@ -81,8 +81,8 @@ export const mockBreweries = [
  };
  
   export const mockEvent = {
-   id: 433,
-   date: '04/03/2018',
+   id: 435,
+   date: '04/06/2018',
    truck_booked: true,
    brewery_id: 105
  };
@@ -95,6 +95,24 @@ export const mockBreweries = [
      brewery_id: 105
    },
    {
- 
-    }
+    id: 434,
+    date: '04/08/2018',
+    truck_booked: false,
+    brewery_id: 105
+  },
+ ]
+
+ export const mockEditedEvents = [
+    {
+        id: 433,
+        date: '04/03/2018',
+        truck_booked: true,
+        brewery_id: 105
+    },
+    {
+       id: 434,
+       date: '04/03/2018',
+       truck_booked: true,
+       brewery_id: 105
+    },
  ]

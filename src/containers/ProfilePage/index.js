@@ -7,7 +7,6 @@ export const ProfilePage = (props) => {
 
     return(
         <div>
-            
         </div>
     )
 }

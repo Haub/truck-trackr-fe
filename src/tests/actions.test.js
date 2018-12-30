@@ -52,6 +52,16 @@ describe('actions', () => {
     expect(result).toEqual(expectedAction);
   });
 
+  it ('should have a type of LOAD_EVENTS', () => {
+    const events = mockUserEvents;
+    const expectedAction = {
+      type: 'LOAD_EVENTS',
+      events
+    };
+    const result = Actions.loadEvents(mockUserEvents);
+    expect(result).toEqual(expectedAction)
+  })
+
   it ('should have a type of ADD_EVENT', () => {
     const event = mockEvent;
     const expectedAction = {
