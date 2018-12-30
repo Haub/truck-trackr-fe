@@ -123,6 +123,13 @@ export const mockBreweries = [
       }
  ]
 
+ export const mockEventToEdit = {
+    id: 434,
+    date: '04/03/2018',
+    truck_booked: true,
+    brewery_id: 105
+ }
+
  export const mockEditedEvents = [
     {
         id: 433,
