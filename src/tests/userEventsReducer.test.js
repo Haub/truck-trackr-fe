@@ -30,6 +30,14 @@ describe('userEventsReducer', () => {
 
         const result = userEventsReducer(initialState, Actions.addEvent(mockEvent))
         expect(result).toEqual(expected)
-    })    
+    })
+    
+    it('should remove an event from calendar', () => {
+        const initialState = mockUpdatedEvents;
+        const expected = userEvents;
+
+        const result = userEventsReducer(initialState, Actions.removeEvent(mockEvent))
+        expect(result).toEqual(expected)
+    })
 
 })
