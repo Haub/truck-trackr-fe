@@ -3,13 +3,15 @@ import { Route, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { SignUpPage } from '../../components/SignUpPage';
+import { BusinessContainer } from '../../components/BusinessContainer';
 import './App.css';
 import hamburger from '../../assets/hamburger.svg';
 import { ProfilePage } from '../ProfilePage';
 import { NavBar } from '../NavBar';
 import truck from '../../assets/food-truck.png';
 import barrel from '../../assets/barrel-icon-new.png';
-import { withFirebase } from '../../components/Firebase'
+import { withFirebase } from '../../components/Firebase';
+
 
 export class App extends Component {
   constructor() {
@@ -27,10 +29,10 @@ export class App extends Component {
   }
 
   render() {
-    let navBar
-    const { navOpen } = this.state
+    let navBar;
+    const { navOpen } = this.state;
     if( navOpen) {
-      navBar = <NavBar />
+      navBar = <NavBar history={this.props.history} />
     } else {
       navBar = null
     }
@@ -54,10 +56,28 @@ export class App extends Component {
           exact path='/'
           component={ ProfilePage }
         />
+        <Route 
+          exact path='/breweries'
+          render={ props => (
+            <BusinessContainer data={this.props.breweries} />
+          )}
+        />
+        <Route 
+          exact path='/food-trucks'
+          render={ props => (
+            <BusinessContainer data={this.props.foodTrucks} />
+          )}
+        />
+
         </div>
       </div>
     );
   }
 }
 
-export default withRouter(withFirebase(App))
+export const mapStateToProps = (state) => ({
+  breweries: state.breweries,
+  foodTrucks: state.foodTrucks
+});
+
+export default withRouter(withFirebase(App));
