@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { loadFoodTrucks, loadBreweries } from '../../actions';
+import { loadFoodTrucks, loadBreweries, changeCurrentPage } from '../../actions';
 import { mockFoodTrucks, mockBreweries } from '../../tests/testMocks';
 
 import './NavBar.css'
@@ -23,8 +23,10 @@ export class NavBar extends Component {
             const result = await response.json();
             if(businessType === 'breweries'){
                 this.props.loadBreweries(result.data)
+                this.props.changeCurrentPage('breweries')
             } else {
                 this.props.loadFoodTrucks(result.data)
+                this.props.changeCurrentPage('foodTrucks')
             }
         } catch(error) {
             throw new Error()
@@ -58,7 +60,8 @@ export class NavBar extends Component {
 
 export const mapDispatchToProps = (dispatch) => ({
     loadBreweries: (breweries) => dispatch(loadBreweries(breweries)),
-    loadFoodTrucks: (foodTrucks) => dispatch(loadFoodTrucks(foodTrucks)) 
+    loadFoodTrucks: (foodTrucks) => dispatch(loadFoodTrucks(foodTrucks)) ,
+    changeCurrentPage: (currentPage) => dispatch(changeCurrentPage(currentPage))
 });
 
 export default connect(null, mapDispatchToProps)(NavBar);

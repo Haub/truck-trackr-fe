@@ -16,6 +16,7 @@ nav {
     align-items: flex-start;
     justify-content: space-around;
     font-family: 'ZCOOL XiaoWei', serif;
+    padding: 0;
 }
 
 .nav-control, .search-input {

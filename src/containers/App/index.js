@@ -11,7 +11,7 @@ import NavBar from '../NavBar';
 import truck from '../../assets/food-truck.png';
 import barrel from '../../assets/barrel-icon-new.png';
 import { withFirebase } from '../../components/Firebase';
-
+import { changeCurrentPage } from '../../actions'
 
 export class App extends Component {
   constructor() {
@@ -66,7 +66,7 @@ export class App extends Component {
         <Route 
           exact path='/food_trucks'
           render={ props => (
-            <BusinessContainer data={this.props.foodTrucks} />
+            <BusinessContainer data={this.props.foodTrucks} changeCurrentPage={this.props.changeCurrentPage} />
           )}
         />
         <Route path='/business/:name' render={({ match }) => {
@@ -88,4 +88,8 @@ export const mapStateToProps = (state) => ({
   foodTrucks: state.foodTrucks
 });
 
-export default connect(mapStateToProps, null)(withFirebase(App));
+export const mapDispatchToProps = (dispatch) => ({
+  changeCurrentPage: (currentPage) => dispatch(changeCurrentPage(currentPage))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(withFirebase(App));
