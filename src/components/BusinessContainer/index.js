@@ -1,19 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 
-export const BusinessContainer = () => {
+export const BusinessContainer = (props) => {
+  const {data} = props
 
+  const businesses = data.map(business => <NavLink to={`/${business.name}`} >{business.name}</NavLink>)
 
   return (
     <div>
-      
-
+      { businesses }
     </div>   
   )
   
 };
 
-export default withRouter(BusinessContainer);
+
+export default (BusinessContainer);
