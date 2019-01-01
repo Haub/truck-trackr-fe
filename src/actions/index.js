@@ -13,11 +13,6 @@ export const loadProfile = (profile) => ({
   profile
 })
 
-export const changeCurrentPage = (currentPage) => ({
-  type: 'CHANGE_CURRENT_PAGE',
-  currentPage
-})
-
 export const addUser = (user) => ({
   type: 'ADD_USER',
   user

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { loadFoodTrucks, loadBreweries, changeCurrentPage } from '../../actions';
+import { loadFoodTrucks, loadBreweries, loadProfile } from '../../actions';
 import { mockFoodTrucks, mockBreweries } from '../../tests/testMocks';
 
 import './NavBar.css'
@@ -23,10 +23,10 @@ export class NavBar extends Component {
             const result = await response.json();
             if(businessType === 'breweries'){
                 this.props.loadBreweries(result.data)
-                this.props.changeCurrentPage({page: 'breweries'})
+                this.props.loadProfile({page: 'breweries'})
             } else {
                 this.props.loadFoodTrucks(result.data)
-                this.props.changeCurrentPage({page: 'food_trucks'})
+                this.props.loadProfile({page: 'food_trucks'})
             }
         } catch(error) {
             throw new Error()
@@ -41,7 +41,6 @@ export class NavBar extends Component {
         } else if(businessType === 'food_trucks') {
             this.props.loadFoodTrucks(mockFoodTrucks)
         }
-        // this.props.history.push(`/${businessType}`);
     }
 
     render(){
@@ -61,7 +60,7 @@ export class NavBar extends Component {
 export const mapDispatchToProps = (dispatch) => ({
     loadBreweries: (breweries) => dispatch(loadBreweries(breweries)),
     loadFoodTrucks: (foodTrucks) => dispatch(loadFoodTrucks(foodTrucks)) ,
-    changeCurrentPage: (currentPage) => dispatch(changeCurrentPage(currentPage))
+    loadProfile: (currentPage) => dispatch(loadProfile(currentPage))
 });
 
 export default connect(null, mapDispatchToProps)(NavBar);

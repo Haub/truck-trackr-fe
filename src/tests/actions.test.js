@@ -33,16 +33,6 @@ describe('actions', () => {
     expect(result).toEqual(expectedAction);
   });
 
-  it('should have a type of CHANGE_CURRENT_PAGE', () => {
-    const currentPage = 'breweries';
-    const expectedAction = {
-      type: 'CHANGE_CURRENT_PAGE', 
-      currentPage
-    };
-    const result = Actions.changeCurrentPage(currentPage);
-    expect(result).toEqual(expectedAction);
-  });
-
   it ('should have a type of ADD_USER', () => {
     const user = mockBrewery
     const expectedAction = {

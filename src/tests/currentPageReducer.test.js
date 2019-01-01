@@ -24,6 +24,4 @@ describe('currentPageReducer', () => {
         expect(result).toEqual(expected)
     })
 
-    it('should return state with a ')
-
 })

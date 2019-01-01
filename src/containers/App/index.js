@@ -11,7 +11,7 @@ import NavBar from '../NavBar';
 import truck from '../../assets/food-truck.png';
 import barrel from '../../assets/barrel-icon-new.png';
 import { withFirebase } from '../../components/Firebase';
-import { changeCurrentPage, loadProfile } from '../../actions'
+import { loadProfile } from '../../actions'
 
 export class App extends Component {
   constructor() {
@@ -94,7 +94,6 @@ export const mapStateToProps = (state) => ({
 });
 
 export const mapDispatchToProps = (dispatch) => ({
-  changeCurrentPage: (currentPage) => dispatch(changeCurrentPage(currentPage)),
   loadProfile: (profile) => dispatch(loadProfile(profile))
 })
 
