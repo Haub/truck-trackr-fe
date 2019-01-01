@@ -31,8 +31,9 @@ export class App extends Component {
   render() {
     let navBar;
     const { navOpen } = this.state;
+    const { match } = this.props;
     if( navOpen) {
-      navBar = <NavBar />
+      navBar = <NavBar history={this.props.history}/>
     } else {
       navBar = null
     }
@@ -68,7 +69,14 @@ export class App extends Component {
             <BusinessContainer data={this.props.foodTrucks} />
           )}
         />
-
+        <Route path='/business/:name' render={({ match }) => {
+          const { businessName } = match.params;
+          const brewery = this.props.breweries.find(brewery => (
+            brewery.name === businessName.replace('%', ' ')))
+          console.log(brewery)
+          return (
+            <ProfilePage {...brewery} />
+          )}} />
         </div>
       </div>
     );

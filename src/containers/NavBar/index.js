@@ -15,17 +15,21 @@ export class NavBar extends Component {
         }
     }
 
-    // loadData = async (event) => {
-    //     const businessType = event.target.getAttribute('name')
+    loadData = async (event) => {
+        const businessType = event.target.getAttribute('name')
 
-    //     try {
-    //         const response = await fetch(`https://truck-trackr-api.herokuapp.com/api/v1/${businessType}`);
-    //         const result = await response.json();
-    //         console.log(result)
-    //     } catch(error) {
-    //         throw new Error()
-    //     }
-    // }
+        try {
+            const response = await fetch(`https://truck-trackr-api.herokuapp.com/api/v1/${businessType}`);
+            const result = await response.json();
+            if(businessType === 'breweries'){
+                this.props.loadBreweries(result.data)
+            } else {
+                this.props.loadFoodTrucks(result.data)
+            }
+        } catch(error) {
+            throw new Error()
+        }
+    }
 
     loadMockData = (event) => {
         const businessType = event.target.getAttribute('name')
@@ -43,8 +47,8 @@ export class NavBar extends Component {
             <nav>
                 <ul className='nav-controls'>
                     <li className='nav-control my-profile'>My Profile</li>
-                    <NavLink to='/breweries' onClick={this.loadMockData} name='breweries' className='nav-control breweries'>Breweries</NavLink>
-                    <NavLink to='/food_trucks' onClick={this.loadMockData} name='food_trucks' className='nav-control food-trucks'>Food Trucks</NavLink>
+                    <NavLink to='/breweries' onClick={this.loadData} name='breweries' className='nav-control breweries'>Breweries</NavLink>
+                    <NavLink to='/food_trucks' onClick={this.loadData} name='food_trucks' className='nav-control food-trucks'>Food Trucks</NavLink>
                     <input className='search-input' placeholder='Search'/>
                 </ul>
             </nav>
