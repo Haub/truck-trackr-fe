@@ -32,9 +32,7 @@ export class App extends Component {
     let navBar;
     const { navOpen } = this.state;
     if( navOpen) {
-
-      console.log(NavBar)
-      navBar = <NavBar history={this.props.history} />
+      navBar = <NavBar />
     } else {
       navBar = null
     }
@@ -82,4 +80,4 @@ export const mapStateToProps = (state) => ({
   foodTrucks: state.foodTrucks
 });
 
-export default withRouter(withFirebase(App));
+export default connect(mapStateToProps, null)(withFirebase(App));
