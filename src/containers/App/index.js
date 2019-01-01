@@ -31,10 +31,9 @@ export class App extends Component {
   render() {
     let navBar;
     const { navOpen } = this.state;
+    const { match } = this.props;
     if( navOpen) {
-
-      console.log(NavBar)
-      navBar = <NavBar history={this.props.history} />
+      navBar = <NavBar history={this.props.history}/>
     } else {
       navBar = null
     }
@@ -70,7 +69,14 @@ export class App extends Component {
             <BusinessContainer data={this.props.foodTrucks} />
           )}
         />
-
+        <Route path='/business/:name' render={({ match }) => {
+          const { businessName } = match.params;
+          const brewery = this.props.breweries.find(brewery => (
+            brewery.name === businessName.replace('%', ' ')))
+          console.log(brewery)
+          return (
+            <ProfilePage {...brewery} />
+          )}} />
         </div>
       </div>
     );
@@ -82,4 +88,4 @@ export const mapStateToProps = (state) => ({
   foodTrucks: state.foodTrucks
 });
 
-export default withRouter(withFirebase(App));
+export default connect(mapStateToProps, null)(withFirebase(App));

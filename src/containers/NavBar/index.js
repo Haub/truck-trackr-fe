@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { loadFoodTrucks, loadBreweries } from '../../actions';
 import { mockFoodTrucks, mockBreweries } from '../../tests/testMocks';
 
@@ -15,18 +15,21 @@ export class NavBar extends Component {
         }
     }
 
-    // loadData = async (event) => {
-    //     const businessType = event.target.getAttribute('name')
-    //     this.props.history.push(`/${businessType}`);
+    loadData = async (event) => {
+        const businessType = event.target.getAttribute('name')
 
-    //     try {
-    //         const response = await fetch(`https://truck-trackr-api.herokuapp.com/api/v1/${businessType}`);
-    //         const result = await response.json();
-    //         console.log(result)
-    //     } catch(error) {
-    //         throw new Error()
-    //     }
-    // }
+        try {
+            const response = await fetch(`https://truck-trackr-api.herokuapp.com/api/v1/${businessType}`);
+            const result = await response.json();
+            if(businessType === 'breweries'){
+                this.props.loadBreweries(result.data)
+            } else {
+                this.props.loadFoodTrucks(result.data)
+            }
+        } catch(error) {
+            throw new Error()
+        }
+    }
 
     loadMockData = (event) => {
         const businessType = event.target.getAttribute('name')
@@ -36,7 +39,7 @@ export class NavBar extends Component {
         } else if(businessType === 'food_trucks') {
             this.props.loadFoodTrucks(mockFoodTrucks)
         }
-        this.props.history.push(`/${businessType}`);
+        // this.props.history.push(`/${businessType}`);
     }
 
     render(){
@@ -44,8 +47,8 @@ export class NavBar extends Component {
             <nav>
                 <ul className='nav-controls'>
                     <li className='nav-control my-profile'>My Profile</li>
-                    <li onClick={this.loadMockData} name='breweries' className='nav-control breweries'>Breweries</li>
-                    <li onClick={this.loadMockData} name='food_trucks' className='nav-control food-trucks'>Food Trucks</li>
+                    <NavLink to='/breweries' onClick={this.loadData} name='breweries' className='nav-control breweries'>Breweries</NavLink>
+                    <NavLink to='/food_trucks' onClick={this.loadData} name='food_trucks' className='nav-control food-trucks'>Food Trucks</NavLink>
                     <input className='search-input' placeholder='Search'/>
                 </ul>
             </nav>
@@ -58,4 +61,4 @@ export const mapDispatchToProps = (dispatch) => ({
     loadFoodTrucks: (foodTrucks) => dispatch(loadFoodTrucks(foodTrucks)) 
 });
 
-export default withRouter(connect(null, mapDispatchToProps))(NavBar);
+export default connect(null, mapDispatchToProps)(NavBar);
