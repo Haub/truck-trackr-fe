@@ -5,17 +5,28 @@ import { NavLink, Link } from 'react-router-dom';
 import { changeCurrentPage } from '../../actions';
 
 export const BusinessContainer = (props) => {
-  const {data, changeCurrentPage} = props
+  const {data, changeCurrentPage, currentPage, loadProfile} = props
 
-  const businesses = data.map(business => 
-    <NavLink 
-      to={`/business/${business.attributes.name}`} 
-      key={business.id} 
-      onClick={()=> changeCurrentPage(business.attributes.name)}
+  const handleClick = async (e) => {
+    try {
+      const response = await fetch(`https://truck-trackr-api.herokuapp.com/api/v1/${currentPage}/${e.target.id}`);
+      const result = await response.json();
+      await loadProfile(result) 
+  } catch(error) {
+      throw new Error( error.message )
+  }
+  }
+
+  const businesses = data.map(business => {
+    return <NavLink 
+      to={ `/business/${business.attributes.name}` } 
+      key={ business.id }
+      id={ business.id } 
+      onClick={ handleClick }
     >
       {business.attributes.name}
     </NavLink>
-  )
+  })
 
   return (
     <div>
@@ -24,6 +35,7 @@ export const BusinessContainer = (props) => {
   )
   
 };
+
 
 
 export default (BusinessContainer);

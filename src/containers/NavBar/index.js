@@ -23,10 +23,10 @@ export class NavBar extends Component {
             const result = await response.json();
             if(businessType === 'breweries'){
                 this.props.loadBreweries(result.data)
-                this.props.changeCurrentPage('breweries')
+                this.props.changeCurrentPage({page: 'breweries'})
             } else {
                 this.props.loadFoodTrucks(result.data)
-                this.props.changeCurrentPage('foodTrucks')
+                this.props.changeCurrentPage({page: 'food_trucks'})
             }
         } catch(error) {
             throw new Error()
