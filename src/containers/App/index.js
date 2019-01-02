@@ -44,26 +44,18 @@ export class App extends Component {
       <div className='main'>
         <header>
           <h1 className='main-title'><span><img src={ truck } className='truck-icon'/></span>TruckTrackr<span><img src={ barrel } className='barrel-icon'/></span></h1>
-          <section>
+
+          <section className='hamburger-holder'>
             <a onClick={ this.handleNavBar} className="hamburger-trigger" id="hamburger">
               <span></span>
               <span></span>
               <span></span>
             </a>
           </section>
-          
         </header>
-
         <div className='content-holder'>
 
-        { navOpen &&
-          <NavBar history={this.props.history}/>
-        }
-        { !navOpen &&
-          <div id="wrapper">
-            <span id="openbtn"  onClick={this.handleNavBar}></span>
-          </div>
-        }
+        <NavBar displayStatus={this.state.navOpen} history={this.props.history}/>
         <Route
           exact path='/login'
           render={ props => (

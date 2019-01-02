@@ -90,10 +90,10 @@ export class Login extends Component {
             <input className={ showFoodType ? 'food-type-input' : 'hidden' } name='foodType' placeholder='Food Type' onChange={this.handleKeyPress} />
             <p className={ signUp ? 'business-type' : 'hidden' }>What Type of Business:</p>
             <div className='button-holder'>
-              <input className={ signUp ? 'food-truck-radio' : 'hidden' } type='radio' name='locationType' value='food-truck' id='food-truck-button' onChange={this.handleKeyPress} />
-              <label className={ signUp ? 'food-truck-label' : 'hidden' } for='food-truck-button'>Food Truck</label>
-              <input className={ signUp ? 'brewery-radio' : 'hidden' } type='radio' name='locationType' value='brewery' id='brewery-button'onChange={this.handleKeyPress} />
-              <label className={ signUp ? 'brewery-label' : 'hidden' } for='brewery-button'>Brewery</label>
+              <input className={'food-truck-radio'} type='radio' name='locationType' value='food-truck' id='food-truck-button' onChange={this.handleKeyPress} />
+              <label className={'food-truck-label'} htmlFor='food-truck-button'>Food Truck</label>
+              <input className={'brewery-radio'} type='radio' name='locationType' value='brewery' id='brewery-button'onChange={this.handleKeyPress} />
+              <label className={'brewery-label'} htmlFor='brewery-button'>Brewery</label>
             </div>
             <input className={ signUp ? 'logo-input' : 'hidden' } name='logo' placeholder='Upload logo' onChange={this.handleKeyPress} type='file' />
             <button className={ signUp ? 'logo-button' : 'hidden' } onClick={this.uploadHandler}>Upload!</button>
