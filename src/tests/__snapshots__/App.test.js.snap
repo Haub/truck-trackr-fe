@@ -22,10 +22,17 @@ exports[`APP should match the snapshot 1`] = `
         />
       </span>
     </h1>
-    <img
-      className="hamburger-icon"
-      src="hamburger.svg"
-    />
+    <section>
+      <a
+        className="menu-trigger"
+        id="menu05"
+        onClick={[Function]}
+      >
+        <span />
+        <span />
+        <span />
+      </a>
+    </section>
   </header>
   <div
     className="content-holder"
@@ -52,8 +59,8 @@ exports[`APP should match the snapshot 1`] = `
       render={[Function]}
     />
     <Route
+      component={[Function]}
       path="/business/:businessName"
-      render={[Function]}
     />
   </div>
 </div>
