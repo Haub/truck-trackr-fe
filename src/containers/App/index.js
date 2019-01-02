@@ -31,24 +31,35 @@ export class App extends Component {
     }
   }
 
+  handleNavBar = () => {
+    this.setState ({navOpen: !this.state.navOpen})
+  }
+
   render() {
     let navBar;
     const { navOpen } = this.state;
     const { match } = this.props;
-    if( navOpen) {
-      navBar = <NavBar history={this.props.history}/>
-    } else {
-      navBar = null
-    }
+    // if( navOpen) {
+    //   navBar = <NavBar history={this.props.history}/>
+    // } else {
+    //   navBar = null;
+    // }
 
     return (
       <div className='main'>
         <header>
           <h1 className='main-title'><span><img src={ truck } className='truck-icon'/></span>TruckTrackr<span><img src={ barrel } className='barrel-icon'/></span></h1>
-          <img className='hamburger-icon' src={ hamburger }/>
+          <img className='hamburger-icon' onClick={ this.handleNavBar} src={ hamburger }/>
         </header>
         <div className='content-holder'>
-        { navBar }
+        { this.state.navOpen &&
+          <NavBar history={this.props.history}/>
+        }
+        { !this.state.navOpen &&
+          <div id="wrapper">
+            <span id="openbtn"  onClick={this.handleNavBar}>X</span>
+          </div>
+        }
         <Route
           exact path='/login'
           render={ props => (
