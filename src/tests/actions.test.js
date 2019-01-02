@@ -24,10 +24,10 @@ describe('actions', () => {
   });
 
   it ('should have a type of LOAD_PROFILE', () => {
-    const profile = mockProfile;
+    const currentPage = mockProfile;
     const expectedAction = {
       type: 'LOAD_PROFILE', 
-      profile
+      currentPage
     };
     const result = Actions.loadProfile(mockProfile);
     expect(result).toEqual(expectedAction);
