@@ -28,13 +28,13 @@ export class App extends Component {
 
   render() {
     const { navOpen } = this.state;
-    const { match } = this.props;
+    const { match, user } = this.props;
 
     return (
       <div className='main'>
         <header>
           <h1 className='main-title'><span><img src={ truck } className='truck-icon'/></span>TruckTrackr<span><img src={ barrel } className='barrel-icon'/></span></h1>
-          <section className={this.state.login ? 'hamburger-holder': 'hidden'}>
+          <section className={Object.keys(user).length ? 'hamburger-holder': 'hidden'}>
             <a onClick={ this.handleNavBar} className="hamburger-trigger" id="hamburger">
               <span></span>
               <span></span>

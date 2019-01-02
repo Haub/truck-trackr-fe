@@ -27,7 +27,10 @@ section {
   position: relative;
   bottom: 70px;
   height: 200px;
+  width: 200px;
   box-sizing: border-box;
+  z-index:5;
+
 }
 
 section:after {
@@ -36,8 +39,8 @@ section:after {
   left: 1.5em;
   width: 40px;
   height: 40px;
-  border: 1px solid #6D3E48;
-  color: #6D3E48;
+  border: 1px solid #FEECC8;
+  color: #FEECC8;
   font-size: 20px;
   text-align: center;
   line-height: 20px;
@@ -55,8 +58,8 @@ section:after {
   height: 44px;
 }
 .hamburger-trigger.active span {
-  border: 2px solid #6D3E48;
-  background-color: #6D3E48;
+  border: 2px solid #FEECC8;
+  background-color: #FEECC8;
   transition: all .2s;
 }
 .hamburger-trigger span {
@@ -64,7 +67,7 @@ section:after {
   left: 0;
   width: 100%;
   height: 5px;
-  background-color: #FEECC8;
+  background-color: #6D3E48;
   border-radius: 6px;
 }
 .hamburger-trigger span:nth-of-type(1) {
