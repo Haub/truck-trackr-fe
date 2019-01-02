@@ -23,16 +23,24 @@ describe ('LOGIN', () => {
   //   wrapper.find('form').simulate('submit', mockEvent)
   //   expect(spy).toHaveBeenCalled()
   // })
-})
 
-describe('mapDispatchToProps', () => {
-  it('should call ', () => {
-    
-  });
-})
+  // describe('mapStateToProps', () => {
+  //   it('should have access to currentUser', () => {
+  //     const mockStore = {
+       
+  //     }
+  //     const expected = {...mockStore};
+  //     const result = mapStateToProps(mockStore);
+  //     expect(result).toEqual(expected);
+  //   });
+  // });
 
-describe('mapStateToProps', () => {
-  it('should ', () => {
-    
-  })
-})
+  // describe('mapDispatchToProps', () => {
+  //   it('should call dispatch when loadUser is invoked', () => {
+  //     const mockDispatch = jest.fn();
+  //     const mappedProps = mapDispatchToProps(mockDispatch);
+  //     mappedProps.loadUser(mockUser);
+  //     expect(mockDispatch).toHaveBeenCalled();
+  //   });
+  // });
+});
