@@ -15,6 +15,16 @@ main {
   grid-row: 2 / span 1;
 }
 
+#wrapper {
+    width: 0px;
+    padding-left: 0.5rem;
+    height: 100vh;
+    position: absolute;
+    left:0px;
+    top: 0px;
+    transition: transform 0.7s;
+}
+
 .main-title {
   font-family: 'Averia Libre', cursive;
   text-align: center;
@@ -25,6 +35,90 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+section {
+  position: relative;
+  bottom: 70px;
+  float: left;
+  height: 200px;
+  box-sizing: border-box;
+  counter-increment: section;
+}
+section:after {
+  position: absolute;
+  top: 1.5em;
+  left: 1.5em;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #6D3E48;
+  color: #6D3E48;
+  font-size: 20px;
+  text-align: center;
+  line-height: 40px;
+}
+
+.menu-trigger,
+.menu-trigger span {
+  display: inline-block;
+  transition: all .4s;
+  box-sizing: border-box;
+  z-index: 5;
+}
+.menu-trigger {
+  position: relative;
+  width: 50px;
+  height: 44px;
+}
+
+.menu-trigger.active span {
+  border: 1px solid #6D3E48;
+  background-color: #6D3E48;
+  transition: all .4s;
+}
+
+.menu-trigger span {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: #fff;
+  border-radius: 4px;
+}
+
+.menu-trigger span:nth-of-type(1) {
+  top: 0;
+}
+.menu-trigger span:nth-of-type(2) {
+  top: 20px;
+}
+.menu-trigger span:nth-of-type(3) {
+  bottom: 0;
+}
+
+#menu05.active span:nth-of-type(1) {
+  -webkit-transform: translateY(20px) rotate(-45deg);
+  transform: translateY(20px) rotate(-45deg);
+}
+#menu05.active span:nth-of-type(2) {
+  left: 50%;
+  opacity: 0;
+  -webkit-animation: active-menu05-bar02 .8s forwards;
+  animation: active-menu05-bar02 .8s forwards;
+}
+@-webkit-keyframes active-menu05-bar02 {
+  100% {
+    height: 0;
+  }
+}
+@keyframes active-menu05-bar02 {
+  100% {
+    height: 0;
+  }
+}
+#menu05.active span:nth-of-type(3) {
+  -webkit-transform: translateY(-20px) rotate(45deg);
+  transform: translateY(-20px) rotate(45deg);
 }
 
 .truck-icon, .barrel-icon {
@@ -44,7 +138,7 @@ main {
 }
 
 .hamburger-icon {
-  height: 70px;
+  height: 45px;
   position: relative;
   bottom: 70px;
   z-index: 5;
