@@ -6,7 +6,7 @@ import { SignUpPage } from '../../components/SignUpPage';
 import { BusinessContainer } from '../../components/BusinessContainer';
 import './App.css';
 import hamburger from '../../assets/hamburger.svg';
-import { ProfilePage } from '../ProfilePage';
+import ProfilePage from '../ProfilePage';
 import NavBar from '../NavBar';
 import truck from '../../assets/food-truck.png';
 import barrel from '../../assets/barrel-icon-new.png';
@@ -97,13 +97,7 @@ export class App extends Component {
               history={this.props.history}/>
           )}
         />
-        <Route path='/business/:businessName' render={({ match }) => {
-          const { businessName } = match.params;
-          const brewery = this.props.breweries.find(brewery => (
-            brewery.attributes.name === (businessName)))
-          return (
-            <ProfilePage {...brewery} />
-          )}} />
+        <Route path='/business/:businessName' component={ ProfilePage } />
         </div>
       </div>
     );
