@@ -2,18 +2,25 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import './ProfilePage.css'
+import SignUpPage from '../../components/SignUpPage'
 
 export class ProfilePage extends Component {
+    constructor(props){
+        super(props)
+    }
+
+    componentDidMount(){
+        if(!Object.keys(this.props.currentPage).length){
+            this.props.history.push('/')
+        }
+    }
 
     render(){
         const { currentPage } = this.props
-        console.log(currentPage)
         if(!Object.keys(currentPage).length){
-            return(
-                <div>
-                    
-                </div>
-            )
+           return(
+               <div></div>
+           )
         } else if(currentPage && currentPage.data.type === 'food_truck'){
             const { attributes } = this.props.currentPage.data
             return(

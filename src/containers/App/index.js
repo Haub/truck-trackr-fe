@@ -11,23 +11,13 @@ import NavBar from '../NavBar';
 import truck from '../../assets/food-truck.png';
 import barrel from '../../assets/barrel-icon-new.png';
 import { withFirebase } from '../../components/Firebase';
-import { loadProfile } from '../../actions'
+import { loadProfile, addUser } from '../../actions'
 
 export class App extends Component {
   constructor() {
     super()
     this.state = {
-      login: true,
-      navOpen: true,
-    }
-  }
-
-  componentDidMount(){
-    if(!this.state.login){
-      this.props.history.push('/login')
-    }
-    if(!this.props.currentPage) {
-      this.props.history.push('/')
+      navOpen: false,
     }
   }
 
@@ -44,8 +34,7 @@ export class App extends Component {
       <div className='main'>
         <header>
           <h1 className='main-title'><span><img src={ truck } className='truck-icon'/></span>TruckTrackr<span><img src={ barrel } className='barrel-icon'/></span></h1>
-
-          <section className='hamburger-holder'>
+          <section className={this.state.login ? 'hamburger-holder': 'hidden'}>
             <a onClick={ this.handleNavBar} className="hamburger-trigger" id="hamburger">
               <span></span>
               <span></span>
@@ -57,14 +46,14 @@ export class App extends Component {
 
         <NavBar displayStatus={this.state.navOpen} history={this.props.history}/>
         <Route
-          exact path='/login'
+          exact path='/'
           render={ props => (
             <SignUpPage history={this.props.history}/>
           )
            }
         />
         <Route 
-          exact path='/'
+          exact path='/profile'
           component={ ProfilePage }
         />
         <Route 
@@ -99,11 +88,13 @@ export class App extends Component {
 export const mapStateToProps = (state) => ({
   breweries: state.breweries,
   foodTrucks: state.foodTrucks,
-  currentPage: state.currentPage
+  currentPage: state.currentPage,
+  user: state.user
 });
 
 export const mapDispatchToProps = (dispatch) => ({
-  loadProfile: (profile) => dispatch(loadProfile(profile))
+  loadProfile: (profile) => dispatch(loadProfile(profile)),
+  addUser: (user) => dispatch(addUser(user))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(withFirebase(App)));
