@@ -29,7 +29,6 @@ export class Login extends Component {
   }
 
   handleSubmit = (event) => {
-    event.preventDefault();
     const { username, email, passwordOne, signUp } = this.state;
       if(signUp){
       this.props.firebase

@@ -10,7 +10,9 @@ export class ProfilePage extends Component {
         console.log(currentPage)
         if(!Object.keys(currentPage).length){
             return(
-                <div></div>
+                <div>
+                    
+                </div>
             )
         } else if(currentPage && currentPage.data.type === 'food_truck'){
             const { attributes } = this.props.currentPage.data
