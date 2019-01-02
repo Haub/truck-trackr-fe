@@ -22,14 +22,14 @@ export class NavBar extends Component {
             const response = await fetch(`https://truck-trackr-api.herokuapp.com/api/v1/${businessType}`);
             const result = await response.json();
             if(businessType === 'breweries'){
-                this.props.loadBreweries(result.data)
                 this.props.loadProfile({page: 'breweries'})
+                this.props.loadBreweries(result.data)
             } else {
-                this.props.loadFoodTrucks(result.data)
                 this.props.loadProfile({page: 'food_trucks'})
+                this.props.loadFoodTrucks(result.data)
             }
         } catch(error) {
-            throw new Error()
+            throw new Error(error.message)
         }
     }
 
@@ -60,7 +60,7 @@ export class NavBar extends Component {
 export const mapDispatchToProps = (dispatch) => ({
     loadBreweries: (breweries) => dispatch(loadBreweries(breweries)),
     loadFoodTrucks: (foodTrucks) => dispatch(loadFoodTrucks(foodTrucks)) ,
-    loadProfile: (currentPage) => dispatch(loadProfile(currentPage))
+    loadProfile: (profile) => dispatch(loadProfile(profile))
 });
 
 export default connect(null, mapDispatchToProps)(NavBar);

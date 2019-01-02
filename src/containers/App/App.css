@@ -46,6 +46,6 @@ main {
 .hamburger-icon {
   height: 70px;
   position: relative;
-  bottom: 50px;
+  bottom: 70px;
   z-index: 5;
 }

@@ -26,6 +26,9 @@ export class App extends Component {
     if(!this.state.login){
       this.props.history.push('/login')
     }
+    if(!this.props.currentPage) {
+      this.props.history.push('/')
+    }
   }
 
   render() {
@@ -60,7 +63,12 @@ export class App extends Component {
         <Route 
           exact path='/breweries'
           render={ props => (
-            <BusinessContainer data={this.props.breweries} />
+            <BusinessContainer 
+              data={this.props.breweries} 
+              changeCurrentPage={this.props.changeCurrentPage} 
+              currentPage={this.props.currentPage.page}
+              loadProfile={this.props.loadProfile}
+              history={this.props.history}/>
           )}
         />
         <Route 
@@ -70,14 +78,14 @@ export class App extends Component {
               data={this.props.foodTrucks} 
               changeCurrentPage={this.props.changeCurrentPage} 
               currentPage={this.props.currentPage.page}
-              loadProfile={this.props.loadProfile}/>
+              loadProfile={this.props.loadProfile}
+              history={this.props.history}/>
           )}
         />
-        <Route path='/business/:name' render={({ match }) => {
+        <Route path='/business/:businessName' render={({ match }) => {
           const { businessName } = match.params;
           const brewery = this.props.breweries.find(brewery => (
-            brewery.name === businessName.replace('%', ' ')))
-          console.log(brewery)
+            brewery.attributes.name === (businessName)))
           return (
             <ProfilePage {...brewery} />
           )}} />
@@ -97,4 +105,4 @@ export const mapDispatchToProps = (dispatch) => ({
   loadProfile: (profile) => dispatch(loadProfile(profile))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(withFirebase(App));
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(withFirebase(App)));
