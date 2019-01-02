@@ -15,6 +15,16 @@ main {
   grid-row: 2 / span 1;
 }
 
+#wrapper {
+    width: 240px;
+    padding-left: 0.5rem;
+    height: 100vh;
+    position: absolute;
+    left:0px;
+    top: 0px;
+    transition: all 0.7s;
+}
+
 .main-title {
   font-family: 'Averia Libre', cursive;
   text-align: center;
@@ -44,7 +54,7 @@ main {
 }
 
 .hamburger-icon {
-  height: 70px;
+  height: 50px;
   position: relative;
   bottom: 70px;
   z-index: 5;
