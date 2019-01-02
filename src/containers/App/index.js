@@ -26,6 +26,10 @@ export class App extends Component {
     this.setState ({navOpen: !this.state.navOpen})
   }
 
+  handleNavBar = () => {
+    this.setState ({navOpen: !this.state.navOpen})
+  }
+
   render() {
     const { navOpen } = this.state;
     const { match, user } = this.props;
@@ -45,6 +49,7 @@ export class App extends Component {
         <div className='content-holder'>
 
         <NavBar displayStatus={this.state.navOpen} history={this.props.history}/>
+
         <Route
           exact path='/'
           render={ props => (
