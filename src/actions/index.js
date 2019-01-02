@@ -8,9 +8,9 @@ export const loadFoodTrucks = (foodTrucks) => ({
   foodTrucks
 })
 
-export const loadProfile = (profile) => ({
+export const loadProfile = (currentPage) => ({
   type: 'LOAD_PROFILE',
-  profile
+  currentPage
 })
 
 export const addUser = (user) => ({

@@ -30,7 +30,7 @@ exports[`APP should match the snapshot 1`] = `
   <div
     className="content-holder"
   >
-    <NavBar />
+    <Connect(NavBar) />
     <Route
       exact={true}
       path="/login"
@@ -40,6 +40,20 @@ exports[`APP should match the snapshot 1`] = `
       component={[Function]}
       exact={true}
       path="/"
+    />
+    <Route
+      exact={true}
+      path="/breweries"
+      render={[Function]}
+    />
+    <Route
+      exact={true}
+      path="/food_trucks"
+      render={[Function]}
+    />
+    <Route
+      path="/business/:businessName"
+      render={[Function]}
     />
   </div>
 </div>

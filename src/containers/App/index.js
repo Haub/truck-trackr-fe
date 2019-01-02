@@ -11,7 +11,7 @@ import NavBar from '../NavBar';
 import truck from '../../assets/food-truck.png';
 import barrel from '../../assets/barrel-icon-new.png';
 import { withFirebase } from '../../components/Firebase';
-
+import { loadProfile } from '../../actions'
 
 export class App extends Component {
   constructor() {
@@ -25,6 +25,9 @@ export class App extends Component {
   componentDidMount(){
     if(!this.state.login){
       this.props.history.push('/login')
+    }
+    if(!this.props.currentPage) {
+      this.props.history.push('/')
     }
   }
 
@@ -60,20 +63,29 @@ export class App extends Component {
         <Route 
           exact path='/breweries'
           render={ props => (
-            <BusinessContainer data={this.props.breweries} />
+            <BusinessContainer 
+              data={this.props.breweries} 
+              changeCurrentPage={this.props.changeCurrentPage} 
+              currentPage={this.props.currentPage.page}
+              loadProfile={this.props.loadProfile}
+              history={this.props.history}/>
           )}
         />
         <Route 
           exact path='/food_trucks'
           render={ props => (
-            <BusinessContainer data={this.props.foodTrucks} />
+            <BusinessContainer 
+              data={this.props.foodTrucks} 
+              changeCurrentPage={this.props.changeCurrentPage} 
+              currentPage={this.props.currentPage.page}
+              loadProfile={this.props.loadProfile}
+              history={this.props.history}/>
           )}
         />
-        <Route path='/business/:name' render={({ match }) => {
+        <Route path='/business/:businessName' render={({ match }) => {
           const { businessName } = match.params;
           const brewery = this.props.breweries.find(brewery => (
-            brewery.name === businessName.replace('%', ' ')))
-          console.log(brewery)
+            brewery.attributes.name === (businessName)))
           return (
             <ProfilePage {...brewery} />
           )}} />
@@ -85,7 +97,12 @@ export class App extends Component {
 
 export const mapStateToProps = (state) => ({
   breweries: state.breweries,
-  foodTrucks: state.foodTrucks
+  foodTrucks: state.foodTrucks,
+  currentPage: state.currentPage
 });
 
-export default connect(mapStateToProps, null)(withFirebase(App));
+export const mapDispatchToProps = (dispatch) => ({
+  loadProfile: (profile) => dispatch(loadProfile(profile))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(withFirebase(App)));

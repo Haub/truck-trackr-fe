@@ -10,26 +10,26 @@ exports[`NAVBAR should match the snapshot 1`] = `
     >
       My Profile
     </li>
-    <li
-      className="nav-control browse"
-    >
-      Browse
-    </li>
-    <li
+    <NavLink
+      activeClassName="active"
+      aria-current="page"
       className="nav-control breweries"
+      name="breweries"
+      onClick={[Function]}
+      to="/breweries"
     >
       Breweries
-    </li>
-    <li
+    </NavLink>
+    <NavLink
+      activeClassName="active"
+      aria-current="page"
       className="nav-control food-trucks"
+      name="food_trucks"
+      onClick={[Function]}
+      to="/food_trucks"
     >
       Food Trucks
-    </li>
-    <li
-      className="nav-control cancellations"
-    >
-      Cancellations
-    </li>
+    </NavLink>
     <input
       className="search-input"
       placeholder="Search"
