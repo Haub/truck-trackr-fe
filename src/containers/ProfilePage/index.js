@@ -34,9 +34,9 @@ export class ProfilePage extends Component {
             const { attributes } = this.props.user;
             return(
                 <div className='parent-container'>
-                    <h2 className='biz-name'>{attributes.name}</h2>
                     <div className='profile-container'>
                         <div className='biz-container'>
+                            <h2 className='biz-name'>{attributes.name}</h2>
                           <h5 className='biz-title'>Food Type:</h5>
                           <h5 className='biz-info'>{attributes.food_type}</h5>
 

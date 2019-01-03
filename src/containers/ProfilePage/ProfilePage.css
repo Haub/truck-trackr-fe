@@ -1,22 +1,30 @@
 .parent-container {
-
+  font-family: 'ZCOOL XiaoWei', serif;
+  width: 100%;
 }
 
 .profile-container {
   display: flex;
+  justify-content: space-around;
   margin-top: 6rem;
+  width: 100%;
 }
 
 .biz-name {
-  font-size: 3rem;
-  margin-top: 4rem;
-  margin-bottom: 0.5rem;
-  text-align: center;
+  font-family: 'Averia Libre', cursive;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-decoration: underline;
+  color: #6D3E48;
+  font-size: 4rem;
+  margin-top: 3rem;
+  margin-bottom: 5rem;
 }
 
 .biz-title { 
   font-size: 1.6rem;
-  margin-bottom: 0;
+  font-weight: 800;
   margin-bottom: 0.6rem;
 }
 
@@ -25,14 +33,17 @@
   margin-bottom: 1.7rem;
 }
 
-.biz-container, .upcoming-events-container {
-  margin-top: 0;
-  width: 32rem;
-
-}
 
 .biz-container {
-  /*margin-right: 1rem;*/
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 45rem;
+}
+
+.upcoming-events-container {
+  width: 32rem;
+  margin-top: 12rem;
 }
 
 .upcoming-events-title {
