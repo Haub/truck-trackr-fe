@@ -156,3 +156,18 @@ export const mockBreweries = {
        brewery_id: 105
     },
  ]
+
+ export const mockLoginUser = {
+    uid: 55,
+    account_type: 'brewery'
+ }
+
+ export const mockPostParams = [
+  'https://truck-trackr-api.herokuapp.com/login', {
+    method: 'POST',
+    body: JSON.stringify( mockLoginUser ),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  }
+]

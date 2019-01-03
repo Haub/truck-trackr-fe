@@ -38,6 +38,7 @@ export class Login extends Component {
         .doCreateUserWithEmailAndPassword(email, passwordOne)
         .then( async (authUser) => {
           let user = this.cleanUserForSignUp(authUser)
+          sessionStorage.setItem("uid", authUser.user.uid)
           let result = await helper.createNewUser(user, locationType)
           this.props.addUser(result.data)
           this.props.history.push('/profile')
@@ -49,9 +50,11 @@ export class Login extends Component {
       this.props.firebase
         .doSignInWithEmailAndPassword(email, passwordOne)
         .then( async (authUser) => {
+          sessionStorage.setItem("uid", authUser.user.uid)
           const user = this.cleanUserForLogin(authUser, locationType)
-          const response = await helper.loginUser(user)
-          console.log(response)
+          const result = await helper.loginUser(user)
+          console.log(result)
+          this.props.addUser(result.data)
           this.props.history.push('/profile')
         })
         .catch(error => {

@@ -24,7 +24,8 @@ export const loginUser = async (user) => {
         if(!response.ok) {
             throw new Error(response.statusText);
         } else {
-            return await response.json()
+            const result = await response.json()
+            return result
         }
     } catch (error) {
         throw new Error(error.message)
@@ -39,7 +40,7 @@ export const createNewUser = async (user, locationType) => {
             "Content-Type": "application/json"
           },
           body: JSON.stringify(user)
-        })
+          })
         if(!response.ok) {
             throw new Error(response.statusText)
         } else {

@@ -1,5 +1,5 @@
 import * as helper from '../utilities'
-import { mockBreweries, mockFoodTrucks } from './testMocks'
+import { mockBreweries, mockFoodTrucks, mockProfile, mockLoginUser, mockPostParams } from './testMocks'
 
 describe('helper', () => {
     describe('fetchBusinesses', () => {
@@ -55,5 +55,22 @@ describe('helper', () => {
 
             expect(helper.fetchBusinesses()).rejects.toEqual(expected)
           })
+    })
+
+    describe('loginUser', () => {
+        beforeEach(()=> {
+            window.fetch = jest.fn(() => Promise.resolve({
+                ok: true,
+                json: () => Promise.resolve(mockProfile)
+              }))
+        })
+
+        it('should call fetch with the correct URL', async () => {
+            const expected = mockPostParams;
+
+            await helper.loginUser(mockLoginUser)
+
+            expect(window.fetch).toHaveBeenCalledWith(...expected)
+        })
     })
 })
