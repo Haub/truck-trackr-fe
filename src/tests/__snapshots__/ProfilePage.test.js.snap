@@ -1,3 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`NAVBAR should match the snapshot 1`] = `<div />`;
+exports[`PROFILE PAGE should match the snapshot 1`] = `<div />`;

@@ -61,30 +61,30 @@ exports[`LOGIN should match the snapshot 1`] = `
       className="button-holder"
     >
       <input
-        className="hidden"
+        className="food-truck-radio"
         id="food-truck-button"
         name="locationType"
         onChange={[Function]}
         type="radio"
-        value="food-truck"
+        value="food_trucks"
       />
       <label
-        className="hidden"
-        for="food-truck-button"
+        className="food-truck-label"
+        htmlFor="food-truck-button"
       >
         Food Truck
       </label>
       <input
-        className="hidden"
+        className="brewery-radio"
         id="brewery-button"
         name="locationType"
         onChange={[Function]}
         type="radio"
-        value="brewery"
+        value="breweries"
       />
       <label
-        className="hidden"
-        for="brewery-button"
+        className="brewery-label"
+        htmlFor="brewery-button"
       >
         Brewery
       </label>
@@ -102,12 +102,15 @@ exports[`LOGIN should match the snapshot 1`] = `
     >
       Upload!
     </button>
-    <button
+    <NavLink
+      activeClassName="active"
+      aria-current="page"
       className="signin-button"
       onClick={[Function]}
+      to="/profile"
     >
       Sign In
-    </button>
+    </NavLink>
   </form>
   <button
     className="signup-button"

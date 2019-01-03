@@ -22,11 +22,12 @@ exports[`APP should match the snapshot 1`] = `
         />
       </span>
     </h1>
-    <section>
+    <section
+      className="hamburger-holder"
+    >
       <a
         className="hamburger-trigger"
         id="hamburger"
-
         onClick={[Function]}
       >
         <span />
@@ -38,16 +39,18 @@ exports[`APP should match the snapshot 1`] = `
   <div
     className="content-holder"
   >
-    <Connect(NavBar) />
+    <Connect(NavBar)
+      displayStatus={false}
+    />
     <Route
       exact={true}
-      path="/login"
+      path="/"
       render={[Function]}
     />
     <Route
       component={[Function]}
       exact={true}
-      path="/"
+      path="/profile"
     />
     <Route
       exact={true}

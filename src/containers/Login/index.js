@@ -3,7 +3,7 @@ import { NavLink, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux';
 import './Login.css';
 import { addUser } from '../../actions'
-
+import * as helper from '../../utilities'
 
 export class Login extends Component {
   constructor(props) {
@@ -31,50 +31,62 @@ export class Login extends Component {
 
   handleSubmit = async (e) => {
     // e.preventDefault();
-    const { username, email, passwordOne, signUp, locationType, businessName, address, phoneNumber, contactName, foodType } = this.state;
+    const { email, passwordOne, signUp, locationType} = this.state;
       if(signUp){
       this.props.firebase
         .doCreateUserWithEmailAndPassword(email, passwordOne)
         .then( async (authUser) => {
-          console.log('authUser', authUser)
-          try{
-            const user = {
-                name: businessName,
-                food_type: foodType,
-                contact_name: contactName,
-                phone: phoneNumber,
-                email,
-                uid: authUser.user.uid 
-            }
-            const response = await fetch(`https://truck-trackr-api.herokuapp.com/api/v1/${locationType}`, {
-              method: 'POST',
-              headers: {
-                "Content-Type": "application/json"
-              },
-              body: JSON.stringify(user)
-            })
-            const result = await response.json();
-            this.props.addUser(result.data)
-            this.props.history.push('/profile')
-          } catch(error) {
-            throw new Error(error.message)
-          }
-        })
+          let user = this.cleanUser(authUser)
+          let result = await helper.createNewUser(user, locationType)
+          this.props.addUser(result.data)
+          this.props.history.push('/profile')
+        }) 
         .catch(error => {
           this.setState({ error });
         });
     } else {
       this.props.firebase
         .doSignInWithEmailAndPassword(email, passwordOne)
-        .then(authUser => {
-
-          this.props.history.push('/')
+        .then( async (authUser) => {
+          const user = {
+            uid: authUser.user.uid,
+            account_type: locationType 
+          }
+          const response = await helper.loginUser(user)
+          console.log(response)
+          this.props.history.push('/profile')
           
         })
         .catch(error => {
           this.setState({ error })
         })
     }
+  }
+
+  cleanUser = (authUser) => {
+    const { username, email, passwordOne, signUp, locationType, businessName, address, phoneNumber, contactName, foodType } = this.state;
+    let user;
+      if(locationType === 'food_trucks'){
+        user = {
+          name: businessName,
+          food_type: foodType,
+          contact_name: contactName,
+          phone: phoneNumber,
+          email,
+          website: username,
+          uid: authUser.user.uid 
+      }
+    } else {
+      user = {
+        name: businessName,
+        address: address,
+        contact_name: contactName,
+        phone: phoneNumber,
+        email,
+        uid: authUser.user.uid
+      }
+    }
+    return user
   }
 
   toggleSignUp = () => {
@@ -132,7 +144,7 @@ export class Login extends Component {
 }
 
 export const mapStateToProps = (state) => ({
-    user: state.currentPage
+    user: state.user
 })
 
 export const mapDispatchToProps = (dispatch) => ({

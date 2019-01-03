@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import { Login } from '../containers/Login/';
-
+import { Login, mapDispatchToProps, mapStateToProps } from '../containers/Login/';
+import { mockProfile } from './testMocks';
 
 describe ('LOGIN', () => {
   it('should match the snapshot', () => {
@@ -24,23 +24,23 @@ describe ('LOGIN', () => {
   //   expect(spy).toHaveBeenCalled()
   // })
 
-  // describe('mapStateToProps', () => {
-  //   it('should have access to currentUser', () => {
-  //     const mockStore = {
-       
-  //     }
-  //     const expected = {...mockStore};
-  //     const result = mapStateToProps(mockStore);
-  //     expect(result).toEqual(expected);
-  //   });
-  // });
+  describe('mapStateToProps', () => {
+    it('should have access to currentUser', () => {
+      const mockStore = {
+       user: {}
+      }
+      const expected = {...mockStore};
+      const result = mapStateToProps(mockStore);
+      expect(result).toEqual(expected);
+    });
+  });
 
-  // describe('mapDispatchToProps', () => {
-  //   it('should call dispatch when loadUser is invoked', () => {
-  //     const mockDispatch = jest.fn();
-  //     const mappedProps = mapDispatchToProps(mockDispatch);
-  //     mappedProps.loadUser(mockUser);
-  //     expect(mockDispatch).toHaveBeenCalled();
-  //   });
-  // });
+  describe('mapDispatchToProps', () => {
+    it('should call dispatch when addUser is invoked', () => {
+      const mockDispatch = jest.fn();
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      mappedProps.addUser(mockProfile);
+      expect(mockDispatch).toHaveBeenCalled();
+    });
+  });
 });
