@@ -3,7 +3,7 @@ import { NavLink, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux';
 import './Login.css';
 import { addUser } from '../../actions'
-
+import * as helper from '../../utilities'
 
 export class Login extends Component {
   constructor(props) {
@@ -38,14 +38,27 @@ export class Login extends Component {
         .then( async (authUser) => {
           console.log('authUser', authUser)
           try{
-            const user = {
+            let user
+            if(locationType === 'food_trucks'){
+              user = {
                 name: businessName,
                 food_type: foodType,
                 contact_name: contactName,
                 phone: phoneNumber,
                 email,
+                website: username,
                 uid: authUser.user.uid 
             }
+          } else {
+            user = {
+              name: businessName,
+              address: address,
+              contact_name: contactName,
+              phone: phoneNumber,
+              email,
+              uid: authUser.user.uid
+            }
+          }
             const response = await fetch(`https://truck-trackr-api.herokuapp.com/api/v1/${locationType}`, {
               method: 'POST',
               headers: {
@@ -54,7 +67,6 @@ export class Login extends Component {
               body: JSON.stringify(user)
             })
             const result = await response.json();
-            console.log(response.headers)
             this.props.addUser(result.data)
             this.props.history.push('/profile')
           } catch(error) {
@@ -68,7 +80,12 @@ export class Login extends Component {
       this.props.firebase
         .doSignInWithEmailAndPassword(email, passwordOne)
         .then(authUser => {
-
+          const user = {
+            uid: authUser.user.uid,
+            account_type: locationType 
+          }
+          const response = helper.loginUser(user)
+          console.log(response)
           this.props.history.push('/profile')
           
         })
