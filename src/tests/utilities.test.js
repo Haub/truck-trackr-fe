@@ -1,4 +1,5 @@
 import * as helper from '../utilities'
+import { mockBreweries, mockFoodTrucks } from './testMocks'
 
 describe('helper', () => {
     describe('fetchBusinesses', () => {
@@ -23,6 +24,28 @@ describe('helper', () => {
             await helper.fetchBusinesses('food_trucks')
 
             expect(window.fetch).toHaveBeenCalledWith(expected)
-        })          
+        })
+        
+          it('should return breweries if the status is ok', async () => {
+            window.fetch = jest.fn(() => Promise.resolve({
+                ok: true,
+                json: () => Promise.resolve(mockBreweries)
+              }))
+
+            const expected = mockBreweries;
+            const result = await helper.fetchBusinesses('breweries');
+            expect(result).toEqual(expected)
+          })
+
+          it('should return foodTrucks if the status is ok', async () => {
+            window.fetch = jest.fn(() => Promise.resolve({
+                ok: true,
+                json: () => Promise.resolve(mockFoodTrucks)
+              }))
+
+            const expected = mockFoodTrucks;
+            const result = await helper.fetchBusinesses('food_trucks');
+            expect(result).toEqual(expected)
+          })
     })
 })
