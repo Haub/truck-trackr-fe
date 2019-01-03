@@ -47,5 +47,13 @@ describe('helper', () => {
             const result = await helper.fetchBusinesses('food_trucks');
             expect(result).toEqual(expected)
           })
+
+          it('should throw an error if status is not ok', async () => {
+            window.fetch = jest.fn(() => Promise.resolve({ ok: false, statusText: 'fetch failed.'}))
+
+            const expected = Error('fetch failed.')
+
+            expect(helper.fetchBusinesses()).rejects.toEqual(expected)
+          })
     })
 })
