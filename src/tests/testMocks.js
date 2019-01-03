@@ -125,6 +125,7 @@ export const mockUpdatedEvents = [
     brewery_id: 105
   },
   {
+
     id: 434,
     date: "04/08/2018",
     truck_booked: false,
