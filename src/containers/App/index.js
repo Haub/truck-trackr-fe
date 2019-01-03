@@ -32,12 +32,11 @@ export class App extends Component {
   }
 
   handleNavBar = (e) => {
-    document.querySelector('.menu-trigger').classList.toggle('active')
+    document.querySelector('.hamburger-trigger').classList.toggle('active')
     this.setState ({navOpen: !this.state.navOpen})
   }
 
   render() {
-    let navBar;
     const { navOpen } = this.state;
     const { match } = this.props;
 
@@ -46,7 +45,7 @@ export class App extends Component {
         <header>
           <h1 className='main-title'><span><img src={ truck } className='truck-icon'/></span>TruckTrackr<span><img src={ barrel } className='barrel-icon'/></span></h1>
           <section>
-            <a onClick={ this.handleNavBar} className="menu-trigger" id="menu05">
+            <a onClick={ this.handleNavBar} className="hamburger-trigger" id="hamburger">
               <span></span>
               <span></span>
               <span></span>
@@ -56,10 +55,11 @@ export class App extends Component {
         </header>
 
         <div className='content-holder'>
-        { this.state.navOpen &&
+
+        { navOpen &&
           <NavBar history={this.props.history}/>
         }
-        { !this.state.navOpen &&
+        { !navOpen &&
           <div id="wrapper">
             <span id="openbtn"  onClick={this.handleNavBar}></span>
           </div>

@@ -5,7 +5,7 @@ Truck-Trackr is an application that was created to help solve the business need 
 
 See it live @ [Heroku](https://trucktrackr.herokuapp.com/)
 
-##Screenshots
+## Screenshots
 
 
 ## Getting Started
@@ -24,26 +24,26 @@ This is a general guide to setting up Truck-Trackr on your local machine.
 
 ## Technologies Used
 
-###Front-End
+### Front-End
 * React
 * React-Router
 * Redux
 
-###Back-End
+### Back-End
 * Ruby / Ruby on Rails
 
 
-##Testing
+## Testing
 Truck-Trackr uses Jest and Enzyme for front-end testing.  Run `npm test` from the root directory.
 
 
-##Contributors
+## Contributors
 
-###Front-End
+### Front-End
 [Megan Haubelt](https://github.com/Haub/)
 [Freddie Levenson](https://github.com/flevenson)
 
-###Back-End [link to repo](https://github.com/KathleenYruegas/truck-trackr-be)
+### Back-End [link to repo](https://github.com/KathleenYruegas/truck-trackr-be)
 [Kathleen Yruegas](https://github.com/KathleenYruegas)
 [Abdulla Qudrat](https://github.com/abdullaqudrat)
 

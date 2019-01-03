@@ -22,10 +22,17 @@ exports[`APP should match the snapshot 1`] = `
         />
       </span>
     </h1>
-    <img
-      className="hamburger-icon"
-      src="hamburger.svg"
-    />
+    <section>
+      <a
+        className="hamburger-trigger"
+        id="hamburger"
+        onClick={[Function]}
+      >
+        <span />
+        <span />
+        <span />
+      </a>
+    </section>
   </header>
   <div
     className="content-holder"
