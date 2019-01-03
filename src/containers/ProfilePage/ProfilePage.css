@@ -1,0 +1,76 @@
+.profile-container {
+  display: flex;
+  justify-content: space-around;
+}
+.calendar-container {
+  margin: 6rem 0;
+}
+
+.biz-name {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.biz-title { 
+  font-size: 2rem;
+  margin-bottom: 0;
+  margin-bottom: 0.6rem;
+}
+
+.biz-info {
+  font-size: 1.4rem;
+  margin-bottom: 1.7rem;
+}
+
+.biz-container, .upcoming-events-container {
+  width: 40%;
+  margin-top: 0;
+}
+
+.biz-container {
+  margin-right: 2rem;
+  width: 43%;
+}
+
+.upcoming-events-title {
+  background-color: #8a646c;
+  font-size: 2.5rem;
+  line-height: 5rem;
+  font-weight: 400;  
+  text-align: center;
+  border: 2px solid; 
+}
+
+.upcoming-events-date {
+  font-size: 1.5rem;
+  line-height: 3.5rem;
+  margin: 0;
+  background-color: #FEECC8;
+  border: 2px solid;
+  color: #594E42;
+}
+
+.upcoming-events-status {
+  margin-left: 2rem;
+}
+
+.calendar {
+  display: inline-block;
+  width: 10rem;
+  margin-bottom: 3rem;
+}
+
+.day {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  font-weight: 800;
+}
+.circle {
+  padding-top: 40px;
+  height: 90px;
+  width: 90px;
+  background-color: #6D3E48;
+  border-radius: 50%;
+  text-align: center;
+  color: #FEECC8;
+}
