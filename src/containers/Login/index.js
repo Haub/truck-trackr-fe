@@ -31,34 +31,14 @@ export class Login extends Component {
 
   handleSubmit = async (e) => {
     // e.preventDefault();
-    const { username, email, passwordOne, signUp, locationType, businessName, address, phoneNumber, contactName, foodType } = this.state;
+    const { email, passwordOne, signUp, locationType} = this.state;
       if(signUp){
       this.props.firebase
         .doCreateUserWithEmailAndPassword(email, passwordOne)
         .then( async (authUser) => {
           console.log('authUser', authUser)
           try{
-            let user
-            if(locationType === 'food_trucks'){
-              user = {
-                name: businessName,
-                food_type: foodType,
-                contact_name: contactName,
-                phone: phoneNumber,
-                email,
-                website: username,
-                uid: authUser.user.uid 
-            }
-          } else {
-            user = {
-              name: businessName,
-              address: address,
-              contact_name: contactName,
-              phone: phoneNumber,
-              email,
-              uid: authUser.user.uid
-            }
-          }
+            let user = this.createUser(authUser)
             const response = await fetch(`https://truck-trackr-api.herokuapp.com/api/v1/${locationType}`, {
               method: 'POST',
               headers: {
@@ -93,6 +73,32 @@ export class Login extends Component {
           this.setState({ error })
         })
     }
+  }
+
+  createUser = (authUser) => {
+    const { username, email, passwordOne, signUp, locationType, businessName, address, phoneNumber, contactName, foodType } = this.state;
+    let user;
+      if(locationType === 'food_trucks'){
+        user = {
+          name: businessName,
+          food_type: foodType,
+          contact_name: contactName,
+          phone: phoneNumber,
+          email,
+          website: username,
+          uid: authUser.user.uid 
+      }
+    } else {
+      user = {
+        name: businessName,
+        address: address,
+        contact_name: contactName,
+        phone: phoneNumber,
+        email,
+        uid: authUser.user.uid
+      }
+    }
+    return user
   }
 
   toggleSignUp = () => {
