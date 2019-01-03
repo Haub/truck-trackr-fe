@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom'
+import { NavLink, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux';
 import './Login.css';
+import { addUser } from '../../actions'
 
 
 export class Login extends Component {
@@ -28,14 +29,36 @@ export class Login extends Component {
     })
   }
 
-  handleSubmit = (event) => {
-    event.preventDefault();
-    const { username, email, passwordOne, signUp } = this.state;
+  handleSubmit = async (e) => {
+    // e.preventDefault();
+    const { username, email, passwordOne, signUp, locationType, businessName, address, phoneNumber, contactName, foodType } = this.state;
       if(signUp){
       this.props.firebase
         .doCreateUserWithEmailAndPassword(email, passwordOne)
-        .then(authUser => {
-          this.props.history.push('/');
+        .then( async (authUser) => {
+          console.log('authUser', authUser)
+          try{
+            const user = {
+                name: businessName,
+                food_type: foodType,
+                contact_name: contactName,
+                phone: phoneNumber,
+                email,
+                uid: authUser.user.uid 
+            }
+            const response = await fetch(`https://truck-trackr-api.herokuapp.com/api/v1/${locationType}`, {
+              method: 'POST',
+              headers: {
+                "Content-Type": "application/json"
+              },
+              body: JSON.stringify(user)
+            })
+            const result = await response.json();
+            this.props.addUser(result.data)
+            this.props.history.push('/profile')
+          } catch(error) {
+            throw new Error(error.message)
+          }
         })
         .catch(error => {
           this.setState({ error });
@@ -44,7 +67,9 @@ export class Login extends Component {
       this.props.firebase
         .doSignInWithEmailAndPassword(email, passwordOne)
         .then(authUser => {
+
           this.props.history.push('/')
+          
         })
         .catch(error => {
           this.setState({ error })
@@ -75,7 +100,7 @@ export class Login extends Component {
     const { signUp, locationType } = this.state
     let showFoodType
 
-    if( signUp && locationType === 'food-truck' ){
+    if( signUp && locationType === 'food_trucks' ){
       showFoodType = true
     }
 
@@ -91,14 +116,14 @@ export class Login extends Component {
             <input className={ showFoodType ? 'food-type-input' : 'hidden' } name='foodType' placeholder='Food Type' onChange={this.handleKeyPress} />
             <p className={ signUp ? 'business-type' : 'hidden' }>What Type of Business:</p>
             <div className='button-holder'>
-              <input className={ signUp ? 'food-truck-radio' : 'hidden' } type='radio' name='locationType' value='food-truck' id='food-truck-button' onChange={this.handleKeyPress} />
-              <label className={ signUp ? 'food-truck-label' : 'hidden' } for='food-truck-button'>Food Truck</label>
-              <input className={ signUp ? 'brewery-radio' : 'hidden' } type='radio' name='locationType' value='brewery' id='brewery-button'onChange={this.handleKeyPress} />
-              <label className={ signUp ? 'brewery-label' : 'hidden' } for='brewery-button'>Brewery</label>
+              <input className={'food-truck-radio'} type='radio' name='locationType' value='food_trucks' id='food-truck-button' onChange={this.handleKeyPress} />
+              <label className={'food-truck-label'} htmlFor='food-truck-button'>Food Truck</label>
+              <input className={'brewery-radio'} type='radio' name='locationType' value='breweries' id='brewery-button'onChange={this.handleKeyPress} />
+              <label className={'brewery-label'} htmlFor='brewery-button'>Brewery</label>
             </div>
             <input className={ signUp ? 'logo-input' : 'hidden' } name='logo' placeholder='Upload logo' onChange={this.handleKeyPress} type='file' />
             <button className={ signUp ? 'logo-button' : 'hidden' } onClick={this.uploadHandler}>Upload!</button>
-            <button className='signin-button' onClick={this.handleSubmit}>{ signUp ? 'Sign Up' : 'Sign In' }</button>
+            <NavLink to='/profile' className='signin-button' onClick={(e) => this.handleSubmit(e)}>{ signUp ? 'Sign Up' : 'Sign In' }</NavLink>
           </form>
           <button className='signup-button' onClick={this.toggleSignUp}>{ signUp ? 'Actually I already have an account' : 'First Time Here? Sign Up!'}</button>
         </main>
@@ -106,4 +131,12 @@ export class Login extends Component {
   }
 }
 
-export default withRouter(Login)
+export const mapStateToProps = (state) => ({
+    user: state.currentPage
+})
+
+export const mapDispatchToProps = (dispatch) => ({
+  addUser: (user) => dispatch(addUser(user))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Login))

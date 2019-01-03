@@ -1,84 +1,96 @@
-export const mockBreweries = [
- 
-    {
-     id: 105,
-     name: 'Call to Arms',
-     address: '4300 Tennyson Street',
-     contact_name: 'Joe Smith',
-     phone: '303-333-3333',
-     email: 'calltoarms@gmail.com',
-     website: 'www.calltoarms.com',
-     uuid: 'asdsa1212'
-   },
- 
-    {
-     id: 102,
-     name: 'Zuni Street Brewery',
-     address: '2900 Zuni Street',
-     contact_name: 'George Smith',
-     phone: '303-999-9999',
-     email: 'zunistreet@gmail.com',
-     website: 'www.zunistreet.com',
-     uuid: 'sdfssd2322'
-   }
- ];
+export const mockBreweries = {
+  "data": [
+            {
+              "id": "1",
+              "type": "brewery",
+              "attributes": {
+                  "name": "Lockman Inc"
+              }
+            },
+            {
+              "id": "2",
+              "type": "brewery",
+              "attributes": {
+                  "name": "Cremin, Nikolaus and Volkman"
+              }
+            }
+          ]
+};
  
   export const mockBrewery = {
-     id: 105,
-     name: 'Call to Arms',
-     address: '4300 Tennyson Street',
-     contact_name: 'Joe Smith',
-     phone: '303-333-3333',
-     email: 'calltoarms@gmail.com',
-     website: 'www.calltoarms.com',
-     uuid: 'asdsa1212'
- };
+    "data": [
+      {
+        "id": "1",
+        "type": "brewery",
+        "attributes": {
+          "name": "Heads Of State",
+          "address": "Risotto with Seafood",
+          "contact_name": "Pamala",
+          "phone": "344.694.9247",
+          "email": "young@champlin.biz",
+          "website": "http://hosbeer.com",
+          "logo_image": "https://pigment.github.io/fake-logos/logos/medium/color/11.png"
+        }
+      }
+    ]
+  };
  
   export const mockFoodTrucks = [
-   {
-     id: 33,
-     name: 'Little India',
-     food_type: 'Indian',
-     contact_name: 'Jill Smith',
-     phone: '303-222-2222',
-     email: 'littleindia@gmail.com',
-     website: 'www.littleindia.com',
-     uuid: 'sfadasd932'
-   },
- 
     {
-     id: 13,
-     name: 'Quiero Arepas',
-     food_type: 'Venezuelan',
-     contact_name: 'Jack Smith',
-     phone: '303-888-9999',
-     email: 'quieroarepas@gmail.com',
-     website: 'www.quieroarepas.com',
-     uuid: 'jdfdjd222'
-   }
- ];
+      "data": [
+        {
+          "id": "1",
+          "type": "food_truck",
+          "attributes": {
+            "name": "Hot Pasta"
+          }
+        },
+        {
+          "id": "2",
+          "type": "food_truck",
+          "attributes": {
+              "name": "Hell On Wheels",
+          }
+        }
+      ]
+    }
+  ]
  
   export const mockFoodTruck = {
-     id: 13,
-     name: 'Quiero Arepas',
-     food_type: 'Venezuelan',
-     contact_name: 'Jack Smith',
-     phone: '303-888-9999',
-     email: 'quieroarepas@gmail.com',
-     website: 'www.quieroarepas.com',
-     uuid: 'jdfdjd222'
- };
+    "data": [
+      {
+        "id": "1",
+        "type": "food_truck",
+        "attributes": {
+          "name": "Hot Pasta",
+          "food_type": "Risotto with Seafood",
+          "contact_name": "Pamala",
+          "phone": "344.694.9247",
+          "email": "young@champlin.biz",
+          "website": "http://hopo.com",
+          "logo_image": "https://pigment.github.io/fake-logos/logos/medium/color/11.png"
+        }
+      }
+    ]
+  };
  
   export const mockProfile = {
-   id: 33,
-   name: 'Little India',
-   food_type: 'Indian',
-   contact_name: 'Jill Smith',
-   phone: '303-222-2222',
-   email: 'littleindia@gmail.com',
-   website: 'www.littleindia.com',
-   uuid: 'sfadasd932'
- };
+    "data": [
+      {
+        "id": "1",
+        "type": "brewery",
+        "attributes": {
+          "name": "Heads Of State",
+          "address": "Risotto with Seafood",
+          "contact_name": "Pamala",
+          "phone": "344.694.9247",
+          "email": "young@champlin.biz",
+          "website": "http://hosbeer.com",
+          "logo_image": "https://pigment.github.io/fake-logos/logos/medium/color/11.png"
+        }
+      }
+    ]
+  };
  
   export const mockEvent = {
    id: 435,

@@ -8,8 +8,8 @@ import { mockFoodTrucks, mockBreweries } from '../../tests/testMocks';
 import './NavBar.css'
 
 export class NavBar extends Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {
 
         }
@@ -45,12 +45,12 @@ export class NavBar extends Component {
 
     render(){
         return (
-            <nav>
+            <nav className={this.props.displayStatus ? 'display' : 'hidden-nav'}>
                 <ul className='nav-controls'>
-                    <li className='nav-control my-profile'>My Profile</li>
-                    <NavLink to='/breweries' onClick={this.loadData} name='breweries' className='nav-control breweries'>Breweries</NavLink>
-                    <NavLink to='/food_trucks' onClick={this.loadData} name='food_trucks' className='nav-control food-trucks'>Food Trucks</NavLink>
-                    <input className='search-input' placeholder='Search'/>
+                    <li className='nav-control my-profile' className={this.props.displayStatus ? 'nav-control my-profile' : 'hidden'}>My Profile</li>
+                    <NavLink to='/breweries' onClick={this.loadData} name='breweries' className={this.props.displayStatus ? 'nav-control breweries' : 'hidden'}>Breweries</NavLink>
+                    <NavLink to='/food_trucks' onClick={this.loadData} name='food_trucks' className={this.props.displayStatus ? 'nav-control food-trucks' : 'hidden'}>Food Trucks</NavLink>
+                    <input className={this.props.displayStatus ? 'nav-control search-input' : 'hidden'} placeholder='Search'/>
                 </ul>
             </nav>
         )

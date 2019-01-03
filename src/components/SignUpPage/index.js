@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { FirebaseContext, withFirebase } from '../Firebase';
-import { Login } from '../../containers/Login'
+import Login from '../../containers/Login'
 import { withRouter } from 'react-router-dom'
 
 
