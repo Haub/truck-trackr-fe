@@ -36,35 +36,23 @@ export class Login extends Component {
       this.props.firebase
         .doCreateUserWithEmailAndPassword(email, passwordOne)
         .then( async (authUser) => {
-          console.log('authUser', authUser)
-          try{
-            let user = this.createUser(authUser)
-            const response = await fetch(`https://truck-trackr-api.herokuapp.com/api/v1/${locationType}`, {
-              method: 'POST',
-              headers: {
-                "Content-Type": "application/json"
-              },
-              body: JSON.stringify(user)
-            })
-            const result = await response.json();
-            this.props.addUser(result.data)
-            this.props.history.push('/profile')
-          } catch(error) {
-            throw new Error(error.message)
-          }
-        })
+          let user = this.cleanUser(authUser)
+          let result = await helper.createNewUser(user, locationType)
+          this.props.addUser(result.data)
+          this.props.history.push('/profile')
+        }) 
         .catch(error => {
           this.setState({ error });
         });
     } else {
       this.props.firebase
         .doSignInWithEmailAndPassword(email, passwordOne)
-        .then(authUser => {
+        .then( async (authUser) => {
           const user = {
             uid: authUser.user.uid,
             account_type: locationType 
           }
-          const response = helper.loginUser(user)
+          const response = await helper.loginUser(user)
           console.log(response)
           this.props.history.push('/profile')
           
@@ -75,7 +63,7 @@ export class Login extends Component {
     }
   }
 
-  createUser = (authUser) => {
+  cleanUser = (authUser) => {
     const { username, email, passwordOne, signUp, locationType, businessName, address, phoneNumber, contactName, foodType } = this.state;
     let user;
       if(locationType === 'food_trucks'){

@@ -24,8 +24,26 @@ export const loginUser = async (user) => {
         if(!response.ok) {
             throw new Error(response.statusText);
         } else {
-            const result = await response.json()
-            return result
+            return await response.json()
+        }
+    } catch (error) {
+        throw new Error(error.message)
+    }
+}
+
+export const createNewUser = async (user, locationType) => {
+    try{
+        const response = await fetch(`https://truck-trackr-api.herokuapp.com/api/v1/${locationType}`, {
+          method: 'POST',
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(user)
+        })
+        if(!response.ok) {
+            throw new Error(response.statusText)
+        } else {
+            return await response.json()
         }
     } catch (error) {
         throw new Error(error.message)
