@@ -33,41 +33,12 @@ export class ProfilePage extends Component {
         } else if(currentPage && user.type === 'food_truck'){
             const { attributes } = this.props.user;
             return(
-                <div>
-                    <div className='calendar-container'>
-                      <span className='calendar'>
-                        <h4 className='day'>Monday</h4>
-                        <div className='circle'>1</div>
-                      </span>
-                      <span className='calendar'>
-                        <h4 className='day'>Tuesday</h4>
-                        <div className='circle'>2</div>
-                      </span>
-                      <span className='calendar'>
-                        <h4 className='day'>Wednesday</h4>
-                        <div className='circle'>3</div>
-                      </span>
-                      <span className='calendar'>
-                        <h4 className='day'>Thursday</h4>
-                        <div className='circle'>4</div>
-                      </span>
-                      <span className='calendar'>
-                        <h4 className='day'>Friday</h4>
-                        <div className='circle'>5</div>
-                      </span>
-                      <span className='calendar'>
-                        <h4 className='day'>Saturday</h4>
-                        <div className='circle'>6</div>
-                      </span>
-                      <span className='calendar'>
-                        <h4 className='day'>Sunday</h4>
-                        <div className='circle'>7</div>
-                      </span>
-                    </div>
+                <div className='parent-container'>
+                    <h2 className='biz-name'>{attributes.name}</h2>
                     <div className='profile-container'>
                         <div className='biz-container'>
-                          <h3 className='biz-name'>{attributes.name}</h3>
-                          <h5 className='biz-info'>Type: {attributes.food_type}</h5>
+                          <h5 className='biz-title'>Food Type:</h5>
+                          <h5 className='biz-info'>{attributes.food_type}</h5>
 
                           <h5 className='biz-title'>Phone Number:</h5>
                           <h5 className='biz-info'>{attributes.phone}</h5>
