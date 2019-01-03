@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import './ProfilePage.css'
-import SignUpPage from '../../components/SignUpPage'
+import './ProfilePage.css';
+import SignUpPage from '../../components/SignUpPage';
+import { addUser } from '../../actions';
+import { mockProfile } from '../../tests/testMocks';
 
 export class ProfilePage extends Component {
     constructor(props){
@@ -10,24 +12,29 @@ export class ProfilePage extends Component {
     }
 
     componentDidMount(){
-        if(!Object.keys(this.props.currentPage).length){
-            this.props.history.push('/')
-        }
+        // if(!Object.keys(this.props.currentPage).length){
+        //     this.props.history.push('/')
+        // }
+        this.props.addUser(mockProfile)
     }
 
+
+
     render(){
-        const { currentPage } = this.props;
+        const { currentPage, user } = this.props;
         // const header = currentPage.replace('_', ' ').toUpperCase()
         // const lowerCaseBiz = header.toLowerCase();
-        if(!Object.keys(currentPage).length){
+        if(!Object.keys(currentPage).length && !user){
            return(
-               <div></div>
+               <div>
+                <h3>hello</h3>   
+               </div>
            )
-        } else if(currentPage && currentPage.data.type === 'food_truck'){
-            const { attributes } = this.props.currentPage.data
+        } else if(currentPage && user.type === 'food_truck'){
+            const { attributes } = this.props.user;
             return(
                 <div>
-                    <div>
+                    <div className='calendar-container'>
                       <span className='calendar'>
                         <h4 className='day'>Monday</h4>
                         <div className='circle'>1</div>
@@ -57,16 +64,14 @@ export class ProfilePage extends Component {
                         <div className='circle'>7</div>
                       </span>
                     </div>
-                    <div>
-                        <h3>{attributes.name}</h3>
-                        <h4>Food Type: {attributes.food_type}</h4>
-                    </div>
+          
                 </div>
             )
-        } else if (currentPage && currentPage.data.type === 'brewery'){
+        } else if (currentPage && user.type === 'brewery'){
             const { attributes } = this.props.currentPage.data
             return(
                 <div>
+                    <h3>hi!!!!</h3>
                 </div>
             )
         } else {
@@ -79,7 +84,12 @@ export class ProfilePage extends Component {
 }
 
 export const mapStateToProps = (state) => ({
-    currentPage: state.currentPage
+    currentPage: state.currentPage,
+    user: state.user
 })
 
-export default connect(mapStateToProps, null)(ProfilePage)
+export const mapDispatchToProps = (dispatch) => ({
+    addUser: (user) => dispatch(addUser(user))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProfilePage)
