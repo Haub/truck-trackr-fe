@@ -46,3 +46,13 @@ nav {
     color: #6D3E48;
     margin: 0;
 }
+
+.hidden-nav {
+   width: 0px;
+   border: none;
+   margin: 0px;
+   padding: 0px;
+   transition: all .4s;
+
+}
+
