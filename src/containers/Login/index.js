@@ -54,6 +54,7 @@ export class Login extends Component {
               body: JSON.stringify(user)
             })
             const result = await response.json();
+            console.log(response.headers)
             this.props.addUser(result.data)
             this.props.history.push('/profile')
           } catch(error) {
@@ -68,7 +69,7 @@ export class Login extends Component {
         .doSignInWithEmailAndPassword(email, passwordOne)
         .then(authUser => {
 
-          this.props.history.push('/')
+          this.props.history.push('/profile')
           
         })
         .catch(error => {
@@ -132,7 +133,7 @@ export class Login extends Component {
 }
 
 export const mapStateToProps = (state) => ({
-    user: state.currentPage
+    user: state.user
 })
 
 export const mapDispatchToProps = (dispatch) => ({

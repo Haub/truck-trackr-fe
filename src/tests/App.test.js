@@ -2,20 +2,19 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { mapStateToProps, mapDispatchToProps } from '../containers/App/';
 import { App } from '../containers/App/';
-import { mockProfile } from '../utilities/mockData.js';
+import { mockProfile } from './testMocks.js';
 
 
 describe ('APP', () => {
   
   it('should match the snapshot', () => {
-    const wrapper = shallow(<App />);
+    const wrapper = shallow(<App user={ mockProfile }/>);
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('should have default state login and navOpen set to true ', () => {
-    const wrapper = shallow(<App />)
-    expect(wrapper.state().login).toEqual(true);
-    expect(wrapper.state().navOpen).toEqual(true);
+  it('should have default state login and navOpen set to false ', () => {
+    const wrapper = shallow(<App user={ mockProfile }/>)
+    expect(wrapper.state().navOpen).toEqual(false);
   });
 
   describe('mapStateToProps', () => {
