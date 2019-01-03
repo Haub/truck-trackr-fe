@@ -22,7 +22,7 @@ export class Login extends Component {
     }
   }
 
-  
+
   handleKeyPress = (event) => {
     const { name, value } = event.target;
     this.setState({
@@ -37,7 +37,7 @@ export class Login extends Component {
       this.props.firebase
         .doCreateUserWithEmailAndPassword(email, passwordOne)
         .then( async (authUser) => {
-          let user = this.cleanUser(authUser)
+          let user = this.cleanUserForSignUp(authUser)
           let result = await helper.createNewUser(user, locationType)
           this.props.addUser(result.data)
           this.props.history.push('/profile')
@@ -49,14 +49,10 @@ export class Login extends Component {
       this.props.firebase
         .doSignInWithEmailAndPassword(email, passwordOne)
         .then( async (authUser) => {
-          const user = {
-            uid: authUser.user.uid,
-            account_type: locationType 
-          }
+          const user = this.cleanUserForLogin(authUser, locationType)
           const response = await helper.loginUser(user)
           console.log(response)
           this.props.history.push('/profile')
-          
         })
         .catch(error => {
           this.setState({ error })
@@ -64,7 +60,7 @@ export class Login extends Component {
     }
   }
 
-  cleanUser = (authUser) => {
+  cleanUserForSignUp = (authUser) => {
     const { username, email, passwordOne, signUp, locationType, businessName, address, phoneNumber, contactName, foodType } = this.state;
     let user;
       if(locationType === 'food_trucks'){
@@ -88,6 +84,22 @@ export class Login extends Component {
       }
     }
     return user
+  }
+
+  cleanUserForLogin = (authUser, locationType) => {
+    let user;
+    if(locationType === 'food_trucks'){
+      user = {
+          uid: authUser.user.uid,
+          account_type: 'food_truck' 
+      }
+    } else {
+      user = {
+          uid: authUser.user.uid,
+          account_type: 'brewery' 
+      }
+    }
+    return user;
   }
 
   toggleSignUp = () => {
