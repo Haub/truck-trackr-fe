@@ -64,7 +64,26 @@ export class ProfilePage extends Component {
                         <div className='circle'>7</div>
                       </span>
                     </div>
-          
+                    <div className='profile-container'>
+                        <div className='biz-container'>
+                          <h3 className='biz-name'>{attributes.name}</h3>
+                          <h5 className='biz-info'>Type: {attributes.food_type}</h5>
+
+                          <h5 className='biz-title'>Phone Number:</h5>
+                          <h5 className='biz-info'>{attributes.phone}</h5>
+
+                          <h5 className='biz-title'>Contact Name:</h5>
+                          <h5 className='biz-info'>{attributes.contact_name}</h5>
+
+                          <h5 className='biz-title'>Email:</h5>
+                          <h5 className='biz-info'>{attributes.email}</h5>
+
+                          <h5 className='biz-title'>Website:</h5>
+                          <a href={attributes.website} target='blank' className='biz-info'>{attributes.website}</a>
+                        </div>
+
+                        
+                    </div>
                 </div>
             )
         } else if (currentPage && user.type === 'brewery'){
