@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "axios": "^0.18.0",
     "enzyme-to-json": "^3.3.5",
     "firebase": "^5.7.1",
     "firebaseui": "^3.5.1",
@@ -11,7 +12,7 @@
     "react-dom": "^16.6.3",
     "react-redux": "^6.0.0",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "2.1.1",
+    "react-scripts": "^2.1.2",
     "redux": "^4.0.1"
   },
   "scripts": {
@@ -39,7 +40,10 @@
       "!src/index.js",
       "!src/serviceWorker.js",
       "!src/setupTests.js",
-      "!src/reducers/index.js"
+      "!src/reducers/index.js",
+      "!src/components/Firebase/context.js",
+      "!src/components/Firebase/index.js",
+      "!src/components/Firebase/firebase.js"
     ]
   }
 }

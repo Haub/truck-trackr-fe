@@ -18,7 +18,7 @@ export class NavBar extends Component {
     loadData = async (event) => {
         const businessType = event.target.getAttribute('name')
 
-       const result = helper.fetchBusinesses(businessType)
+       const result = await helper.fetchBusinesses(businessType)
         if(businessType === 'breweries'){
             this.props.loadProfile({page: 'breweries'})
             this.props.loadBreweries(result.data)
