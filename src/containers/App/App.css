@@ -56,7 +56,7 @@ section:after {
   width: 50px;
   height: 44px;
 }
-.hamburger-trigger.active span {
+.hamburger-trigger.true span {
   border: 2px solid #FEECC8;
   background-color: #FEECC8;
   transition: all .2s;
@@ -78,17 +78,17 @@ section:after {
 .hamburger-trigger span:nth-of-type(3) {
   bottom: 0;
 }
-#hamburger.active span:nth-of-type(1) {
+#hamburger.true span:nth-of-type(1) {
   -webkit-transform: translateY(20px) rotate(-45deg);
   transform: translateY(20px) rotate(-45deg);
 }
-#hamburger.active span:nth-of-type(2) {
+#hamburger.true span:nth-of-type(2) {
   left: 50%;
   opacity: 0;
   -webkit-animation: active-hamburger-bar02 .8s forwards;
   animation: active-hamburger-bar02 .8s forwards;
 }
-#hamburger.active span:nth-of-type(3) {
+#hamburger.true span:nth-of-type(3) {
   -webkit-transform: translateY(-20px) rotate(45deg);
   transform: translateY(-20px) rotate(45deg);
 }

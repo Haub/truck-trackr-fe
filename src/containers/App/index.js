@@ -22,7 +22,7 @@ export class App extends Component {
   }
 
   handleNavBar = e => {
-    document.querySelector(".hamburger-trigger").classList.toggle("active");
+    // document.querySelector(".hamburger-trigger").classList.toggle("active");
     this.setState({ navOpen: !this.state.navOpen });
   };
 
@@ -51,7 +51,7 @@ export class App extends Component {
           >
             <a
               onClick={this.handleNavBar}
-              className="hamburger-trigger"
+              className={`hamburger-trigger ${this.state.navOpen}`}
               id="hamburger"
             >
               <span />
