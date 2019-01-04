@@ -121,5 +121,15 @@ describe("helper", () => {
 
         expect(window.fetch).toHaveBeenCalledWith(...expected)
     });
+
+    it("throws an error if the response is not OK", async () => {
+        const expected = Error("user not found");
+  
+        window.fetch = jest.fn(() =>
+          Promise.resolve({ ok: false, statusText: "user not found" })
+        );
+  
+        expect(helper.createNewUser()).rejects.toEqual(expected);
+      });
   });
 });
