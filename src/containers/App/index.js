@@ -102,4 +102,13 @@ export const mapDispatchToProps = (dispatch) => ({
   addUser: (user) => dispatch(addUser(user))
 })
 
+const { object, func, array } = PropTypes;
+
+App.propTypes = {
+ breweries: array,
+ foodTrucks: array,
+ currentPage: object,
+ loadProfile: func
+};
+
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(withFirebase(App)));

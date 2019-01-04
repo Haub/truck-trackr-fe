@@ -91,4 +91,12 @@ export const mapDispatchToProps = (dispatch) => ({
     addUser: (user) => dispatch(addUser(user))
 })
 
+const { object, func } = PropTypes;
+
+ProfilePage.propTypes = {
+    user: object,
+    currentPage: object,
+    addUser: func
+};
+
 export default connect(mapStateToProps, mapDispatchToProps)(ProfilePage)
