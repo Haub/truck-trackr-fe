@@ -1,10 +1,10 @@
 import app from 'firebase/app';
 import 'firebase/auth';
-import { config } from '../../utilities/config.js';
+// import { config } from '../../utilities/config.js';
 
-let configuration = config || {
+let configuration = {
   apiKey: process.env.apiKey,
-  auhDomain: process.env.authDomain,
+  authDomain: process.env.authDomain,
   databaseURL: process.env.databaseURL,
   messagingSenderId: process.env.messagingSenderId,
   projectId: process.env.projectId,
