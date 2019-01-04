@@ -42,7 +42,7 @@ export class NavBar extends Component {
         return (
             <nav className={this.props.displayStatus ? 'display' : 'hidden-nav'}>
                 <ul className='nav-controls'>
-                    <li className='nav-control my-profile' className={this.props.displayStatus ? 'nav-control my-profile' : 'hidden'}>My Profile</li>
+                    <NavLink to='/profile' onClick={() => this.props.loadProfile(this.props.user)} className='nav-control my-profile' className={this.props.displayStatus ? 'nav-control my-profile' : 'hidden'}>My Profile</NavLink>
                     <NavLink to='/breweries' onClick={(e) => this.loadData(e)} name='breweries' className={this.props.displayStatus ? 'nav-control breweries' : 'hidden'}>Breweries</NavLink>
                     <NavLink to='/food_trucks' onClick={(e) => this.loadData(e)} name='food_trucks' className={this.props.displayStatus ? 'nav-control food-trucks' : 'hidden'}>Food Trucks</NavLink>
                     <input className={this.props.displayStatus ? 'nav-control search-input' : 'hidden'} placeholder='Search'/>
@@ -51,6 +51,10 @@ export class NavBar extends Component {
         )
     }
 }
+
+export const mapStateToProps = (state) => ({
+    user: state.user
+})
 
 export const mapDispatchToProps = (dispatch) => ({
     loadBreweries: (breweries) => dispatch(loadBreweries(breweries)),
@@ -66,4 +70,4 @@ NavBar.propTypes = {
  loadProfile: func
 };
 
-export default connect(null, mapDispatchToProps)(NavBar);
+export default connect(mapStateToProps, mapDispatchToProps)(NavBar);

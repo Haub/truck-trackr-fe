@@ -1,15 +1,15 @@
 import app from 'firebase/app';
 import 'firebase/auth';
-// import { config } from '../../utilities/config.js';
+import { config } from '../../utilities/config.js';
 
-let config = {
-  apiKey: process.env.apiKey,
-  authDomain: process.env.authDomain,
-  databaseURL: process.env.databaseURL,
-  messagingSenderId: process.env.messagingSenderId,
-  projectId: process.env.projectId,
-  storageBucket: process.env.storageBucket
-}
+// let config = {
+//   apiKey: process.env.apiKey,
+//   authDomain: process.env.authDomain,
+//   databaseURL: process.env.databaseURL,
+//   messagingSenderId: process.env.messagingSenderId,
+//   projectId: process.env.projectId,
+//   storageBucket: process.env.storageBucket
+// }
 
 class Firebase {
   constructor() {

@@ -3,7 +3,7 @@ import { NavLink, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import './Login.css';
-import { addUser } from '../../actions';
+import { addUser, loadProfile } from '../../actions';
 import * as helper from '../../utilities';
 
 export class Login extends Component {
@@ -42,6 +42,7 @@ export class Login extends Component {
           sessionStorage.setItem("uid", authUser.user.uid)
           let result = await helper.createNewUser(user, locationType)
           this.props.addUser(result.data)
+          this.props.loadProfile(result.data)
           this.props.history.push('/profile')
         }) 
         .catch(error => {
@@ -56,6 +57,7 @@ export class Login extends Component {
           const result = await helper.loginUser(user)
           console.log(result)
           this.props.addUser(result.data)
+          this.props.loadProfile(result.data)
           this.props.history.push('/profile')
         })
         .catch(error => {
@@ -165,7 +167,8 @@ export const mapStateToProps = (state) => ({
 })
 
 export const mapDispatchToProps = (dispatch) => ({
-  addUser: (user) => dispatch(addUser(user))
+  addUser: (user) => dispatch(addUser(user)),
+  loadProfile: (currentPage) => dispatch(loadProfile(currentPage))
 })
 
 const { object, func } = PropTypes;

@@ -17,7 +17,7 @@ export const BusinessContainer = props => {
         }`
       );
       const result = await response.json();
-      await loadProfile(result);
+      await loadProfile(result.data);
     } catch (error) {
       throw new Error(error.message);
     }

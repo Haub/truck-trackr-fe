@@ -11,27 +11,23 @@ export class ProfilePage extends Component {
     }
 
     componentDidMount(){
-        if(!Object.keys(this.props.currentPage).length){
-            this.props.history.push('/')
-        }
+        // if(!Object.keys(this.props.currentPage).length){
+        //     this.props.history.push('/')
+        // }
     }
 
     render(){
         const { currentPage, user } = this.props;
-        if(!Object.keys(currentPage).length){
-           return(
-               <div> 
-               </div>
-           )
-        } else if(Object.keys(currentPage).length || Object.keys(user).length) {
-            const { attributes } = user;
+
+        if(Object.keys(currentPage).length) {
+            const { attributes } = currentPage;
             return(
                 <div className='parent-container'>
                     <div className='profile-container'>
                         <div className='biz-container'>
                             <h2 className='biz-name'>{attributes.name}</h2>
-                              <h5 className={user.type==='food_truck' ? 'biz-title' : 'hidden'}>Food Type:</h5>
-                              <h5 className={user.type==='food_truck' ? 'biz-info' : 'hidden'}>{attributes.food_type || null}</h5>
+                              <h5 className={currentPage.type === 'food_truck' ? 'biz-title' : 'hidden'}>Food Type:</h5>
+                              <h5 className={currentPage.type === 'food_truck' ? 'biz-info' : 'hidden'}>{attributes.food_type || null}</h5>
 
                               <h5 className='biz-title'>Phone Number:</h5>
                               <h5 className='biz-info'>{attributes.phone}</h5>
