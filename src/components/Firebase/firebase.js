@@ -2,7 +2,7 @@ import app from 'firebase/app';
 import 'firebase/auth';
 // import { config } from '../../utilities/config.js';
 
-let configuration = {
+let config = {
   apiKey: process.env.apiKey,
   authDomain: process.env.authDomain,
   databaseURL: process.env.databaseURL,
@@ -13,7 +13,7 @@ let configuration = {
 
 class Firebase {
   constructor() {
-    app.initializeApp(configuration);
+    app.initializeApp(config);
 
     this.auth = app.auth();
   }

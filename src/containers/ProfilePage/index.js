@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import './ProfilePage.css';
 import SignUpPage from '../../components/SignUpPage';
 import { addUser } from '../../actions';
-import { mockProfile } from '../../tests/testMocks';
 
 export class ProfilePage extends Component {
     constructor(props){
@@ -12,33 +11,27 @@ export class ProfilePage extends Component {
     }
 
     componentDidMount(){
-        // if(!Object.keys(this.props.currentPage).length){
-        //     this.props.history.push('/')
-        // }
-        this.props.addUser(mockProfile)
+        if(!Object.keys(this.props.currentPage).length){
+            this.props.history.push('/')
+        }
     }
-
-
 
     render(){
         const { currentPage, user } = this.props;
-        // const header = currentPage.replace('_', ' ').toUpperCase()
-        // const lowerCaseBiz = header.toLowerCase();
         if(!Object.keys(currentPage).length && !user){
            return(
-               <div>
-                <h3>hello</h3>   
+               <div> 
                </div>
            )
-        } else if(currentPage && user.type === 'food_truck'){
+        } else if(currentPage || user) {
             const { attributes } = this.props.user;
             return(
                 <div className='parent-container'>
                     <div className='profile-container'>
                         <div className='biz-container'>
                             <h2 className='biz-name'>{attributes.name}</h2>
-                              <h5 className='biz-title'>Food Type:</h5>
-                              <h5 className='biz-info'>{attributes.food_type}</h5>
+                              <h5 className={user.type==='food_truck' ? 'biz-title' : 'hidden'}>Food Type:</h5>
+                              <h5 className={user.type==='food_truck' ? 'biz-info' : 'hidden'}>{attributes.food_type || null}</h5>
 
                               <h5 className='biz-title'>Phone Number:</h5>
                               <h5 className='biz-info'>{attributes.phone}</h5>
@@ -64,13 +57,6 @@ export class ProfilePage extends Component {
                               <h4 className='upcoming-events-date'>12/18 <span className='upcoming-events-status'>Need a Booking</span></h4> 
                         </div>
                     </div>
-                </div>
-            )
-        } else if (currentPage && user.type === 'brewery'){
-            const { attributes } = this.props.currentPage.data
-            return(
-                <div>
-                    <h3>hi!!!!</h3>
                 </div>
             )
         } else {
