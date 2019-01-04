@@ -1,6 +1,22 @@
 .business-holder {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    height: 500px
+    justify-content: space-around;
+    height: 720px;
+
+}
+
+.business-header {
+    font-size: 4rem;
+    font-family: "Averia Libre", cursive;
+    text-align: center;
+    color: #6d3e48;
+    margin: 5px;
+}
+
+.business-button {
+    font-family: 'ZCOOL XiaoWei', serif;
+    color: black;
+    font-size: 1.2rem
+
 }

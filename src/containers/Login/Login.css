@@ -1,4 +1,5 @@
 .login {
+  margin-top: 110px;
   position: relative;
   background-color: #FEECC8;
   border: 2px solid #6D3E48;
@@ -50,6 +51,9 @@ main {
 }
 
 .signin-button, .signup-button {
+  display:flex;
+  align-items: center;
+  justify-content: center;
   color: white;
   background-color: #6D3E48;
   width: 19rem;
@@ -57,13 +61,22 @@ main {
   border: none;
   border-radius: 5px;
   font-size: 1.1rem;
-  margin-top: 2rem;
-  margin-bottom: 25px;
+  margin: 5px;
 }
+
 .email-input::placeholder,
 .name-input::placeholder,
 .password-input::placeholder {
   color: #8C8C8C;
+}
+
+.business-type, .brewery-label, .food-truck-label {
+  font-size: 1.3rem;
+}
+
+.business-type {
+  margin-top: 8px;
+  padding: 5px;
 }
 
 .logo-input {

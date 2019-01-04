@@ -1,35 +1,34 @@
-import { userReducer } from '../reducers/userReducer'
-import * as Actions from '../actions'
-import { mockProfile } from './testMocks'
+import { userReducer } from "../reducers/userReducer";
+import * as Actions from "../actions";
+import { mockProfile } from "./testMocks";
 
-describe('userReducer', () => {
-    let user;
+describe("userReducer", () => {
+  let user;
 
-    beforeEach(() => {
-        user = mockProfile
-    })
+  beforeEach(() => {
+    user = mockProfile;
+  });
 
-    it('should return the default state', () => {
-        const expected = {};
-        const result = userReducer(undefined, {});
+  it("should return the default state", () => {
+    const expected = {};
+    const result = userReducer(undefined, {});
 
-        expect(result).toEqual(expected);
-    })
+    expect(result).toEqual(expected);
+  });
 
-    it('should return state with a user', () => {
-        const initialState = {};
-        const expected = user;
+  it("should return state with a user", () => {
+    const initialState = {};
+    const expected = user;
 
-        const result = userReducer(initialState, Actions.addUser(mockProfile))
-        expect(result).toEqual(expected)
-    })
+    const result = userReducer(initialState, Actions.addUser(mockProfile));
+    expect(result).toEqual(expected);
+  });
 
-    it('should remove a user', () => {
-        const initialState = user
-        const expected = {}
+  it("should remove a user", () => {
+    const initialState = user;
+    const expected = {};
 
-        const result = userReducer(initialState, Actions.removeUser())
-        expect(result).toEqual(expected)
-    })
-
-})
+    const result = userReducer(initialState, Actions.removeUser());
+    expect(result).toEqual(expected);
+  });
+});

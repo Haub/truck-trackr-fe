@@ -1,17 +1,32 @@
-import React from 'react';
-import { shallow, mount } from 'enzyme';
-import { Login, mapDispatchToProps, mapStateToProps } from '../containers/Login/';
-import { mockProfile } from './testMocks';
+import React from "react";
+import { shallow, mount } from "enzyme";
+import {
+  Login,
+  mapDispatchToProps,
+  mapStateToProps
+} from "../containers/Login/";
+import { mockProfile } from "./testMocks";
 
-describe ('LOGIN', () => {
-  it('should match the snapshot', () => {
+describe("LOGIN", () => {
+  it("should match the snapshot", () => {
     const wrapper = shallow(<Login />);
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('should have default state', () => {
-    const wrapper = shallow(<Login />)
-    const expected = {email: '', passwordOne: '', signUp: false, locationType: '', businessName: '', address: '', phoneNumber: '', contactName: '', foodType: '', logo: null };
+  it("should have default state", () => {
+    const wrapper = shallow(<Login />);
+    const expected = {
+      email: "",
+      passwordOne: "",
+      signUp: false,
+      locationType: "",
+      businessName: "",
+      address: "",
+      phoneNumber: "",
+      contactName: "",
+      foodType: "",
+      logo: null
+    };
     expect(wrapper.state()).toEqual(expected);
   });
 
@@ -24,19 +39,19 @@ describe ('LOGIN', () => {
   //   expect(spy).toHaveBeenCalled()
   // })
 
-  describe('mapStateToProps', () => {
-    it('should have access to currentUser', () => {
+  describe("mapStateToProps", () => {
+    it("should have access to currentUser", () => {
       const mockStore = {
-       user: {}
-      }
-      const expected = {...mockStore};
+        user: {}
+      };
+      const expected = { ...mockStore };
       const result = mapStateToProps(mockStore);
       expect(result).toEqual(expected);
     });
   });
 
-  describe('mapDispatchToProps', () => {
-    it('should call dispatch when addUser is invoked', () => {
+  describe("mapDispatchToProps", () => {
+    it("should call dispatch when addUser is invoked", () => {
       const mockDispatch = jest.fn();
       const mappedProps = mapDispatchToProps(mockDispatch);
       mappedProps.addUser(mockProfile);

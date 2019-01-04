@@ -1,6 +1,7 @@
-import app from 'firebase/app';
-import 'firebase/auth';
-// import { config } from '../../utilities/config.js';
+import app from "firebase/app";
+import "firebase/auth";
+// import { config } from "../../utilities/config.js";
+
 
 let config = {
   apiKey: process.env.APIKEY,
@@ -19,14 +20,12 @@ class Firebase {
   }
 
   doCreateUserWithEmailAndPassword = (email, password) =>
-  this.auth.createUserWithEmailAndPassword(email, password);
-  
+    this.auth.createUserWithEmailAndPassword(email, password);
 
   doSignInWithEmailAndPassword = (email, password) =>
     this.auth.signInWithEmailAndPassword(email, password);
-  
-    doSignOut = () => this.auth.signOut();
 
+  doSignOut = () => this.auth.signOut();
 }
 
 export default Firebase;

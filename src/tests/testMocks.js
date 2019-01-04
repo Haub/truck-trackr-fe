@@ -96,18 +96,17 @@ export const mockProfile = {
 };
 
 export const mockUser = {
-      id: "1",
-      type: "brewery",
-      attributes: {
-        name: "Heads Of State",
-        address: "Risotto with Seafood",
-        contact_name: "Pamala",
-        phone: "344.694.9247",
-        email: "young@champlin.biz",
-        website: "http://hosbeer.com",
-        logo_image:
-          "https://pigment.github.io/fake-logos/logos/medium/color/11.png"
-      }
+  id: "1",
+  type: "brewery",
+  attributes: {
+    name: "Heads Of State",
+    address: "Risotto with Seafood",
+    contact_name: "Pamala",
+    phone: "344.694.9247",
+    email: "young@champlin.biz",
+    website: "http://hosbeer.com",
+    logo_image: "https://pigment.github.io/fake-logos/logos/medium/color/11.png"
+  }
 };
 
 export const mockEvent = {
@@ -140,7 +139,6 @@ export const mockUpdatedEvents = [
     brewery_id: 105
   },
   {
-
     id: 434,
     date: "04/08/2018",
     truck_booked: false,
@@ -193,13 +191,13 @@ export const mockPostParams = [
 ];
 
 export const mockCreateUser = {
-    name: 'Test Brewery',
-    address: 'Test Address',
-    contact_name: 'Test Name',
-    phone: 'Test Phone Number',
-    email: 'Test Email',
-    uid: '123456789'
-}
+  name: "Test Brewery",
+  address: "Test Address",
+  contact_name: "Test Name",
+  phone: "Test Phone Number",
+  email: "Test Email",
+  uid: "123456789"
+};
 
 export const mockCreateUserParams = [
   `https://truck-trackr-api.herokuapp.com/api/v1/breweries`,
@@ -210,4 +208,4 @@ export const mockCreateUserParams = [
     },
     body: JSON.stringify(mockCreateUser)
   }
-]
+];

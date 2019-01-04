@@ -132,4 +132,8 @@ describe("helper", () => {
         expect(helper.createNewUser()).rejects.toEqual(expected);
       });
   });
+
+  describe('createEventFetch', () => {
+      
+  })
 });

@@ -1,8 +1,8 @@
 export const breweriesReducer = (state = [], action) => {
-  switch(action.type) {
-    case 'LOAD_BREWERIES':
-      return action.breweries
-    default: 
-      return state
+  switch (action.type) {
+    case "LOAD_BREWERIES":
+      return action.breweries;
+    default:
+      return state;
   }
-}
+};

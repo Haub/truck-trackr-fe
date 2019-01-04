@@ -6,7 +6,7 @@
 .profile-container {
   display: flex;
   justify-content: space-around;
-  margin-top: 6rem;
+  align-items: center;
   width: 100%;
 }
 
@@ -88,4 +88,30 @@
   border-radius: 50%;
   text-align: center;
   color: #FEECC8;
+}
+
+.create-event-button {
+    position: absolute;
+    left: 72%;
+    top: 210px;
+    width: 180px;
+    height: 52px;
+    font-size: 1.5rem;
+    border-radius: 13px;
+    background-color: #FEECC8;
+    border: 2px solid #8a646c;
+}
+
+.create-event-form {
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+  justify-content: space-around;
+  position: absolute;
+  left: 41%;
+  top: 34%;
+  border-radius: 50px;
+  background-color: #FEECC8;
+  border: 2px solid #8a646c;
+  box-shadow: 0 0 820px 820px #00000070;
 }

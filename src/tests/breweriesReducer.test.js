@@ -1,27 +1,29 @@
-import { breweriesReducer } from '../reducers/breweriesReducer'
-import * as Actions from '../actions'
-import { mockBreweries } from './testMocks'
+import { breweriesReducer } from "../reducers/breweriesReducer";
+import * as Actions from "../actions";
+import { mockBreweries } from "./testMocks";
 
-describe('breweriesReducer', () => {
-    let breweries;
+describe("breweriesReducer", () => {
+  let breweries;
 
-    beforeEach(() => {
-        breweries = mockBreweries
-    })
+  beforeEach(() => {
+    breweries = mockBreweries;
+  });
 
-    it('should return the default state', () => {
-        const expected = [];
-        const result = breweriesReducer(undefined, {});
+  it("should return the default state", () => {
+    const expected = [];
+    const result = breweriesReducer(undefined, {});
 
-        expect(result).toEqual(expected);
-    })
+    expect(result).toEqual(expected);
+  });
 
-    it('should return state with breweries', () => {
-        const initialState = [];
-        const expected = breweries;
+  it("should return state with breweries", () => {
+    const initialState = [];
+    const expected = breweries;
 
-        const result = breweriesReducer(initialState, Actions.loadBreweries(breweries))
-        expect(result).toEqual(expected)
-    })
-
-})
+    const result = breweriesReducer(
+      initialState,
+      Actions.loadBreweries(breweries)
+    );
+    expect(result).toEqual(expected);
+  });
+});
