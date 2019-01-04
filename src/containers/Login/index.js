@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { NavLink, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import './Login.css';
-import { addUser } from '../../actions'
-import * as helper from '../../utilities'
+import { addUser } from '../../actions';
+import * as helper from '../../utilities';
 
 export class Login extends Component {
   constructor(props) {
@@ -19,7 +20,7 @@ export class Login extends Component {
       contactName: '',
       foodType: '',
       logo: null
-    }
+    };
   }
 
 
@@ -27,7 +28,7 @@ export class Login extends Component {
     const { name, value } = event.target;
     this.setState({
       [name]: value
-    })
+    });
   }
 
   handleSubmit = async (e) => {
@@ -166,5 +167,12 @@ export const mapStateToProps = (state) => ({
 export const mapDispatchToProps = (dispatch) => ({
   addUser: (user) => dispatch(addUser(user))
 })
+
+const { object, func } = PropTypes;
+
+Login.propTypes = {
+ user: object,
+ addUser: func
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Login))

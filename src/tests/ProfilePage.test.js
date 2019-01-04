@@ -1,12 +1,12 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { ProfilePage, mapStateToProps } from '../containers/ProfilePage/';
-import { mockProfile } from './testMocks';
+import { mockProfile, mockUser } from './testMocks';
 
 
 describe ('PROFILE PAGE', () => {
   it('should match the snapshot', () => {
-    const wrapper = shallow(<ProfilePage currentPage={mockProfile}/>);
+    const wrapper = shallow(<ProfilePage currentPage={mockProfile} user={mockUser}/>);
     expect(wrapper).toMatchSnapshot();
   });
 

@@ -58,4 +58,12 @@ export const mapDispatchToProps = (dispatch) => ({
     loadProfile: (profile) => dispatch(loadProfile(profile))
 });
 
+const { func } = PropTypes;
+
+NavBar.propTypes = {
+ loadBreweries: func,
+ loadFoodTrucks: func,
+ loadProfile: func
+};
+
 export default connect(null, mapDispatchToProps)(NavBar);
