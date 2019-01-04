@@ -1,10 +1,10 @@
 language: node_js
 node_js:
-  - "node"
+- node
 notifications:
   email: false
 deploy:
-  provider: firebase
-  token:
-    secure: "1/bu8Qo2jM1Tyx8pWGqHUwX_Yre2XrZEII6YnNZJg1UYs"
-  strategy: git
+  provider: heroku
+  api_key:
+    secure: KZ1yEbyqxcqH1GNjjj94i8Vkwi2PAxss9keBJfHAcgZAmnnwwDO20WTV9T/k6bv1anccQzHrpf2OTRyhPr0kruDXoFc0nQEAkDC5RmthSmbxX3CtmJMAK26LYDohqWJg5wukDTtm6sNVonbl44zKujvnOuE2MkMP2VOsGK04mL1+WJ02cRLK9f3Oqva26+MOK1PfYc2LNOUSuzcbb/N3AyR1HixkNRIHnz8ahg0PsyyVOJwkNPciFhZFT0LvvMxn2xVupiq7K+UGrpVIlXUf+58L/0EPxyE2mt4I3oc91biynpvDyeoWeAfcHzemWU5IiC28i3fb1BwRJNK3XmWHJECdMe6gW+ypGWUZCir83iLZje5RNhMBzh3nefjCcWDN8tEJ7c/dtENGrWhkLy5HUXj6sY11EZ/QEXU3j3JAtUqIMHSOs56yaFXOoysnEDzG3TY6XBP4LPhHQeaqTymg6PZ45TaI69rbrsvYRNn1VfRGL43NKnVpzHJnPGROysDljOTqiviwyTI5AuylBEHiE5/1ppLvknqDU9BWjY7Qg2mG/HEIrn1d7pXtOsognXuAA+yIOy2T+RGkspTO66AjqXfcucfaNDvPWtSc551434uqqF48qebwkKOegIYYhVnO5QBZUCb9N8Anlq+Tv4d0vkBYh5TILiIrod/SD2K1SWY=
+  app: trucktrackr

@@ -37,31 +37,31 @@ export class ProfilePage extends Component {
                     <div className='profile-container'>
                         <div className='biz-container'>
                             <h2 className='biz-name'>{attributes.name}</h2>
-                          <h5 className='biz-title'>Food Type:</h5>
-                          <h5 className='biz-info'>{attributes.food_type}</h5>
+                              <h5 className='biz-title'>Food Type:</h5>
+                              <h5 className='biz-info'>{attributes.food_type}</h5>
 
-                          <h5 className='biz-title'>Phone Number:</h5>
-                          <h5 className='biz-info'>{attributes.phone}</h5>
+                              <h5 className='biz-title'>Phone Number:</h5>
+                              <h5 className='biz-info'>{attributes.phone}</h5>
 
-                          <h5 className='biz-title'>Contact Name:</h5>
-                          <h5 className='biz-info'>{attributes.contact_name}</h5>
+                              <h5 className='biz-title'>Contact Name:</h5>
+                              <h5 className='biz-info'>{attributes.contact_name}</h5>
 
-                          <h5 className='biz-title'>Email:</h5>
-                          <h5 className='biz-info'>{attributes.email}</h5>
+                              <h5 className='biz-title'>Email:</h5>
+                              <h5 className='biz-info'>{attributes.email}</h5>
 
-                          <h5 className='biz-title'>Website:</h5>
-                          <a href={attributes.website} target='blank' className='biz-info'>{attributes.website}</a>
-                        </div>
+                              <h5 className='biz-title'>Website:</h5>
+                              <a href={attributes.website} target='blank' className='biz-info'>{attributes.website}</a>
+                            </div>
 
-                        <div className='upcoming-events-container'>
-                          <h3 className='upcoming-events-title'>UPCOMING EVENTS</h3>
-                          <h4 className='upcoming-events-date'>12/12 <span className='upcoming-events-status'>Need a Booking</span></h4>
-                          <h4 className='upcoming-events-date'>12/13 <span className='upcoming-events-status'>@ Cerebral</span></h4>
-                          <h4 className='upcoming-events-date'>12/14 <span className='upcoming-events-status'>@ Diebolt </span></h4>
-                          <h4 className='upcoming-events-date'>12/15 <span className='upcoming-events-status'>Need a Booking</span></h4> 
-                          <h4 className='upcoming-events-date'>12/16 <span className='upcoming-events-status'>@ Call To Arms</span></h4>
-                          <h4 className='upcoming-events-date'>12/17 <span className='upcoming-events-status'>@ Zuni Street Brewery </span></h4>
-                          <h4 className='upcoming-events-date'>12/18 <span className='upcoming-events-status'>Need a Booking</span></h4> 
+                            <div className='upcoming-events-container'>
+                              <h3 className='upcoming-events-title'>UPCOMING EVENTS</h3>
+                              <h4 className='upcoming-events-date'>12/12 <span className='upcoming-events-status'>Need a Booking</span></h4>
+                              <h4 className='upcoming-events-date'>12/13 <span className='upcoming-events-status'>@ Cerebral</span></h4>
+                              <h4 className='upcoming-events-date'>12/14 <span className='upcoming-events-status'>@ Diebolt </span></h4>
+                              <h4 className='upcoming-events-date'>12/15 <span className='upcoming-events-status'>Need a Booking</span></h4> 
+                              <h4 className='upcoming-events-date'>12/16 <span className='upcoming-events-status'>@ Call To Arms</span></h4>
+                              <h4 className='upcoming-events-date'>12/17 <span className='upcoming-events-status'>@ Zuni Street Brewery </span></h4>
+                              <h4 className='upcoming-events-date'>12/18 <span className='upcoming-events-status'>Need a Booking</span></h4> 
                         </div>
                     </div>
                 </div>
