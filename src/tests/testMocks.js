@@ -175,3 +175,23 @@ export const mockPostParams = [
     }
   }
 ];
+
+export const mockCreateUser = {
+    name: 'Test Brewery',
+    address: 'Test Address',
+    contact_name: 'Test Name',
+    phone: 'Test Phone Number',
+    email: 'Test Email',
+    uid: '123456789'
+}
+
+export const mockCreateUserParams = [
+  `https://truck-trackr-api.herokuapp.com/api/v1/breweries`,
+  {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(mockCreateUser)
+  }
+]

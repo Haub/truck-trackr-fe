@@ -4,7 +4,9 @@ import {
   mockFoodTrucks,
   mockProfile,
   mockLoginUser,
-  mockPostParams
+  mockPostParams,
+  mockCreateUserParams,
+  mockCreateUser
 } from "./testMocks";
 
 describe("helper", () => {
@@ -99,6 +101,25 @@ describe("helper", () => {
       );
 
       expect(helper.loginUser()).rejects.toEqual(expected);
+    });
+  });
+
+  describe("createNewUser", () => {
+    beforeEach(() => {
+      window.fetch = jest.fn(() =>
+        Promise.resolve({
+          ok: true,
+          json: () => Promise.resolve(mockProfile)
+        })
+      );
+    });
+
+    it("should call fetch with the correct URL", async () => {
+        const expected = mockCreateUserParams;
+
+        await helper.createNewUser(mockCreateUser, 'breweries');
+
+        expect(window.fetch).toHaveBeenCalledWith(...expected)
     });
   });
 });
