@@ -29,9 +29,7 @@ section {
   position: relative;
   bottom: 70px;
   height: 200px;
-  width: 200px;
   box-sizing: border-box;
-  z-index: 5;
 }
 
 section:after {
@@ -40,8 +38,8 @@ section:after {
   left: 1.5em;
   width: 40px;
   height: 40px;
-  border: 1px solid #feecc8;
-  color: #feecc8;
+  border: 1px solid #6D3E48;
+  color: #6D3E48;
   font-size: 20px;
   text-align: center;
   line-height: 20px;
@@ -49,7 +47,7 @@ section:after {
 .hamburger-trigger,
 .hamburger-trigger span {
   display: inline-block;
-  transition: all 0.2s;
+  transition: all .2s;
   box-sizing: border-box;
   z-index: 5;
 }
@@ -59,16 +57,16 @@ section:after {
   height: 44px;
 }
 .hamburger-trigger.active span {
-  border: 2px solid #feecc8;
-  background-color: #feecc8;
-  transition: all 0.2s;
+  border: 2px solid #FEECC8;
+  background-color: #FEECC8;
+  transition: all .2s;
 }
 .hamburger-trigger span {
   position: absolute;
   left: 0;
   width: 100%;
   height: 5px;
-  background-color: #6d3e48;
+  background-color: #6D3E48;
   border-radius: 6px;
 }
 .hamburger-trigger span:nth-of-type(1) {
@@ -87,13 +85,14 @@ section:after {
 #hamburger.active span:nth-of-type(2) {
   left: 50%;
   opacity: 0;
-  -webkit-animation: active-hamburger-bar02 0.8s forwards;
-  animation: active-hamburger-bar02 0.8s forwards;
+  -webkit-animation: active-hamburger-bar02 .8s forwards;
+  animation: active-hamburger-bar02 .8s forwards;
 }
 #hamburger.active span:nth-of-type(3) {
   -webkit-transform: translateY(-20px) rotate(45deg);
   transform: translateY(-20px) rotate(45deg);
 }
+
 .truck-icon,
 .barrel-icon {
   height: 65px;

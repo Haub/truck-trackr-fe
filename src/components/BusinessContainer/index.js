@@ -30,17 +30,19 @@ export const BusinessContainer = props => {
         key={business.id}
         id={business.id}
         onClick={handleClick}
+        className='business-button'
       >
         {business.attributes.name}
       </NavLink>
     );
   });
 
-  const header = currentPage.replace("_", " ");
+  const header = currentPage.replace('_', ' ').toUpperCase()
+  const lowerCaseBiz = header.toLowerCase();
 
   return (
     <div className="business-holder">
-      <h3>{`${header}`}</h3>
+      <h3 className='business-header'>{`${header}`}</h3>
       {businesses}
     </div>
   );
