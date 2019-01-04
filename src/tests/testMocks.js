@@ -95,6 +95,21 @@ export const mockProfile = {
   ]
 };
 
+export const mockUser = {
+      id: "1",
+      type: "brewery",
+      attributes: {
+        name: "Heads Of State",
+        address: "Risotto with Seafood",
+        contact_name: "Pamala",
+        phone: "344.694.9247",
+        email: "young@champlin.biz",
+        website: "http://hosbeer.com",
+        logo_image:
+          "https://pigment.github.io/fake-logos/logos/medium/color/11.png"
+      }
+};
+
 export const mockEvent = {
   id: 435,
   date: "04/06/2018",

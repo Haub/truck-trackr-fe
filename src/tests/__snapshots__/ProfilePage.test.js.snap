@@ -1,3 +1,150 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PROFILE PAGE should match the snapshot 1`] = `<div />`;
+exports[`PROFILE PAGE should match the snapshot 1`] = `
+<div
+  className="parent-container"
+>
+  <div
+    className="profile-container"
+  >
+    <div
+      className="biz-container"
+    >
+      <h2
+        className="biz-name"
+      >
+        Heads Of State
+      </h2>
+      <h5
+        className="hidden"
+      >
+        Food Type:
+      </h5>
+      <h5
+        className="hidden"
+      />
+      <h5
+        className="biz-title"
+      >
+        Phone Number:
+      </h5>
+      <h5
+        className="biz-info"
+      >
+        344.694.9247
+      </h5>
+      <h5
+        className="biz-title"
+      >
+        Contact Name:
+      </h5>
+      <h5
+        className="biz-info"
+      >
+        Pamala
+      </h5>
+      <h5
+        className="biz-title"
+      >
+        Email:
+      </h5>
+      <h5
+        className="biz-info"
+      >
+        young@champlin.biz
+      </h5>
+      <h5
+        className="biz-title"
+      >
+        Website:
+      </h5>
+      <a
+        className="biz-info"
+        href="http://hosbeer.com"
+        target="blank"
+      >
+        http://hosbeer.com
+      </a>
+    </div>
+    <div
+      className="upcoming-events-container"
+    >
+      <h3
+        className="upcoming-events-title"
+      >
+        UPCOMING EVENTS
+      </h3>
+      <h4
+        className="upcoming-events-date"
+      >
+        12/12 
+        <span
+          className="upcoming-events-status"
+        >
+          Need a Booking
+        </span>
+      </h4>
+      <h4
+        className="upcoming-events-date"
+      >
+        12/13 
+        <span
+          className="upcoming-events-status"
+        >
+          @ Cerebral
+        </span>
+      </h4>
+      <h4
+        className="upcoming-events-date"
+      >
+        12/14 
+        <span
+          className="upcoming-events-status"
+        >
+          @ Diebolt 
+        </span>
+      </h4>
+      <h4
+        className="upcoming-events-date"
+      >
+        12/15 
+        <span
+          className="upcoming-events-status"
+        >
+          Need a Booking
+        </span>
+      </h4>
+      <h4
+        className="upcoming-events-date"
+      >
+        12/16 
+        <span
+          className="upcoming-events-status"
+        >
+          @ Call To Arms
+        </span>
+      </h4>
+      <h4
+        className="upcoming-events-date"
+      >
+        12/17 
+        <span
+          className="upcoming-events-status"
+        >
+          @ Zuni Street Brewery 
+        </span>
+      </h4>
+      <h4
+        className="upcoming-events-date"
+      >
+        12/18 
+        <span
+          className="upcoming-events-status"
+        >
+          Need a Booking
+        </span>
+      </h4>
+    </div>
+  </div>
+</div>
+`;

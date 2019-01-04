@@ -18,13 +18,13 @@ export class ProfilePage extends Component {
 
     render(){
         const { currentPage, user } = this.props;
-        if(!Object.keys(currentPage).length && !user){
+        if(!Object.keys(currentPage).length){
            return(
                <div> 
                </div>
            )
         } else if(Object.keys(currentPage).length || Object.keys(user).length) {
-            const { attributes } = this.props.user;
+            const { attributes } = user;
             return(
                 <div className='parent-container'>
                     <div className='profile-container'>
