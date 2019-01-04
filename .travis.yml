@@ -3,3 +3,7 @@ node_js:
   - "node"
 notifications:
   email: false
+deploy:
+  provider: firebase
+  token:
+    secure: "1/bu8Qo2jM1Tyx8pWGqHUwX_Yre2XrZEII6YnNZJg1UYs"
