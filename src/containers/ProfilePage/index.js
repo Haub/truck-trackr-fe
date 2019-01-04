@@ -23,7 +23,7 @@ export class ProfilePage extends Component {
                <div> 
                </div>
            )
-        } else if(currentPage || user) {
+        } else if(Object.keys(currentPage).length || Object.keys(user).length) {
             const { attributes } = this.props.user;
             return(
                 <div className='parent-container'>
