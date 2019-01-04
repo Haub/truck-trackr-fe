@@ -219,7 +219,7 @@ export class Login extends Component {
               Brewery
             </label>
           </div>
-          <input
+          {/* <input
             className={signUp ? "logo-input" : "hidden"}
             name="logo"
             placeholder="Upload logo"
@@ -231,7 +231,7 @@ export class Login extends Component {
             onClick={this.uploadHandler}
           >
             Upload!
-          </button>
+          </button> */}
           <NavLink
             to="/profile"
             className="signin-button"

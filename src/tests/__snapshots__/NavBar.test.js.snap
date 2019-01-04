@@ -7,11 +7,15 @@ exports[`NAVBAR should match the snapshot 1`] = `
   <ul
     className="nav-controls"
   >
-    <li
+    <NavLink
+      activeClassName="active"
+      aria-current="page"
       className="hidden"
+      onClick={[Function]}
+      to="/profile"
     >
       My Profile
-    </li>
+    </NavLink>
     <NavLink
       activeClassName="active"
       aria-current="page"
