@@ -60,23 +60,25 @@ export const createNewUser = async (user, locationType) => {
 };
 
 export const createEventFetch = async (user, postBody) => {
-    try {
-        const response = await fetch(
-            `https://truck-trackr-api.herokuapp.com/api/v1/${user.type}/${user.id}/${user.eventType}`,
-            {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(postBody)
-            }
-        )
-        if (!response.ok) {
-            throw new Error(response.statusText)
-        } else {
-            return await response.json();
-        }
-    } catch (error) {
-        throw new Error(error.message)
+  try {
+    const response = await fetch(
+      `https://truck-trackr-api.herokuapp.com/api/v1/${user.type}/${user.id}/${
+        user.eventType
+      }`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(postBody)
+      }
+    );
+    if (!response.ok) {
+      throw new Error(response.statusText);
+    } else {
+      return await response.json();
     }
-}
+  } catch (error) {
+    throw new Error(error.message);
+  }
+};

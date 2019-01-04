@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import "./ProfilePage.css";
 import SignUpPage from "../../components/SignUpPage";
 import { addUser } from "../../actions";
-import { createEventFetch } from "../../utilities"
+import { createEventFetch } from "../../utilities";
 
 export class ProfilePage extends Component {
   constructor(props) {
@@ -12,8 +12,8 @@ export class ProfilePage extends Component {
 
     this.state = {
       createEventOpen: false,
-      eventName: '',
-      eventDate: ''
+      eventName: "",
+      eventDate: ""
     };
   }
 
@@ -24,59 +24,59 @@ export class ProfilePage extends Component {
   }
 
   makeEvent = () => {
-      let newState = !this.state.createEventOpen
+    let newState = !this.state.createEventOpen;
     this.setState({ createEventOpen: newState });
   };
 
-  handleKeyPress = (event) => {
+  handleKeyPress = event => {
     const { name, value } = event.target;
     this.setState({
       [name]: value
     });
-  }
+  };
 
-  handleSubmit = async (e) => {
+  handleSubmit = async e => {
     e.preventDefault();
     let cleanUser = this.cleanDataForRequest();
-    let cleanPostParams = this.createPostBody()
-    let result = await createEventFetch(cleanUser, cleanPostParams)
-    console.log(result)
+    let cleanPostParams = this.createPostBody();
+    let result = await createEventFetch(cleanUser, cleanPostParams);
+    console.log(result);
     this.setState({
-        createEventOpen: false,
-        eventName: '',
-        eventDate: ''
-    })
-  }
+      createEventOpen: false,
+      eventName: "",
+      eventDate: ""
+    });
+  };
 
   cleanDataForRequest = () => {
-    const {user} = this.props
-    let type
-    let eventType
-    if(user.type === 'foodTruck'){
-        type = 'food_trucks';
-        eventType = 'openDates';
+    const { user } = this.props;
+    let type;
+    let eventType;
+    if (user.type === "foodTruck") {
+      type = "food_trucks";
+      eventType = "openDates";
     } else {
-        type = 'breweries'
-        eventType = 'brewery_events'
+      type = "breweries";
+      eventType = "brewery_events";
     }
 
     let cleanUser = {
-        type,
-        id: user.id,
-        eventType
-    }
-    return cleanUser
-  }
+      type,
+      id: user.id,
+      eventType
+    };
+    return cleanUser;
+  };
 
   createPostBody = () => {
     const uid = sessionStorage.getItem("uid");
-    const {eventDate} = this.state;
+    const { eventDate } = this.state;
 
     return {
-        uid,
-        date: eventDate
-    }
-  }
+      uid,
+      date: eventDate
+    };
+  };
 
   render() {
     const { currentPage, user } = this.props;
@@ -117,7 +117,8 @@ export class ProfilePage extends Component {
                 {attributes.website}
               </a>
             </div>
-            <button onClick={this.makeEvent}
+            <button
+              onClick={this.makeEvent}
               className={
                 currentPage === user ? "create-event-button" : "hidden"
               }
@@ -155,10 +156,31 @@ export class ProfilePage extends Component {
                 <span className="upcoming-events-status">Need a Booking</span>
               </h4>
             </div>
-            <form className={this.state.createEventOpen ? 'create-event-form' : 'hidden'}>
-              <input className='create-event-input' name='eventName' value={this.state.eventName} placeholder='Event Name' onChange={this.handleKeyPress}/>
-              <input className='create-event-input' name='eventDate' value={this.state.eventDate} placeholder='Event Date (numerical)' onChange={this.handleKeyPress}/>
-              <button onClick={this.handleSubmit} className='create-event-form-button'>Create</button>
+            <form
+              className={
+                this.state.createEventOpen ? "create-event-form" : "hidden"
+              }
+            >
+              <input
+                className="create-event-input"
+                name="eventName"
+                value={this.state.eventName}
+                placeholder="Event Name"
+                onChange={this.handleKeyPress}
+              />
+              <input
+                className="create-event-input"
+                name="eventDate"
+                value={this.state.eventDate}
+                placeholder="Event Date (numerical)"
+                onChange={this.handleKeyPress}
+              />
+              <button
+                onClick={this.handleSubmit}
+                className="create-event-form-button"
+              >
+                Create
+              </button>
             </form>
           </div>
         </div>
