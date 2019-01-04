@@ -66,6 +66,12 @@ exports[`PROFILE PAGE should match the snapshot 1`] = `
         http://hosbeer.com
       </a>
     </div>
+    <button
+      className="hidden"
+      onClick={[Function]}
+    >
+      Create Event
+    </button>
     <div
       className="upcoming-events-container"
     >
@@ -77,7 +83,8 @@ exports[`PROFILE PAGE should match the snapshot 1`] = `
       <h4
         className="upcoming-events-date"
       >
-        12/12 
+        12/12
+         
         <span
           className="upcoming-events-status"
         >
@@ -107,7 +114,8 @@ exports[`PROFILE PAGE should match the snapshot 1`] = `
       <h4
         className="upcoming-events-date"
       >
-        12/15 
+        12/15
+         
         <span
           className="upcoming-events-status"
         >
@@ -117,7 +125,8 @@ exports[`PROFILE PAGE should match the snapshot 1`] = `
       <h4
         className="upcoming-events-date"
       >
-        12/16 
+        12/16
+         
         <span
           className="upcoming-events-status"
         >
@@ -127,17 +136,20 @@ exports[`PROFILE PAGE should match the snapshot 1`] = `
       <h4
         className="upcoming-events-date"
       >
-        12/17 
+        12/17
+         
         <span
           className="upcoming-events-status"
         >
-          @ Zuni Street Brewery 
+          @ Zuni Street Brewery
+           
         </span>
       </h4>
       <h4
         className="upcoming-events-date"
       >
-        12/18 
+        12/18
+         
         <span
           className="upcoming-events-status"
         >
@@ -145,6 +157,30 @@ exports[`PROFILE PAGE should match the snapshot 1`] = `
         </span>
       </h4>
     </div>
+    <form
+      className="hidden"
+    >
+      <input
+        className="create-event-input"
+        name="eventName"
+        onChange={[Function]}
+        placeholder="Event Name"
+        value=""
+      />
+      <input
+        className="create-event-input"
+        name="eventDate"
+        onChange={[Function]}
+        placeholder="Event Date (numerical)"
+        value=""
+      />
+      <button
+        className="create-event-form-button"
+        onClick={[Function]}
+      >
+        Create
+      </button>
+    </form>
   </div>
 </div>
 `;

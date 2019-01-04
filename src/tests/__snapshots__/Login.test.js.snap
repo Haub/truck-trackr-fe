@@ -89,19 +89,6 @@ exports[`LOGIN should match the snapshot 1`] = `
         Brewery
       </label>
     </div>
-    <input
-      className="hidden"
-      name="logo"
-      onChange={[Function]}
-      placeholder="Upload logo"
-      type="file"
-    />
-    <button
-      className="hidden"
-      onClick={[Function]}
-    >
-      Upload!
-    </button>
     <NavLink
       activeClassName="active"
       aria-current="page"

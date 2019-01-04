@@ -52,7 +52,7 @@ export class ProfilePage extends Component {
     const { user } = this.props;
     let type;
     let eventType;
-    if (user.type === "foodTruck") {
+    if (user.type === "food_truck") {
       type = "food_trucks";
       eventType = "openDates";
     } else {
