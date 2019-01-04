@@ -77,7 +77,7 @@ export const mockFoodTruck = {
 };
 
 export const mockProfile = {
-  data: [
+  data: 
     {
       id: "1",
       type: "brewery",
@@ -92,7 +92,6 @@ export const mockProfile = {
           "https://pigment.github.io/fake-logos/logos/medium/color/11.png"
       }
     }
-  ]
 };
 
 export const mockUser = {

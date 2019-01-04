@@ -26,7 +26,7 @@ exports[`APP should match the snapshot 1`] = `
       className="hamburger-holder"
     >
       <a
-        className="hamburger-trigger"
+        className="hamburger-trigger false"
         id="hamburger"
         onClick={[Function]}
       >
