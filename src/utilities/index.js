@@ -76,7 +76,9 @@ export const createEventFetch = async (user, postBody) => {
     if (!response.ok) {
       throw new Error(response.statusText);
     } else {
-      return await response.json();
+      const result = await response;
+      console.log(response)
+      return result
     }
   } catch (error) {
     throw new Error(error.message);
