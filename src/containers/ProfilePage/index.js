@@ -83,17 +83,35 @@ export class ProfilePage extends Component {
     let events;
 
     if(userEvents.length && currentPage.data === user) {
-      events = userEvents.map(event => (
-          <h4 className='upcoming-events-date'>{event.attributes.date.slice(5)}
-            <span className='upcoming-events-status'></span>
+      if(user.type === 'brewery'){
+
+        events = userEvents.map(event => (
+            <h4 className={event.attributes['truck_booked?'] ? 'upcoming-events-date booked' : 'upcoming-events-date open' } key={event.attributes.id}>{event.attributes.date.slice(5)}
+              <span className='upcoming-events-status' key={event.attributes.id}>{event.attributes['truck_booked?'] ? 'Booked' : 'Open'}</span>
+            </h4>
+          ))
+      } else {
+        events = userEvents.map(event => (
+          <h4 className={event.attributes['booked?'] ? 'upcoming-events-date booked' : 'upcoming-events-date open' } key={event.attributes.id}>{event.attributes.date.slice(5)}
+            <span className='upcoming-events-status' key={event.attributes.id}>{event.attributes['booked?'] ? 'Booked' : 'Open'}</span>
           </h4>
         ))
+      }
     } else if (userEvents.length && currentPage.data !== user) {
-      events = currentPage.included.map(event => (
-          <h4 className='upcoming-events-date'>{event.attributes.date.slice(5)}
-            <span className='upcoming-events-status'></span>
+      if(user.type === 'brewery'){
+
+        events = currentPage.included.map(event => (
+            <h4 className={event.attributes['truck_booked?'] ? 'upcoming-events-date booked' : 'upcoming-events-date open' } key={event.attributes.id}>{event.attributes.date.slice(5)}
+              <span className='upcoming-events-status' key={event.attributes.id}>{event.attributes['truck_booked?'] ? 'Booked' : 'Open'}</span>
+            </h4>
+          ))
+      } else {
+        events = currentPage.included.map(event => (
+          <h4 className={event.attributes['booked?'] ? 'upcoming-events-date booked' : 'upcoming-events-date open' } key={event.attributes.id}>{event.attributes.date.slice(5)}
+            <span className='upcoming-events-status' key={event.attributes.id}>{event.attributes['booked?'] ? 'Booked' : 'Open'}</span>
           </h4>
-      ))  
+        ))
+      }  
     }
 
     if (Object.keys(currentPage).length) {

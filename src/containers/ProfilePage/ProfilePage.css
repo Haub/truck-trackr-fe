@@ -65,6 +65,15 @@
   color: #594E42;
 }
 
+.booked {
+  border: 2px solid green;
+}
+
+.open {
+  border: 2px solid red;
+
+}
+
 .upcoming-events-status {
   margin-left: 2rem;
 }
