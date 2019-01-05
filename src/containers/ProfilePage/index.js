@@ -54,7 +54,7 @@ export class ProfilePage extends Component {
     let eventType;
     if (user.type === "food_truck") {
       type = "food_trucks";
-      eventType = "openDates";
+      eventType = "open_dates";
     } else {
       type = "breweries";
       eventType = "brewery_events";
@@ -79,10 +79,25 @@ export class ProfilePage extends Component {
   };
 
   render() {
-    const { currentPage, user } = this.props;
+    const { currentPage, user, userEvents } = this.props;
+    let events;
+
+    if(userEvents.length && currentPage.data === user) {
+      events = userEvents.map(event => (
+          <h4 className='upcoming-events-date'>{event.attributes.date}
+            <span className='upcoming-events-status'></span>
+          </h4>
+        ))
+    } else if (userEvents.length && currentPage.data !== user) {
+      events = currentPage.included.map(event => (
+          <h4 className='upcoming-events-date'>{event.attributes.date}
+            <span className='upcoming-events-status'></span>
+          </h4>
+      ))  
+    }
 
     if (Object.keys(currentPage).length) {
-      const { attributes } = currentPage;
+      const { attributes } = currentPage.data;
       return (
         <div className="parent-container">
           <div className="profile-container">
@@ -90,14 +105,14 @@ export class ProfilePage extends Component {
               <h2 className="biz-name">{attributes.name}</h2>
               <h5
                 className={
-                  currentPage.type === "food_truck" ? "biz-title" : "hidden"
+                  currentPage.data.type === "food_truck" ? "biz-title" : "hidden"
                 }
               >
                 Food Type:
               </h5>
               <h5
                 className={
-                  currentPage.type === "food_truck" ? "biz-info" : "hidden"
+                  currentPage.data.type === "food_truck" ? "biz-info" : "hidden"
                 }
               >
                 {attributes.food_type || null}
@@ -120,41 +135,14 @@ export class ProfilePage extends Component {
             <button
               onClick={this.makeEvent}
               className={
-                currentPage === user ? "create-event-button" : "hidden"
+                currentPage.data === user ? "create-event-button" : "hidden"
               }
             >
               Create Event
             </button>
             <div className="upcoming-events-container">
               <h3 className="upcoming-events-title">UPCOMING EVENTS</h3>
-              <h4 className="upcoming-events-date">
-                12/12{" "}
-                <span className="upcoming-events-status">Need a Booking</span>
-              </h4>
-              <h4 className="upcoming-events-date">
-                12/13 <span className="upcoming-events-status">@ Cerebral</span>
-              </h4>
-              <h4 className="upcoming-events-date">
-                12/14 <span className="upcoming-events-status">@ Diebolt </span>
-              </h4>
-              <h4 className="upcoming-events-date">
-                12/15{" "}
-                <span className="upcoming-events-status">Need a Booking</span>
-              </h4>
-              <h4 className="upcoming-events-date">
-                12/16{" "}
-                <span className="upcoming-events-status">@ Call To Arms</span>
-              </h4>
-              <h4 className="upcoming-events-date">
-                12/17{" "}
-                <span className="upcoming-events-status">
-                  @ Zuni Street Brewery{" "}
-                </span>
-              </h4>
-              <h4 className="upcoming-events-date">
-                12/18{" "}
-                <span className="upcoming-events-status">Need a Booking</span>
-              </h4>
+              {events}
             </div>
             <form
               className={
@@ -193,7 +181,8 @@ export class ProfilePage extends Component {
 
 export const mapStateToProps = state => ({
   currentPage: state.currentPage,
-  user: state.user
+  user: state.user, 
+  userEvents: state.userEvents
 });
 
 export const mapDispatchToProps = dispatch => ({
