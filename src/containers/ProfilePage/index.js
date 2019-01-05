@@ -84,13 +84,13 @@ export class ProfilePage extends Component {
 
     if(userEvents.length && currentPage.data === user) {
       events = userEvents.map(event => (
-          <h4 className='upcoming-events-date'>{event.attributes.date}
+          <h4 className='upcoming-events-date'>{event.attributes.date.slice(5)}
             <span className='upcoming-events-status'></span>
           </h4>
         ))
     } else if (userEvents.length && currentPage.data !== user) {
       events = currentPage.included.map(event => (
-          <h4 className='upcoming-events-date'>{event.attributes.date}
+          <h4 className='upcoming-events-date'>{event.attributes.date.slice(5)}
             <span className='upcoming-events-status'></span>
           </h4>
       ))  
