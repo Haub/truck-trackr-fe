@@ -3,8 +3,9 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import "./ProfilePage.css";
 import SignUpPage from "../../components/SignUpPage";
-import { addUser, editEvent } from "../../actions";
+import { addUser, editEvent, removeEvent } from "../../actions";
 import { createEventFetch } from "../../utilities";
+import * as helper from "../../utilities";
 
 export class ProfilePage extends Component {
   constructor(props) {
@@ -77,19 +78,32 @@ export class ProfilePage extends Component {
     };
   };
 
-  toggleEventStatus = (e) => {
+  toggleEventStatus = async e => {
+    let eventToChange = this.props.userEvents.find(
+      userEvent => userEvent.id === e.target.id
+    );
+    console.log(eventToChange);
+    if (this.props.user.type === "brewery") {
+      eventToChange.attributes["truck_booked?"] = !eventToChange.attributes[
+        "truck_booked?"
+      ];
+      await helper.toggleEventStatus(this.props.currentPage, eventToChange);
+      this.props.editEvent(eventToChange);
+    } else {
+      eventToChange.attributes["booked?"] = !eventToChange.attributes[
+        "truck_booked?"
+      ];
+      await helper.toggleEventStatus(this.props.currentPage, eventToChange);
+      this.props.editEvent(eventToChange);
+    }
+  };
 
-      let eventToChange = this.props.userEvents.find(userEvent => userEvent.id === e.target.id )
-      console.log(eventToChange)
-      if(this.props.user.type === 'brewery' ) {
-        eventToChange.attributes['truck_booked?'] = !eventToChange.attributes['truck_booked?']
-        // helper.toggleEventStatus(eventToChange, user)
-        this.props.editEvent(eventToChange)
-
-      } else {
-        eventToChange.attributes['booked?'] = !eventToChange.attributes['truck_booked?']
-        this.props.editEvent(eventToChange)
-      }
+  deleteEvent = async e => {
+    let eventToDelete = this.props.userEvents.find(
+      userEvent => userEvent.id === e.target.classList[0]
+    );
+    await helper.deleteEventFetch(this.props.currentPage, eventToDelete);
+    this.props.removeEvent(eventToDelete);
   };
 
   render() {
@@ -108,14 +122,14 @@ export class ProfilePage extends Component {
             key={event.attributes.date}
           >
             {event.attributes.date.slice(5)}
-            <span className="upcoming-events-status" >
+            <span className="upcoming-events-status">
               {event.attributes["truck_booked?"] ? "Booked" : "Open"}
             </span>
-            <button
-              id={event.attributes.id}
-              onClick={this.toggleEventStatus}
-            >
+            <button id={event.attributes.id} onClick={this.toggleEventStatus}>
               Change Status
+            </button>
+            <button className={event.attributes.id} onClick={this.deleteEvent}>
+              Delete Event
             </button>
           </h4>
         ));
@@ -130,13 +144,10 @@ export class ProfilePage extends Component {
             key={event.attributes.id}
           >
             {event.attributes.date.slice(5)}
-            <span className="upcoming-events-status" >
+            <span className="upcoming-events-status">
               {event.attributes["booked?"] ? "Booked" : "Open"}
             </span>
-            <button
-              id={event.attributes.id}
-              onClick={this.toggleEventStatus}
-            >
+            <button id={event.attributes.id} onClick={this.toggleEventStatus}>
               Change Status
             </button>
           </h4>
@@ -154,7 +165,7 @@ export class ProfilePage extends Component {
             key={event.attributes.id}
           >
             {event.attributes.date.slice(5)}
-            <span className="upcoming-events-status" >
+            <span className="upcoming-events-status">
               {event.attributes["truck_booked?"] ? "Booked" : "Open"}
             </span>
           </h4>
@@ -170,7 +181,7 @@ export class ProfilePage extends Component {
             key={event.attributes.id}
           >
             {event.attributes.date.slice(5)}
-            <span className="upcoming-events-status" >
+            <span className="upcoming-events-status">
               {event.attributes["booked?"] ? "Booked" : "Open"}
             </span>
           </h4>
@@ -264,7 +275,8 @@ export const mapStateToProps = state => ({
 
 export const mapDispatchToProps = dispatch => ({
   addUser: user => dispatch(addUser(user)),
-  editEvent: userEvent => dispatch(editEvent(userEvent))
+  editEvent: userEvent => dispatch(editEvent(userEvent)),
+  removeEvent: userEvent => dispatch(removeEvent(userEvent))
 });
 
 const { object, func } = PropTypes;

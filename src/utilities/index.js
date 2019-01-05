@@ -136,7 +136,7 @@ export const toggleEventStatus = async (business, event) => {
     if(!response.ok) {
       throw new Error(response.statusText)
     } else {
-      const result = await response();
+      const result = await response;
       return result
     }
   } catch (error) {
@@ -163,3 +163,30 @@ export const cleanEventForPut = (event, business) => {
   return cleanedEvent
 }
 
+export const deleteEventFetch = async (business, event) => {
+  const cleanedBusiness = cleanUser(business);
+
+  try {
+    const response = await fetch(`https://truck-trackr-api.herokuapp.com/api/v1/${cleanedBusiness.type}/${cleanedBusiness.id}/${cleanedBusiness.eventType}/${event.id}`,
+      {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          uid: sessionStorage.getItem('uid')
+        })
+      }
+    );
+
+    if(!response.ok) {
+      throw new Error(response.statusText)
+    } else {
+      const result = await response.json;
+      return result
+    }
+  } catch (error) {
+    throw new Error(error.message)
+  }
+
+}
