@@ -3,7 +3,7 @@ import { NavLink, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import "./Login.css";
-import { addUser, loadProfile } from "../../actions";
+import { addUser, loadProfile, loadEvents } from "../../actions";
 import * as helper from "../../utilities";
 
 export class Login extends Component {
@@ -33,6 +33,8 @@ export class Login extends Component {
   handleSubmit = async e => {
     // e.preventDefault();
     const { email, passwordOne, signUp, locationType } = this.state;
+
+
     if (signUp) {
       this.props.firebase
         .doCreateUserWithEmailAndPassword(email, passwordOne)
@@ -40,8 +42,9 @@ export class Login extends Component {
           let user = this.cleanUserForSignUp(authUser);
           sessionStorage.setItem("uid", authUser.user.uid);
           let result = await helper.createNewUser(user, locationType);
-          this.props.addUser(result.data);
-          this.props.loadProfile(result.data);
+          this.props.addUser(result[0].data);
+          this.props.loadProfile(result[0]);
+          this.props.loadEvents(result[1].included)
           this.props.history.push("/profile");
         })
         .catch(error => {
@@ -55,8 +58,9 @@ export class Login extends Component {
           const user = this.cleanUserForLogin(authUser, locationType);
           const result = await helper.loginUser(user);
           console.log(result);
-          this.props.addUser(result.data);
-          this.props.loadProfile(result.data);
+          this.props.addUser(result[0].data);
+          this.props.loadProfile(result[0]);
+          this.props.loadEvents(result[1].included)
           this.props.history.push("/profile");
         })
         .catch(error => {
@@ -256,7 +260,8 @@ export const mapStateToProps = state => ({
 
 export const mapDispatchToProps = dispatch => ({
   addUser: user => dispatch(addUser(user)),
-  loadProfile: currentPage => dispatch(loadProfile(currentPage))
+  loadProfile: currentPage => dispatch(loadProfile(currentPage)),
+  loadEvents: events => dispatch(loadEvents(events)) 
 });
 
 const { object, func } = PropTypes;

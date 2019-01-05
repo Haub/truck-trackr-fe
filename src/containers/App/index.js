@@ -30,6 +30,10 @@ export class App extends Component {
     this.setState({ navOpen: !this.state.navOpen });
   };
 
+  handleNavBar = () => {
+    this.setState ({navOpen: !this.state.navOpen})
+  }
+
   render() {
     const { navOpen } = this.state;
     const { match, user } = this.props;
