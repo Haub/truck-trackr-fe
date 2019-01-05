@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import "./ProfilePage.css";
 import SignUpPage from "../../components/SignUpPage";
-import { addUser } from "../../actions";
+import { addUser, editEvent } from "../../actions";
 import { createEventFetch } from "../../utilities";
 
 export class ProfilePage extends Component {
@@ -12,7 +12,6 @@ export class ProfilePage extends Component {
 
     this.state = {
       createEventOpen: false,
-      eventName: "",
       eventDate: ""
     };
   }
@@ -78,40 +77,105 @@ export class ProfilePage extends Component {
     };
   };
 
+  toggleEventStatus = (e) => {
+
+      let eventToChange = this.props.userEvents.find(userEvent => userEvent.id === e.target.id )
+      console.log(eventToChange)
+      if(this.props.user.type === 'brewery' ) {
+        eventToChange.attributes['truck_booked?'] = !eventToChange.attributes['truck_booked?']
+        // helper.toggleEventStatus(eventToChange, user)
+        this.props.editEvent(eventToChange)
+
+      } else {
+        eventToChange.attributes['booked?'] = !eventToChange.attributes['truck_booked?']
+        this.props.editEvent(eventToChange)
+      }
+  };
+
   render() {
     const { currentPage, user, userEvents } = this.props;
     let events;
 
-    if(userEvents.length && currentPage.data === user) {
-      if(user.type === 'brewery'){
-
+    if (userEvents.length && currentPage.data === user) {
+      if (user.type === "brewery") {
         events = userEvents.map(event => (
-            <h4 className={event.attributes['truck_booked?'] ? 'upcoming-events-date booked' : 'upcoming-events-date open' } key={event.attributes.id}>{event.attributes.date.slice(5)}
-              <span className='upcoming-events-status' key={event.attributes.id}>{event.attributes['truck_booked?'] ? 'Booked' : 'Open'}</span>
-            </h4>
-          ))
+          <h4
+            className={
+              event.attributes["truck_booked?"]
+                ? "upcoming-events-date booked"
+                : "upcoming-events-date open"
+            }
+            key={event.attributes.date}
+          >
+            {event.attributes.date.slice(5)}
+            <span className="upcoming-events-status" >
+              {event.attributes["truck_booked?"] ? "Booked" : "Open"}
+            </span>
+            <button
+              id={event.attributes.id}
+              onClick={this.toggleEventStatus}
+            >
+              Change Status
+            </button>
+          </h4>
+        ));
       } else {
         events = userEvents.map(event => (
-          <h4 className={event.attributes['booked?'] ? 'upcoming-events-date booked' : 'upcoming-events-date open' } key={event.attributes.id}>{event.attributes.date.slice(5)}
-            <span className='upcoming-events-status' key={event.attributes.id}>{event.attributes['booked?'] ? 'Booked' : 'Open'}</span>
+          <h4
+            className={
+              event.attributes["booked?"]
+                ? "upcoming-events-date booked"
+                : "upcoming-events-date open"
+            }
+            key={event.attributes.id}
+          >
+            {event.attributes.date.slice(5)}
+            <span className="upcoming-events-status" >
+              {event.attributes["booked?"] ? "Booked" : "Open"}
+            </span>
+            <button
+              id={event.attributes.id}
+              onClick={this.toggleEventStatus}
+            >
+              Change Status
+            </button>
           </h4>
-        ))
+        ));
       }
     } else if (userEvents.length && currentPage.data !== user) {
-      if(user.type === 'brewery'){
-
+      if (user.type === "brewery") {
         events = currentPage.included.map(event => (
-            <h4 className={event.attributes['truck_booked?'] ? 'upcoming-events-date booked' : 'upcoming-events-date open' } key={event.attributes.id}>{event.attributes.date.slice(5)}
-              <span className='upcoming-events-status' key={event.attributes.id}>{event.attributes['truck_booked?'] ? 'Booked' : 'Open'}</span>
-            </h4>
-          ))
+          <h4
+            className={
+              event.attributes["truck_booked?"]
+                ? "upcoming-events-date booked"
+                : "upcoming-events-date open"
+            }
+            key={event.attributes.id}
+          >
+            {event.attributes.date.slice(5)}
+            <span className="upcoming-events-status" >
+              {event.attributes["truck_booked?"] ? "Booked" : "Open"}
+            </span>
+          </h4>
+        ));
       } else {
         events = currentPage.included.map(event => (
-          <h4 className={event.attributes['booked?'] ? 'upcoming-events-date booked' : 'upcoming-events-date open' } key={event.attributes.id}>{event.attributes.date.slice(5)}
-            <span className='upcoming-events-status' key={event.attributes.id}>{event.attributes['booked?'] ? 'Booked' : 'Open'}</span>
+          <h4
+            className={
+              event.attributes["booked?"]
+                ? "upcoming-events-date booked"
+                : "upcoming-events-date open"
+            }
+            key={event.attributes.id}
+          >
+            {event.attributes.date.slice(5)}
+            <span className="upcoming-events-status" >
+              {event.attributes["booked?"] ? "Booked" : "Open"}
+            </span>
           </h4>
-        ))
-      }  
+        ));
+      }
     }
 
     if (Object.keys(currentPage).length) {
@@ -123,7 +187,9 @@ export class ProfilePage extends Component {
               <h2 className="biz-name">{attributes.name}</h2>
               <h5
                 className={
-                  currentPage.data.type === "food_truck" ? "biz-title" : "hidden"
+                  currentPage.data.type === "food_truck"
+                    ? "biz-title"
+                    : "hidden"
                 }
               >
                 Food Type:
@@ -169,13 +235,6 @@ export class ProfilePage extends Component {
             >
               <input
                 className="create-event-input"
-                name="eventName"
-                value={this.state.eventName}
-                placeholder="Event Name"
-                onChange={this.handleKeyPress}
-              />
-              <input
-                className="create-event-input"
                 name="eventDate"
                 value={this.state.eventDate}
                 placeholder="Event Date (numerical)"
@@ -199,12 +258,13 @@ export class ProfilePage extends Component {
 
 export const mapStateToProps = state => ({
   currentPage: state.currentPage,
-  user: state.user, 
+  user: state.user,
   userEvents: state.userEvents
 });
 
 export const mapDispatchToProps = dispatch => ({
-  addUser: user => dispatch(addUser(user))
+  addUser: user => dispatch(addUser(user)),
+  editEvent: userEvent => dispatch(editEvent(userEvent))
 });
 
 const { object, func } = PropTypes;

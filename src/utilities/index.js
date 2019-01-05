@@ -112,10 +112,54 @@ export const createEventFetch = async (user, postBody) => {
       throw new Error(response.statusText);
     } else {
       const result = await response;
-      console.log(response)
       return result
     }
   } catch (error) {
     throw new Error(error.message);
   }
 };
+
+export const toggleEventStatus = async (business, event) => {
+  let cleanedBusiness = cleanUser(business)
+  let cleanedEvent = cleanEventForPut(event, business)
+  try {
+    const response = await fetch(`https://truck-trackr-api.herokuapp.com/api/v1/${cleanedBusiness.type}/${cleanedBusiness.id}/${cleanedBusiness.eventType}/${event.id}`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(cleanedEvent)
+      }
+    );
+
+    if(!response.ok) {
+      throw new Error(response.statusText)
+    } else {
+      const result = await response();
+      return result
+    }
+  } catch (error) {
+    throw new Error(error.message)
+  }
+}
+
+export const cleanEventForPut = (event, business) => {
+  let cleanedEvent;
+  
+  if(business.type === 'food_truck'){
+    cleanedEvent = {
+      date: event.attributes.date,
+      "booked?": event.attributes["booked?"],
+      uid: sessionStorage.getItem('uid')
+    }
+  } else {
+    cleanedEvent = {
+      date: event.attributes.date,
+      "truck_booked?": event.attributes["truck_booked?"],
+      uid: sessionStorage.getItem('uid')
+    }
+  }
+  return cleanedEvent
+}
+
