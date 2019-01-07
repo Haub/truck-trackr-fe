@@ -6,7 +6,12 @@ Truck-Trackr is an application that was created to help solve the business need 
 See it live @ [Heroku](https://trucktrackr.herokuapp.com/)
 
 ## Screenshots
-
+Signup:
+<img width="1429" alt="screenshot-signup" src="https://user-images.githubusercontent.com/32722355/50746880-68d21d80-11ee-11e9-8722-a1892dbfd6c6.png">
+Profile Page:
+<img width="1439" alt="screenshot-profile" src="https://user-images.githubusercontent.com/32722355/50746882-6a034a80-11ee-11e9-9e16-02ebfcc5bea5.png">
+Breweries:
+<img width="1439" alt="screenshot-breweries" src="https://user-images.githubusercontent.com/32722355/50746884-6e2f6800-11ee-11e9-91d7-897e2095da67.png">
 
 ## Getting Started
 
@@ -28,22 +33,20 @@ This is a general guide to setting up Truck-Trackr on your local machine.
 * React
 * React-Router
 * Redux
-
-### Back-End
-* Ruby / Ruby on Rails
+* TravisCI (for Continuous Integration)
+* Firebase (for authentication)
 
 
 ## Testing
-Truck-Trackr uses Jest and Enzyme for front-end testing.  Run `npm test` from the root directory.
+Truck-Trackr uses Jest and Enzyme for front-end testing.  Run `npm test` from the root directory to run tests.
 
 
 ## Contributors
 
 ### Front-End
-[Megan Haubelt](https://github.com/Haub/)
-[Freddie Levenson](https://github.com/flevenson)
+[Megan Haubelt](https://github.com/Haub/) <br />
+[Freddie Levenson](https://github.com/flevenson) <br />
 
-### Back-End [link to repo](https://github.com/KathleenYruegas/truck-trackr-be)
-[Kathleen Yruegas](https://github.com/KathleenYruegas)
-[Abdulla Qudrat](https://github.com/abdullaqudrat)
-
+### Back-End [link to repo](https://github.com/KathleenYruegas/truck-trackr-be) <br />
+[Kathleen Yruegas](https://github.com/KathleenYruegas) <br />
+[Abdulla Qudrat](https://github.com/abdullaqudrat) <br />
