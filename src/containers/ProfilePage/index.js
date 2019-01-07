@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import "./ProfilePage.css";
 import SignUpPage from "../../components/SignUpPage";
-import { addUser, editEvent, removeEvent } from "../../actions";
+import { addUser, editEvent, removeEvent, addEvent } from "../../actions";
 import { createEventFetch } from "../../utilities";
 import * as helper from "../../utilities";
 
@@ -41,6 +41,25 @@ export class ProfilePage extends Component {
     let cleanUser = this.cleanDataForRequest();
     let cleanPostParams = this.createPostBody();
     let result = await createEventFetch(cleanUser, cleanPostParams);
+    if(this.props.user.type === 'food_truck'){
+        this.props.addEvent({
+        id: this.state.eventDate,
+        attributes: {
+            id: this.state.eventDate,
+            date: this.state.eventDate,
+            'booked?': false  
+            }
+        })
+    } else {
+        this.props.addEvent({
+            id: this.state.eventDate,
+            attributes: {
+                id: this.state.eventDate,
+                date: this.state.eventDate,
+                'truck_booked?': false  
+                }
+            })
+    }
     this.setState({
       createEventOpen: false,
       eventName: "",
@@ -286,7 +305,8 @@ export const mapStateToProps = state => ({
 export const mapDispatchToProps = dispatch => ({
   addUser: user => dispatch(addUser(user)),
   editEvent: userEvent => dispatch(editEvent(userEvent)),
-  removeEvent: userEvent => dispatch(removeEvent(userEvent))
+  removeEvent: userEvent => dispatch(removeEvent(userEvent)),
+  addEvent: userEvent => dispatch(addEvent(userEvent))
 });
 
 const { object, func, array } = PropTypes;
