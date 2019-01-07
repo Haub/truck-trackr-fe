@@ -6,7 +6,7 @@ import { mockProfile, mockUser, mockEvent, mockUserEvents } from "./testMocks";
 describe("PROFILE PAGE", () => {
   it("should match the snapshot", () => {
     const wrapper = shallow(
-      <ProfilePage currentPage={mockProfile.data} user={mockUser} userEvents={mockUserEvents} />
+      <ProfilePage currentPage={mockProfile.data} user={mockUser} userEvents={mockUserEvents.included} />
     );
     expect(wrapper).toMatchSnapshot();
   });
