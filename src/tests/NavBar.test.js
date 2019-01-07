@@ -1,5 +1,5 @@
 import React from "react";
-import { shallow, mountww } from "enzyme";
+import { shallow, mount } from "enzyme";
 import { NavBar } from "../containers/NavBar/";
 import { mapDispatchToProps } from "../containers/NavBar";
 import { mockBreweries, mockFoodTrucks, mockProfile } from "./testMocks.js";
