@@ -40,7 +40,6 @@ export class ProfilePage extends Component {
     let cleanUser = this.cleanDataForRequest();
     let cleanPostParams = this.createPostBody();
     let result = await createEventFetch(cleanUser, cleanPostParams);
-    console.log(result);
     this.setState({
       createEventOpen: false,
       eventName: "",
@@ -125,7 +124,7 @@ export class ProfilePage extends Component {
             <span className="upcoming-events-status">
               {event.attributes["truck_booked?"] ? "Booked" : "Open"}
             </span>
-            <button id={event.attributes.id} onClick={this.toggleEventStatus}>
+            <button className='change-status-button' id={event.attributes.id} onClick={this.toggleEventStatus}>
               Change Status
             </button>
             <button className={event.attributes.id} onClick={this.deleteEvent}>
@@ -284,7 +283,10 @@ const { object, func } = PropTypes;
 ProfilePage.propTypes = {
   user: object,
   currentPage: object,
-  addUser: func
+  userEvents: object,
+  addUser: func,
+  editEvent: func,
+  removeEvent: func
 };
 
 export default connect(
