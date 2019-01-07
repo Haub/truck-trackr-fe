@@ -116,3 +116,13 @@ section:after {
   display: flex;
   justify-content: center;
 }
+
+.logout-button {
+  position: absolute;
+  right: 40px;
+  top: 30px;
+  background-color: #6D3E48;
+  color: #fff;
+  height: 35px;
+  font-size: 15px;
+}

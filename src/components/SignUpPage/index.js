@@ -6,7 +6,7 @@ import { withRouter } from "react-router-dom";
 export const SignUpPage = props => (
   <div>
     <FirebaseContext.Consumer>
-      {firebase => <Login firebase={firebase} history={props.history} />}
+      {firebase => <Login firebase={firebase} />}
     </FirebaseContext.Consumer>
   </div>
 );

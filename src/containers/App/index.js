@@ -43,6 +43,7 @@ export class App extends Component {
   logOutUser = () => {
     this.props.removeUser();
     sessionStorage.setItem('uid', '')
+    this.setState({navOpen: false})
     this.props.history.push("/");
   };
 
