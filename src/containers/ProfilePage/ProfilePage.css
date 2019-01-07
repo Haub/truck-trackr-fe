@@ -56,6 +56,8 @@
 }
 
 .upcoming-events-date {
+  display: flex;
+  justify-content: space-between;
   font-size: 1.5rem;
   line-height: 3.5rem;
   margin: 0;
@@ -153,5 +155,16 @@
 .change-status-button {
   background-color: #6D3E48;
   color: #fff;
-  margin-left: 1rem;
+  margin-left: 3.5rem;
+  height: 35px;
+  font-size: 15px;
+}
+
+.delete-status-button {
+  background-color: #6D3E48;
+  color: #fff;
+  margin-left: 2rem;
+  height: 35px;
+  font-size: 15px;
+  margin-right: 5px;
 }

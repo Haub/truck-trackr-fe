@@ -82,7 +82,6 @@ export class ProfilePage extends Component {
     let eventToChange = this.props.userEvents.find(
       userEvent => userEvent.id === e.target.id
     );
-    console.log(eventToChange);
     if (this.props.user.type === "brewery") {
       eventToChange.attributes["truck_booked?"] = !eventToChange.attributes[
         "truck_booked?"
@@ -121,16 +120,20 @@ export class ProfilePage extends Component {
             }
             key={event.attributes.date}
           >
+          <span>
             {event.attributes.date.slice(5)}
             <span className="upcoming-events-status">
               {event.attributes["truck_booked?"] ? "Booked" : "Open"}
             </span>
+          </span>
+          <span>
             <button className='change-status-button' id={event.attributes.id} onClick={this.toggleEventStatus}>
               Change Status
             </button>
-            <button className={event.attributes.id} onClick={this.deleteEvent}>
+            <button className={`delete-status-button ${event.attributes.id}`} onClick={this.deleteEvent}>
               Delete Event
             </button>
+          </span>
           </h4>
         ));
       } else {
@@ -147,10 +150,10 @@ export class ProfilePage extends Component {
             <span className="upcoming-events-status">
               {event.attributes["booked?"] ? "Booked" : "Open"}
             </span>
-            <button id={event.attributes.id} onClick={this.toggleEventStatus}>
+            <button className='change-status-button' id={event.attributes.id} onClick={this.toggleEventStatus}>
               Change Status
             </button>
-            <button className={event.attributes.id} onClick={this.deleteEvent}>
+            <button className={`delete-status-button ${event.attributes.id}`} onClick={this.deleteEvent}>
               Delete Event
             </button>
           </h4>
