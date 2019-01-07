@@ -91,7 +91,7 @@ export class ProfilePage extends Component {
       this.props.editEvent(eventToChange);
     } else {
       eventToChange.attributes["booked?"] = !eventToChange.attributes[
-        "truck_booked?"
+        "booked?"
       ];
       await helper.toggleEventStatus(this.props.currentPage, eventToChange);
       this.props.editEvent(eventToChange);
@@ -149,6 +149,9 @@ export class ProfilePage extends Component {
             </span>
             <button id={event.attributes.id} onClick={this.toggleEventStatus}>
               Change Status
+            </button>
+            <button className={event.attributes.id} onClick={this.deleteEvent}>
+              Delete Event
             </button>
           </h4>
         ));
