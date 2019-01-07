@@ -13,7 +13,8 @@ export class ProfilePage extends Component {
 
     this.state = {
       createEventOpen: false,
-      eventDate: ""
+      eventDate: "",
+      eventBooked: false
     };
   }
 
@@ -243,13 +244,17 @@ export class ProfilePage extends Component {
                 this.state.createEventOpen ? "create-event-form" : "hidden"
               }
             >
-              <input
-                className="create-event-input"
-                name="eventDate"
-                value={this.state.eventDate}
-                placeholder="Event Date (numerical)"
-                onChange={this.handleKeyPress}
-              />
+              <h6 className='create-event-date'>Event date:</h6>
+              <span>
+                <input
+                  className="create-event-input"
+                  id="event-date"
+                  name="eventDate"
+                  value={this.state.eventDate}
+                  placeholder="(yy-mm-dd)"
+                  onChange={this.handleKeyPress}
+                />
+              </span>
               <button
                 onClick={this.handleSubmit}
                 className="create-event-form-button"
@@ -278,12 +283,12 @@ export const mapDispatchToProps = dispatch => ({
   removeEvent: userEvent => dispatch(removeEvent(userEvent))
 });
 
-const { object, func } = PropTypes;
+const { object, func, array } = PropTypes;
 
 ProfilePage.propTypes = {
   user: object,
   currentPage: object,
-  userEvents: object,
+  userEvents: array,
   addUser: func,
   editEvent: func,
   removeEvent: func
