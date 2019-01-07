@@ -104,13 +104,21 @@ exports[`PROFILE PAGE should match the snapshot 1`] = `
     <form
       className="hidden"
     >
-      <input
-        className="create-event-input"
-        name="eventDate"
-        onChange={[Function]}
-        placeholder="Event Date (numerical)"
-        value=""
-      />
+      <h6
+        className="create-event-date"
+      >
+        Event date:
+      </h6>
+      <span>
+        <input
+          className="create-event-input"
+          id="event-date"
+          name="eventDate"
+          onChange={[Function]}
+          placeholder="(yy-mm-dd)"
+          value=""
+        />
+      </span>
       <button
         className="create-event-form-button"
         onClick={[Function]}
