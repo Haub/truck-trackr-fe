@@ -144,6 +144,24 @@ export const toggleEventStatus = async (business, event) => {
   }
 }
 
+// export const cleanUserForPut = (user) => {
+//   let cleanedUser;
+//   if(user.data.type === 'brewery') {
+//     cleanedUser = {
+//       type: 'brewery',
+//       eventType: 'brewery_events',
+//       id: user.data.id
+//     }
+//   } else {
+//     cleanedUser = {
+//       type: 'food_truck',
+//       eventType: 'open_dates',
+//       id: user.data.id
+//     }
+//   }
+//   return cleanedUser
+// }
+
 export const cleanEventForPut = (event, business) => {
   let cleanedEvent;
   

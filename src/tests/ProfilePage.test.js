@@ -1,8 +1,8 @@
 import React from "react";
 import { shallow } from "enzyme";
 
-import { ProfilePage, mapStateToProps } from "../containers/ProfilePage/";
-import { mockProfile, mockUser, mockUserEvents } from "./testMocks";
+import { ProfilePage, mapStateToProps, mapDispatchToProps } from "../containers/ProfilePage/";
+import { mockProfile, mockUser, mockUserEvents, mockEvent } from "./testMocks";
 
 describe("PROFILE PAGE", () => {
   it("should match the snapshot", () => {
