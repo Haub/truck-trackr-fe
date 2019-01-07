@@ -1,12 +1,18 @@
 import React from "react";
 import { shallow } from "enzyme";
-import { ProfilePage, mapStateToProps, mapDispatchToProps } from "../containers/ProfilePage/";
-import { mockProfile, mockUser, mockEvent, mockUserEvents } from "./testMocks";
+
+import { ProfilePage, mapStateToProps } from "../containers/ProfilePage/";
+import { mockProfile, mockUser, mockUserEvents } from "./testMocks";
 
 describe("PROFILE PAGE", () => {
   it("should match the snapshot", () => {
     const wrapper = shallow(
-      <ProfilePage currentPage={mockProfile.data} user={mockUser} userEvents={mockUserEvents.included} />
+
+      <ProfilePage
+        currentPage={mockProfile}
+        user={mockUser}
+        userEvents={mockUserEvents}
+      />
     );
     expect(wrapper).toMatchSnapshot();
   });

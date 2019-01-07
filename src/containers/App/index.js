@@ -11,7 +11,7 @@ import NavBar from "../NavBar";
 import truck from "../../assets/food-truck.png";
 import barrel from "../../assets/barrel-icon-new.png";
 import { withFirebase } from "../../components/Firebase";
-import { loadProfile, addUser } from "../../actions";
+import { loadProfile, addUser, removeUser } from "../../actions";
 
 export class App extends Component {
   constructor() {
@@ -19,6 +19,12 @@ export class App extends Component {
     this.state = {
       navOpen: false
     };
+  }
+
+  componentDidMount() {
+    if (!Object.keys(this.props.user).length) {
+      this.props.history.push("/");
+    }
   }
 
   handleNavBar = e => {
@@ -31,8 +37,14 @@ export class App extends Component {
   };
 
   handleNavBar = () => {
-    this.setState ({navOpen: !this.state.navOpen})
-  }
+    this.setState({ navOpen: !this.state.navOpen });
+  };
+
+  logOutUser = () => {
+    this.props.removeUser();
+    sessionStorage.setItem('uid', '')
+    this.props.history.push("/");
+  };
 
   render() {
     const { navOpen } = this.state;
@@ -63,6 +75,14 @@ export class App extends Component {
               <span />
             </a>
           </section>
+          <button
+            onClick={this.logOutUser}
+            className={
+              Object.keys(this.props.user).length ? "logout-button" : "hidden"
+            }
+          >
+            Log Out
+          </button>
         </header>
         <div className="content-holder">
           <NavBar
@@ -118,7 +138,8 @@ export const mapStateToProps = state => ({
 
 export const mapDispatchToProps = dispatch => ({
   loadProfile: profile => dispatch(loadProfile(profile)),
-  addUser: user => dispatch(addUser(user))
+  addUser: user => dispatch(addUser(user)),
+  removeUser: () => dispatch(removeUser())
 });
 
 const { object, func, array } = PropTypes;

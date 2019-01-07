@@ -81,92 +81,29 @@ exports[`PROFILE PAGE should match the snapshot 1`] = `
         UPCOMING EVENTS
       </h3>
       <h4
-        className="upcoming-events-date"
+        className="upcoming-events-date booked"
       >
-        12/12
-         
+        /2018
         <span
           className="upcoming-events-status"
         >
-          Need a Booking
+          Booked
         </span>
       </h4>
       <h4
-        className="upcoming-events-date"
+        className="upcoming-events-date open"
       >
-        12/13 
+        /2018
         <span
           className="upcoming-events-status"
         >
-          @ Cerebral
-        </span>
-      </h4>
-      <h4
-        className="upcoming-events-date"
-      >
-        12/14 
-        <span
-          className="upcoming-events-status"
-        >
-          @ Diebolt 
-        </span>
-      </h4>
-      <h4
-        className="upcoming-events-date"
-      >
-        12/15
-         
-        <span
-          className="upcoming-events-status"
-        >
-          Need a Booking
-        </span>
-      </h4>
-      <h4
-        className="upcoming-events-date"
-      >
-        12/16
-         
-        <span
-          className="upcoming-events-status"
-        >
-          @ Call To Arms
-        </span>
-      </h4>
-      <h4
-        className="upcoming-events-date"
-      >
-        12/17
-         
-        <span
-          className="upcoming-events-status"
-        >
-          @ Zuni Street Brewery
-           
-        </span>
-      </h4>
-      <h4
-        className="upcoming-events-date"
-      >
-        12/18
-         
-        <span
-          className="upcoming-events-status"
-        >
-          Need a Booking
+          Open
         </span>
       </h4>
     </div>
     <form
       className="hidden"
     >
-      <input
-        className="create-event-input"
-        name="eventName"
-        onChange={[Function]}
-        placeholder="Event Name"
-        value=""
-      />
       <input
         className="create-event-input"
         name="eventDate"

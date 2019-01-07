@@ -91,7 +91,25 @@ export const mockProfile = {
         logo_image:
           "https://pigment.github.io/fake-logos/logos/medium/color/11.png"
       }
-    }
+    },
+    included: [
+      {
+        id: 433,
+        date: "04/03/2018",
+        attributes: {
+          'truck_booked?': true,
+          date: "04/03/2018"},
+        brewery_id: 105
+      },
+      {
+        id: 434,
+        date: "04/08/2018",
+        attributes: {
+          'truck_booked?': false,
+          date: "04/08/2018"},
+        brewery_id: 105
+      }
+    ]
 };
 
 export const mockUser = {
