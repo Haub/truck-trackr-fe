@@ -35,6 +35,12 @@ exports[`APP should match the snapshot 1`] = `
         <span />
       </a>
     </section>
+    <button
+      className="logout-button"
+      onClick={[Function]}
+    >
+      Log Out
+    </button>
   </header>
   <div
     className="content-holder"
