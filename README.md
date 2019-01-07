@@ -1,11 +1,13 @@
 # Truck-Trackr[![Build Status](https://travis-ci.org/Haub/truck-trackr-fe.svg?branch=master)](https://travis-ci.org/Haub/truck-trackr-fe)
 
 
-Truck-Trackr is an application that was created to help solve the business need of scheduling and coordination between local food trucks and breweries.  Previously, they used a Facebook page to manage this and it became really cumbersome to find the right information, especially with last minute cancellations.  Truck-Trackr allows food trucks and breweries to log in to their account,  manage their own calendar, and browse other food trucks and breweries with filters for location and availability.   
+Truck-Trackr is an application that was created to help solve the business need of scheduling and coordination between local food trucks and breweries.  Previously, they used a Facebook page to manage this and it became really cumbersome to find the right information, especially with last minute cancellations.  Truck-Trackr allows food trucks and breweries to log in to their account,  manage their own calendar, and browse other food trucks and breweries availability.   
 
-See it live @ [Heroku](https://trucktrackr.herokuapp.com/)
 
 ## Screenshots
+<img width="1440" alt="screenshot-signin" src="https://user-images.githubusercontent.com/32722355/50785782-eb022680-126e-11e9-83e0-252d30475fde.png">
+<img width="1438" alt="screenshot-profile" src="https://user-images.githubusercontent.com/32722355/50785785-eccbea00-126e-11e9-8e78-94cf281346da.png">
+<img width="1439" alt="screenshot-breweries" src="https://user-images.githubusercontent.com/32722355/50785789-edfd1700-126e-11e9-84dc-5ae556930f85.png">
 
 
 ## Getting Started
@@ -20,30 +22,26 @@ This is a general guide to setting up Truck-Trackr on your local machine.
 
     npm start
 
-
-
-## Technologies Used
-
-### Front-End
-* React
-* React-Router
-* Redux
-
-### Back-End
-* Ruby / Ruby on Rails
-
-
 ## Testing
 Truck-Trackr uses Jest and Enzyme for front-end testing.  Run `npm test` from the root directory.
 
+## Technologies Used
+
+* React
+* React-Router
+* Redux
+* Firebase (for authentication)
+* Travis CI (continuous integration)
+* Jest
+* Enzyme
 
 ## Contributors
 
 ### Front-End
-[Megan Haubelt](https://github.com/Haub/)
-[Freddie Levenson](https://github.com/flevenson)
+[Megan Haubelt](https://github.com/Haub/) <br />
+[Freddie Levenson](https://github.com/flevenson) <br />
 
-### Back-End [link to repo](https://github.com/KathleenYruegas/truck-trackr-be)
-[Kathleen Yruegas](https://github.com/KathleenYruegas)
-[Abdulla Qudrat](https://github.com/abdullaqudrat)
+### Back-End [link to repo](https://github.com/KathleenYruegas/truck-trackr-be) <br />
+[Kathleen Yruegas](https://github.com/KathleenYruegas) <br />
+[Abdulla Qudrat](https://github.com/abdullaqudrat) <br />
 
