@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/truck-trackr-fe/precache-manifest.994e7bdba833eeae7b1de475219df6c7.js"
+  "/truck-trackr-fe/precache-manifest.2c34657a92e91767dcbe8ff5e42c4724.js"
 );
 
 workbox.clientsClaim();

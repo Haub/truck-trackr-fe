@@ -16,19 +16,19 @@ self.__precacheManifest = [
     "url": "/truck-trackr-fe/static/js/runtime~main.5efe087d.js"
   },
   {
-    "revision": "ec69cf5a8c651a75de1e",
-    "url": "/truck-trackr-fe/static/js/main.ec69cf5a.chunk.js"
+    "revision": "53b31a9a55d2f2ce241f",
+    "url": "/truck-trackr-fe/static/js/main.53b31a9a.chunk.js"
   },
   {
     "revision": "1bec5009b394e9233634",
     "url": "/truck-trackr-fe/static/js/1.1bec5009.chunk.js"
   },
   {
-    "revision": "ec69cf5a8c651a75de1e",
+    "revision": "53b31a9a55d2f2ce241f",
     "url": "/truck-trackr-fe/static/css/main.ca3123e5.chunk.css"
   },
   {
-    "revision": "835cc80d4231f9332eb76280951ca4a7",
+    "revision": "a2199010628b3a189d60051f5d02d2f6",
     "url": "/truck-trackr-fe/index.html"
   }
 ];
