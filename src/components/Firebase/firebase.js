@@ -4,13 +4,13 @@ import "firebase/auth";
 
 
 let config = {
-  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
-  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
-  databaseURL: process.env.REACT_APP_FIREBASE_DATABASE_URL,
-  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
-  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
-  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET
-}
+  apiKey: "AIzaSyAZaFvQvt60q0xHZ0LFxug4ooVX3LOiPMA",
+  authDomain: "trucktrackr-2f98a.firebaseapp.com",
+  databaseURL: "https://trucktrackr-2f98a.firebaseio.com",
+  projectId: "trucktrackr-2f98a",
+  storageBucket: "trucktrackr-2f98a.appspot.com",
+  messagingSenderId: "97220175359"
+};
 
 class Firebase {
   constructor() {
