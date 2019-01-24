@@ -16,7 +16,7 @@ const store = createStore(rootReducer, devTools);
 
 const provider = (
   <Provider store = {store}>
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL} >
       <FirebaseContext.Provider value={new Firebase()}>
         <App />
       </FirebaseContext.Provider>
