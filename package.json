@@ -16,11 +16,14 @@
     "react-scripts": "^2.1.2",
     "redux": "^4.0.1"
   },
+  "homepage": "https://haub.github.io/truck-trackr-fe/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -33,7 +36,8 @@
   ],
   "devDependencies": {
     "enzyme": "^3.8.0",
-    "enzyme-adapter-react-16": "^1.7.1"
+    "enzyme-adapter-react-16": "^1.7.1",
+    "gh-pages": "^2.0.1"
   },
   "jest": {
     "collectCoverageFrom": [
