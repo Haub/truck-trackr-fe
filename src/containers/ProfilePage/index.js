@@ -117,6 +117,7 @@ export class ProfilePage extends Component {
   };
 
   deleteEvent = async e => {
+    console.log('id', e.target.classList[0])
     let eventToDelete = this.props.userEvents.find(
       userEvent => userEvent.id === e.target.classList[0]
     );
@@ -149,7 +150,7 @@ export class ProfilePage extends Component {
             <button className='change-status-button' id={event.attributes.id} onClick={this.toggleEventStatus}>
               Change Status
             </button>
-            <button className={`delete-status-button ${event.attributes.id}`} onClick={this.deleteEvent}>
+            <button className={`${event.attributes.id} delete-status-button`} onClick={this.deleteEvent}>
               Delete Event
             </button>
           </span>
