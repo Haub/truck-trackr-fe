@@ -183,7 +183,8 @@ export const cleanEventForPut = (event, business) => {
 
 export const deleteEventFetch = async (business, event) => {
   const cleanedBusiness = cleanUser(business);
-
+  console.log('cleanedBusiness', cleanedBusiness)
+  console.log('event', event)
   try {
     const response = await fetch(`https://truck-trackr-api.herokuapp.com/api/v1/${cleanedBusiness.type}/${cleanedBusiness.id}/${cleanedBusiness.eventType}/${event.id}`,
       {
