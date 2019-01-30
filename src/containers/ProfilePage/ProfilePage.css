@@ -151,6 +151,7 @@
   color: #fff;
   font-weight: 700;
   font-size: 25px;
+  cursor: pointer;
 }
 
 .change-status-button {
@@ -159,6 +160,8 @@
   margin-left: 2rem;
   height: 35px;
   font-size: 15px;
+  border-radius: 10px;
+  cursor: pointer;
 }
 
 .delete-status-button {
@@ -168,4 +171,7 @@
   height: 35px;
   font-size: 15px;
   margin-right: 1rem;
+  border-radius: 10px; 
+  border: 1px solid #8a646c;
+  cursor: pointer;
 }

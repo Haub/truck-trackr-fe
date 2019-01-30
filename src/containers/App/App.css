@@ -128,4 +128,5 @@ section:after {
   color: #fff;
   height: 40px;
   font-size: 20px;
+  cursor: pointer;
 }
