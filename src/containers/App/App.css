@@ -1,7 +1,7 @@
 .main {
   background-color: #cddddc;
   display: grid;
-  grid-template-rows: 130px 1fr;
+  grid-template-rows: 110px 1fr;
   height: 100vh;
 }
 header {
@@ -121,8 +121,12 @@ section:after {
   position: absolute;
   right: 40px;
   top: 30px;
+  width: 6.5rem;
   background-color: #6D3E48;
+  border: 2px solid #8a646c;
+  border-radius: 10px;
   color: #fff;
-  height: 35px;
-  font-size: 15px;
+  height: 40px;
+  font-size: 20px;
+  cursor: pointer;
 }
