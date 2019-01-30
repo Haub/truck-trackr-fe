@@ -6,7 +6,6 @@
 .profile-container {
   display: flex;
   justify-content: space-around;
-  align-items: center;
   width: 100%;
 }
 
@@ -18,8 +17,8 @@
   text-decoration: underline;
   color: #6D3E48;
   font-size: 4rem;
-  margin-top: 3rem;
-  margin-bottom: 5rem;
+  margin-top: 7rem;
+  margin-bottom: 4rem;
 }
 
 .biz-title { 
@@ -42,8 +41,10 @@
 }
 
 .upcoming-events-container {
-  width: 32rem;
-  margin-top: 12rem;
+  width: 36rem;
+  margin-top: 7rem;
+  height: 30rem;
+  overflow: scroll;
 }
 
 .upcoming-events-title {
@@ -101,15 +102,15 @@
 }
 
 .create-event-button {
-    position: absolute;
-    left: 72%;
-    top: 210px;
-    width: 180px;
-    height: 52px;
-    font-size: 1.5rem;
-    border-radius: 13px;
-    background-color: #FEECC8;
-    border: 2px solid #8a646c;
+  position: absolute;
+  left: 85%;
+  top: 140px;
+  width: 180px;
+  height: 52px;
+  font-size: 1.5rem;
+  border-radius: 13px;
+  background-color: #FEECC8;
+  border: 2px solid #8a646c;
 }
 
 .create-event-form {
@@ -155,7 +156,7 @@
 .change-status-button {
   background-color: #6D3E48;
   color: #fff;
-  margin-left: 3.5rem;
+  margin-left: 2rem;
   height: 35px;
   font-size: 15px;
 }
@@ -163,8 +164,8 @@
 .delete-status-button {
   background-color: #6D3E48;
   color: #fff;
-  margin-left: 2rem;
+  margin-left: 1.2rem;
   height: 35px;
   font-size: 15px;
-  margin-right: 5px;
+  margin-right: 1rem;
 }
