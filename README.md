@@ -1,4 +1,4 @@
-# Truck-Trackr(https://travis-ci.org/Haub/truck-trackr-fe)
+# Truck-Trackr
 
 
 Truck-Trackr is an application that was created to help solve the business need of scheduling and coordination between local food trucks and breweries.  Previously, they used a Facebook page to manage this and it became really cumbersome to find the right information, especially with last minute cancellations.  Truck-Trackr allows food trucks and breweries to log in to their account,  manage their own calendar, and browse other food trucks and breweries availability.   
